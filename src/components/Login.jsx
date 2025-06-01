@@ -118,7 +118,7 @@ const Login = () => {
 
       {/* Illustration Section */}
       <div className=" md:w-1/2 p-8">
-        <div className="text-gray-700 max-w-md">
+        <div className="max-w-md">
           <h3 className="text-m mb-4">
             Platform <span style={{ color: "#E36CC5" }}>konsultasi online</span>{" "}
             untuk kebutuhan Anda. Dapatkan saran dari para ahli kapan saja
@@ -127,19 +127,19 @@ const Login = () => {
 
           <ul className="space-y-2 text-sm">
             <li className="flex items-start">
-              <span className="text-green-500 mr-2">
+              <span className="text-black-500 mr-2">
                 <img src="icons/Frame.svg" alt="frame" className="w-6" />
               </span>{" "}
               Konsultasi dengan dokter berpengalaman
             </li>
             <li className="flex items-start">
-              <span className="text-green-500 mr-2">
+              <span className="text-black-500 mr-2">
                 <img src="icons/Frame.svg" alt="frame" className="w-6" />
               </span>{" "}
               Privasi dan keamanan data terjamin
             </li>
             <li className="flex items-start">
-              <span className="text-green-500 mr-2">
+              <span className="text-black-500 mr-2">
                 <img src="icons/Frame.svg" alt="frame" className="w-6" />
               </span>{" "}
               Biaya terjangkau dengan layanan berkualitas
