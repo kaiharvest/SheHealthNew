@@ -1,14 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './Navbar';          // Navbar ada di folder components
-import Login from './Login';            // Login ada di folder components
-import Register from './Register';      // Register ada di folder components
-import Konsultasi from './Konsultasi';  // Konsultasi ada di folder components
-import Beranda from '../Beranda';       // Beranda ada di luar folder components
+import Navbar from './Navbar';
+import Login from './Login';
+import Register from './Register';
+import Konsultasi from './Konsultasi';
+import Edukasi from './Edukasi';
+import Beranda from '../Beranda';
 
-// Tambahan halaman dummy
+// Halaman Dummy
 const Layanan = () => <div className="p-4">Halaman Layanan Terdekat</div>;
-const Edukasi = () => <div className="p-4">Halaman Edukasi</div>;
 
 const App = () => {
   return (
