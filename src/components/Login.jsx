@@ -6,7 +6,6 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // TODO: Tambahkan logika autentikasi di sini
     console.log("Login submitted");
   };
 
@@ -85,7 +84,7 @@ const Login = () => {
               type="button"
               className="flex items-center justify-center border shadow-md rounded-lg px-8 py-2 text-black hover:bg-gray-100"
             >
-              <img  
+              <img
                 src="https://www.svgrepo.com/show/355037/google.svg"
                 alt="Google"
                 className="h-5 w-5 mr-2"

@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Beranda from './Beranda';
-import Navbar from './components/Navbar';
+import App from './components/App'; // Import App dari folder components
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Navbar />
-    <Beranda />
+    <App />
   </React.StrictMode>
 );
