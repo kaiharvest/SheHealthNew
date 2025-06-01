@@ -59,19 +59,51 @@ function Beranda() {
           <h2 className="text-5xl font-bold text-black mb-4">Mengapa memilih kami?</h2>
           <p className="text-gray-500 text-xl">Siap mendampingi perempuan di setiap fase kehidupan. Kami hadir untuk membantu<br></br> Anda memahami kondisi tubuh, memberikan panduan yang dipersonalisasi, dan<br></br> mendukung Anda mencapai hidup yang lebih sehat — semua bisa diakses dengan<br></br> mudah lewat ponsel Anda.</p>
           <div className="mt-20 flex justify-center items-center">
-            <div className='p-10 m-10 border-2 border-gray-400 rounded-lg bg-white'>
-              <div className='grid'>
-                <img
-                  src="/icons/content2.png"
-                  alt="Plus Icon"
-                  className="w-40 -mt-8 -ml-14"
-                />
-                <p className='text-2xl mb-5 text-left'>Fleksibel & Mudah di<br></br> Akses</p>
-                <p className='text-sm text-left'>Konsultasi kapan saja, di mana<br /> saja — cukup dari rumah lewat<br /> perangkat Anda.</p>
+
+            {/* cards wrapper */}
+            <div className="mt-20 flex flex-wrap justify-center items-center">
+              {/* satu card */}
+              <div className="p-10 m-6 border-2 border-gray-400 rounded-lg bg-white transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <div className="grid">
+                  <img
+                    src="/icons/content2.png"
+                    alt="Plus Icon"
+                    className="w-40 -mt-12 -ml-16"
+                  />
+                  <p className="text-2xl mb-5 text-left">Fleksibel & Mudah di<br /> Akses</p>
+                  <p className="text-sm text-left">Konsultasi kapan saja, di mana<br /> saja — cukup dari rumah lewat<br /> perangkat Anda.</p>
+                </div>
               </div>
+              {/* satu card end */}
+
+              {/* dua card */}
+              <div className="p-10 m-6 border-2 border-gray-400 rounded-lg bg-white transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <div className="grid">
+                  <img
+                    src="/icons/content2.png"
+                    alt="Plus Icon"
+                    className="w-40 -mt-12 -ml-16"
+                  />
+                  <p className="text-2xl mb-5 text-left">Aman & Terpercaya</p>
+                  <p className="text-sm text-left">Dibimbing oleh tenaga profesional<br /> dan menjaga privasi serta kenyamanan<br /> setiap pengguna.</p>
+                </div>
+              </div>
+              {/* dua card end */}
+
+              {/* tiga card */}
+              <div className="p-10 m-6 border-2 border-gray-400 rounded-lg bg-white transition-transform duration-300 hover:scale-105 hover:shadow-xl">
+                <div className="grid">
+                  <img
+                    src="/icons/content2.png"
+                    alt="Plus Icon"
+                    className="w-40 -mt-12 -ml-16"
+                  />
+                  <p className="text-2xl mb-5 text-left">Panduan Personal</p>
+                  <p className="text-sm text-left">Setiap perempuan itu unik.<br /> Kami sesuaikan panduan<br /> berdasarkan kebutuhan pribadi Anda.</p>
+                </div>
+              </div>
+              {/* tiga card end */}
             </div>
-            <div className='p-10 m-10 bg-red-600'>asasa</div>
-            <div className='p-10 m-10 bg-red-600'>asas</div>
           </div>
 
         </div>
@@ -79,7 +111,19 @@ function Beranda() {
       {/* main konten ke 2 end */}
 
       {/* main konten ke 3 */}
-      {/* Tambahkan konten tambahan jika perlu */}
+      <section className="pt-36 pb-40">
+        <div className="container mx-auto px-6 md:px-10 text-center">
+          <h2 className="text-5xl font-bold text-black mb-4">Layanan Tersedia</h2>
+          <div className="mt-20 flex justify-center items-center">
+
+            {/* cards wrapper */}
+            <div className="mt-20 flex flex-wrap justify-center items-center">
+
+            </div>
+          </div>
+
+        </div>
+      </section>
       {/* main konten ke 3 end */}
     </div>
   );
