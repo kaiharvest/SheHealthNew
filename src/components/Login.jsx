@@ -118,7 +118,7 @@ const Login = () => {
 
       {/* Illustration Section */}
       <div className=" md:w-1/2 p-8">
-        <div className="max-w-md">
+        <div className="text-black-700 max-w-md">
           <h3 className="text-m mb-4">
             Platform <span style={{ color: "#E36CC5" }}>konsultasi online</span>{" "}
             untuk kebutuhan Anda. Dapatkan saran dari para ahli kapan saja

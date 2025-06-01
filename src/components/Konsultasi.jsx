@@ -49,40 +49,74 @@ const doctors = [
     online: true,
     image: "https://via.placeholder.com/100",
   },
+  {
+    name: "dr. Jisoo, Sp.KK",
+    rating: 4.9,
+    experience: "7 tahun",
+    price: "Rp. 90.000",
+    online: true,
+    image: "https://via.placeholder.com/100",
+  },
+  {
+    name: "dr. Karina, Sp.KK",
+    rating: 4.9,
+    experience: "7 tahun",
+    price: "Rp. 90.000",
+    online: false,
+    image: "https://via.placeholder.com/100",
+  },
+  {
+    name: "dr. Giselle, Sp.KK",
+    rating: 4.9,
+    experience: "7 tahun",
+    price: "Rp. 90.000",
+    online: true,
+    image: "https://via.placeholder.com/100",
+  },
 ];
 
 const DoctorCard = ({ doctor }) => (
-  <div className=" bg-black shadow-md rounded-lg px-2 py-4 m-8 md:w-1/3 lg:w-1/4">
-    <div className=" flex items-center">
-      <img
-        src={doctor.image}
-        alt={doctor.name}
-        className="w-16 h-16 rounded-full border-4 border-red-500"
-      />
-      <div className="ml-6">
-        <h2 className="font-bold text-sm">{doctor.name}</h2>
-        <p className="text-xs text-gray-500">Spesialis Kulit</p>
-        <div className="flex items-center text-yellow-400 text-sm">
-          ★★★★★{" "}
-          <span className="ml-1 text-gray-600 text-xs">{doctor.rating}</span>
+  <div className="bg-white shadow-md rounded-xl p-4 w-full sm:w-[300px] md:w-[300px] lg:w-[280px] m-8 transform transition-transform duration-300 hover:scale-105">
+    <div className="flex justify-between items-start">
+      <div className="flex items-center gap-2">
+        <img
+          src={doctor.image}
+          alt={doctor.name}
+          className="w-14 h-14 rounded-full border-2"
+          style={{ borderColor: "#E36CC5" }}
+        />
+        <div>
+          <h2 className="font-bold text-sm text-black">{doctor.name}</h2>
+          <p className="text-xs text-gray-500">Spesialis Kulit</p>
         </div>
-        <p className="text-xs mt-1">🕒 Pengalaman: {doctor.experience}</p>
-        <p className="text-xs">💰 {doctor.price} / konsultasi</p>
-        <p
-          className={`text-xs mt-1 ${
-            doctor.online ? "text-green-500" : "text-gray-400"
-          }`}
-        >
-          {doctor.online ? "🟢 Tersedia" : "⚪ Tidak Tersedia"}
-        </p>
       </div>
+      <button className="text-sm text-pink-500 hover:underline">
+        Lihat Profil
+      </button>
     </div>
+
+    <div className="mt-2 text-yellow-400 text-sm flex items-center gap-1">
+      ★★★★★ <span className="ml-1 text-gray-600 text-xs">{doctor.rating}</span>
+      {doctor.online && (
+        <span className="ml-auto text-green-500 text-xs">🟢 Tersedia</span>
+      )}
+    </div>
+
+    <div className="mt-2 text-xs text-gray-700 space-y-1">
+      <p>📅 Pengalaman: {doctor.experience}</p>
+      <p>💎 {doctor.price} / bulan (Membership)</p>
+    </div>
+
     <div className="mt-3 flex gap-2">
-      <button className="bg-pink-500 text-white px-3 py-1 text-xs rounded-full">
+      <button
+        className="text-white px-4 py-1 text-xs rounded-full hover:brightness-110 transition duration-200"
+        style={{ backgroundColor: "#E36CC5" }}
+      >
         Buat Janji
       </button>
-      <button className="border border-gray-400 text-xs px-3 py-1 rounded-full">
-        Lihat Profil
+
+      <button className="border border-gray-400 text-xs px-4 py-1 rounded-full">
+        Chat
       </button>
     </div>
   </div>
@@ -138,7 +172,7 @@ const Konsultasi = () => {
       </div>
 
       {/* Doctor Cards */}
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap items-center justify-center">
         {doctors.map((doctor, index) => (
           <DoctorCard key={index} doctor={doctor} />
         ))}
