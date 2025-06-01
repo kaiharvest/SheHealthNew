@@ -108,8 +108,11 @@ const Konsultasi = () => {
 
       {/* Promo Section */}
       <div
-        className="border-l-8 border-pink-400 p-6 rounded-lg flex items-center mb-8"
-        style={{ backgroundColor: "#FFEFFB" }}
+        className="border-l-8 p-6 rounded-lg flex items-center mb-8"
+        style={{
+          backgroundColor: "#FFEFFB",
+          borderColor: "#E36CC5",
+        }}
       >
         <div className="flex-1">
           <h2 className="font-bold text-2xl text-black">
