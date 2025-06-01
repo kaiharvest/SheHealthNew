@@ -61,7 +61,7 @@ function Beranda() {
           <div className="mt-20 flex justify-center items-center">
 
             {/* cards wrapper */}
-            <div className="mt-20 flex flex-wrap justify-center items-center">
+            <div className="mt-10 flex flex-wrap justify-center items-center">
               {/* satu card */}
               <div className="p-10 m-6 border-2 border-gray-400 rounded-lg bg-white transition-transform duration-300 hover:scale-105 hover:shadow-xl">
                 <div className="grid">
@@ -118,6 +118,43 @@ function Beranda() {
 
             {/* cards wrapper */}
             <div className="mt-20 flex flex-wrap justify-center items-center">
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-28">
+
+                <div className="flex flex-col items-center px-4">
+                  <div className="w-40 h-40 border-2 rounded-full flex items-center justify-center mb-4">
+                    <img src="/icons/mata.png" alt="Layanan Mata" className="w-16 h-12" />
+                  </div>
+                  <p className="text-xl font-medium text-black">Spesialis Mata</p>
+                </div>
+
+                <div className="flex flex-col items-center">
+                  <div className="w-40 h-40 border-2 rounded-full flex items-center justify-center mb-4">
+                    <img src="/icons/kandungan.png" alt="Layanan Kandungan" />
+                  </div>
+                  <p className="text-xl font-medium text-black">Layanan Kandungan</p>
+                </div>
+
+                <div className="flex flex-col items-center">
+                  <div className="w-40 h-40 border-2 rounded-full flex items-center justify-center mb-4">
+                    <img src="/icons/psikologi.png" alt="Layanan Psikologi" />
+                  </div>
+                  <p className="text-xl font-medium text-black">Layanan Psikologi</p>
+                </div>
+
+                <div className="flex flex-col items-center">
+                  <div className="w-40 h-40 border-2 rounded-full flex items-center justify-center mb-4">
+                    <img src="/icons/umum.png" alt="Layanan Umum" />
+                  </div>
+                  <p className="text-xl font-medium text-black">Layanan Umum</p>
+                </div>
+
+                <div className="flex flex-col items-center">
+                  <div className="w-40 h-40 border-2 rounded-full flex items-center justify-center mb-4">
+                    <img src="/icons/nutrisi.png" alt="Layanan Nutrisi" />
+                  </div>
+                  <p className="text-xl font-medium text-black">Layanan Nutrisi</p>
+                </div>
+              </div>
 
             </div>
           </div>
@@ -125,6 +162,102 @@ function Beranda() {
         </div>
       </section>
       {/* main konten ke 3 end */}
+
+      {/* main konten ke 4  */}
+      <section className="py-20 bg-white text-center">
+        <h2 className="text-4xl font-bold mb-4">
+          Apa Kata Mereka <span className="text-pink-500">Tentang Kami?</span>
+        </h2>
+        <p className="text-lg text-gray-700 mb-12">
+          Karena setiap cerita berarti, dan setiap pengalaman membentuk kami jadi lebih baik.
+        </p>
+
+        <div className="flex flex-wrap justify-center gap-6 px-4">
+          {/* Testimoni 1 */}
+          <div className="bg-pink-100 rounded-2xl shadow-md p-6 max-w-xs text-left">
+            <div className="flex items-center mb-4">
+              <div className="flex text-yellow-400 mr-2">
+                {'★'.repeat(5)}
+              </div>
+            </div>
+            <div className="flex items-center gap-3 mb-3">
+              <img
+                src="/img-placeholder.png"
+                alt="User"
+                className="w-10 h-10 rounded-full object-cover"
+              />
+              <div>
+                <p className="font-bold">Alealea Wekwow</p>
+                <p className="text-sm text-gray-600">21 tahun</p>
+              </div>
+            </div>
+            <p className="text-sm text-gray-800">
+              Saya merasa sangat nyaman saat konsultasi di sini. Tidak ada rasa malu. Terima kasih sudah jadi ruang aman untuk kami
+            </p>
+          </div>
+
+          {/* Testimoni 2 */}
+          <div className="bg-pink-100 rounded-2xl shadow-md p-6 max-w-xs text-left">
+            <div className="flex items-center mb-4">
+              <div className="flex text-yellow-400 mr-2">
+                {'★'.repeat(5)}
+              </div>
+            </div>
+            <div className="flex items-center gap-3 mb-3">
+              <img
+                src="/img-placeholder.png"
+                alt="User"
+                className="w-10 h-10 rounded-full object-cover"
+              />
+              <div>
+                <p className="font-bold">Raisa Asekk</p>
+                <p className="text-sm text-gray-600">19 tahun</p>
+              </div>
+            </div>
+            <p className="text-sm text-gray-800">
+              Penjelasan dokternya jelas dan ramah. Baru kali ini saya benar-benar paham soal siklus haid saya.
+            </p>
+          </div>
+
+          {/* Testimoni 3 */}
+          <div className="bg-pink-100 rounded-2xl shadow-md p-6 max-w-xs text-left">
+            <div className="flex items-center mb-4">
+              <div className="flex text-yellow-400 mr-2">
+                {'★'.repeat(5)}
+              </div>
+            </div>
+            <div className="flex items-center gap-3 mb-3">
+              <img
+                src="/img-placeholder.png"
+                alt="User"
+                className="w-10 h-10 rounded-full object-cover"
+              />
+              <div>
+                <p className="font-bold">Kamara</p>
+                <p className="text-sm text-gray-600">35 tahun</p>
+              </div>
+            </div>
+            <p className="text-sm text-gray-800">
+              Websitenya enak dilihat dan mudah dipakai. Cocok banget buat yang baru pertama kali cari info soal kesehatan reproduksi
+            </p>
+          </div>
+        </div>
+
+        {/* Panah navigasi */}
+        <div className="flex justify-center gap-4 mt-10">
+          <button className="bg-pink-500 text-white w-10 h-10 rounded-full text-xl">‹</button>
+          <button className="bg-pink-500 text-white w-10 h-10 rounded-full text-xl">›</button>
+        </div>
+      </section>
+
+       {/* main konten ke 4  */}
+       <div>
+        <p>
+          hahahaha
+        </p>
+       </div>
+
+
     </div>
   );
 }
