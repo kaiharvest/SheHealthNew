@@ -108,14 +108,10 @@ const DoctorCard = ({ doctor }) => (
     </div>
 
     <div className="mt-3 flex gap-2">
-      <button
-        className="text-white px-4 py-1 text-xs rounded-full hover:brightness-110 transition duration-200"
-        style={{ backgroundColor: "#E36CC5" }}
-      >
+      <button className="px-4 py-1 text-xs rounded-full border border-[#E36CC5] bg-[#E36CC5] text-white transition duration-200 hover:bg-white hover:text-black hover:border-black">
         Buat Janji
       </button>
-
-      <button className="border border-gray-400 text-xs px-4 py-1 rounded-full">
+      <button className="border border-black text-black text-xs px-4 py-1 rounded-full bg-white transition duration-200 hover:bg-[#E36CC5] hover:text-white hover:border-[#E36CC5]">
         Chat
       </button>
     </div>
