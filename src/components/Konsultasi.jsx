@@ -73,6 +73,30 @@ const doctors = [
     online: true,
     image: "https://via.placeholder.com/100",
   },
+  {
+    name: "dr. Jisoo, Sp.KK",
+    rating: 4.9,
+    experience: "7 tahun",
+    price: "Rp. 90.000",
+    online: true,
+    image: "https://via.placeholder.com/100",
+  },
+  {
+    name: "dr. Karina, Sp.KK",
+    rating: 4.9,
+    experience: "7 tahun",
+    price: "Rp. 90.000",
+    online: false,
+    image: "https://via.placeholder.com/100",
+  },
+  {
+    name: "dr. Giselle, Sp.KK",
+    rating: 4.9,
+    experience: "7 tahun",
+    price: "Rp. 90.000",
+    online: true,
+    image: "https://via.placeholder.com/100",
+  },
 ];
 
 const DoctorCard = ({ doctor }) => (
@@ -80,7 +104,7 @@ const DoctorCard = ({ doctor }) => (
     <div className="flex justify-between items-start">
       <div className="flex items-center gap-2">
         <img
-          src={doctor.image}
+          src="/icons/dokter-konsul.svg"
           alt={doctor.name}
           className="w-14 h-14 rounded-full border-2"
           style={{ borderColor: "#E36CC5" }}
@@ -107,11 +131,11 @@ const DoctorCard = ({ doctor }) => (
       <p>💎 {doctor.price} / bulan (Membership)</p>
     </div>
 
-    <div className="mt-3 flex gap-2">
-      <button className="px-4 py-1 text-xs rounded-full border border-[#E36CC5] bg-[#E36CC5] text-white transition duration-200 hover:bg-white hover:text-black hover:border-black">
+    <div className="mt-3 flex gap-2 justify-center">
+      <button className="font-bold px-8 py-1 text-xs rounded-full border border-[#E36CC5] bg-[#E36CC5] text-white transition duration-200 hover:bg-white hover:text-black hover:border-black">
         Buat Janji
       </button>
-      <button className="border border-black text-black text-xs px-4 py-1 rounded-full bg-white transition duration-200 hover:bg-[#E36CC5] hover:text-white hover:border-[#E36CC5]">
+      <button className="font-bold border border-black text-black text-xs px-10 py-1 rounded-full bg-white transition duration-200 hover:bg-[#E36CC5] hover:text-white hover:border-[#E36CC5]">
         Chat
       </button>
     </div>

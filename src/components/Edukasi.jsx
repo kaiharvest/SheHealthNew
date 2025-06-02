@@ -87,6 +87,13 @@ const Edukasi = () => {
             </div>
           ))}
         </div>
+
+        {/* Tombol "Lihat Semua" */}
+        <div className="flex justify-center mt-8">
+          <button className="px-6 py-2 border border-gray-400 text-gray-700 rounded-full hover:bg-[#E36CC5] hover:text-white hover:border-[#E36CC5] transition">
+            Lihat Semua →
+          </button>
+        </div>
       </div>
     </div>
   );
