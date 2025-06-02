@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const testimonials = [
     {
-        name: "Alealea Wekwow",
+        name: "Alealea",
         age: "21 tahun",
         comment: "Saya merasa sangat nyaman saat konsultasi di sini. Tidak ada rasa malu. Terima kasih sudah jadi ruang aman untuk kami",
         stars: 5,
