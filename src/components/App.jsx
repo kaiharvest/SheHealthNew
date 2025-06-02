@@ -4,6 +4,7 @@ import Navbar from './Navbar';
 import Login from './Login';
 import Register from './Register';
 import Konsultasi from './Konsultasi';
+import Profil from './Profil';
 import Edukasi from './Edukasi';
 import Beranda from '../Beranda';
 
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/layanan" element={<Layanan />} />
         <Route path="/edukasi" element={<Edukasi />} />
+        <Route path="/profil/:nama" element={<Profil />} /> {/* ✅ Tambahan route untuk lihat profil */}
       </Routes>
     </Router>
   );

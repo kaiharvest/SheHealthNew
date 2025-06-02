@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const doctors = [
   {
@@ -10,7 +11,7 @@ const doctors = [
     image: "https://via.placeholder.com/100",
   },
   {
-    name: "dr. Jennie, Sp.KK",
+    name: "dr. Rose, Sp.KK",
     rating: 4.9,
     experience: "7 tahun",
     price: "Rp. 90.000",
@@ -18,15 +19,7 @@ const doctors = [
     image: "https://via.placeholder.com/100",
   },
   {
-    name: "dr. Lisa, Sp.KK",
-    rating: 4.9,
-    experience: "7 tahun",
-    price: "Rp. 90.000",
-    online: false,
-    image: "https://via.placeholder.com/100",
-  },
-  {
-    name: "dr. Jisoo, Sp.KK",
+    name: "dr. Rose, Sp.KK",
     rating: 4.9,
     experience: "7 tahun",
     price: "Rp. 90.000",
@@ -34,15 +27,7 @@ const doctors = [
     image: "https://via.placeholder.com/100",
   },
   {
-    name: "dr. Karina, Sp.KK",
-    rating: 4.9,
-    experience: "7 tahun",
-    price: "Rp. 90.000",
-    online: false,
-    image: "https://via.placeholder.com/100",
-  },
-  {
-    name: "dr. Giselle, Sp.KK",
+    name: "dr. Rose, Sp.KK",
     rating: 4.9,
     experience: "7 tahun",
     price: "Rp. 90.000",
@@ -50,7 +35,7 @@ const doctors = [
     image: "https://via.placeholder.com/100",
   },
   {
-    name: "dr. Jisoo, Sp.KK",
+    name: "dr. Rose, Sp.KK",
     rating: 4.9,
     experience: "7 tahun",
     price: "Rp. 90.000",
@@ -58,15 +43,7 @@ const doctors = [
     image: "https://via.placeholder.com/100",
   },
   {
-    name: "dr. Karina, Sp.KK",
-    rating: 4.9,
-    experience: "7 tahun",
-    price: "Rp. 90.000",
-    online: false,
-    image: "https://via.placeholder.com/100",
-  },
-  {
-    name: "dr. Giselle, Sp.KK",
+    name: "dr. Rose, Sp.KK",
     rating: 4.9,
     experience: "7 tahun",
     price: "Rp. 90.000",
@@ -74,7 +51,7 @@ const doctors = [
     image: "https://via.placeholder.com/100",
   },
   {
-    name: "dr. Jisoo, Sp.KK",
+    name: "dr. Rose, Sp.KK",
     rating: 4.9,
     experience: "7 tahun",
     price: "Rp. 90.000",
@@ -82,65 +59,73 @@ const doctors = [
     image: "https://via.placeholder.com/100",
   },
   {
-    name: "dr. Karina, Sp.KK",
-    rating: 4.9,
-    experience: "7 tahun",
-    price: "Rp. 90.000",
-    online: false,
-    image: "https://via.placeholder.com/100",
-  },
-  {
-    name: "dr. Giselle, Sp.KK",
+    name: "dr. Rose, Sp.KK",
     rating: 4.9,
     experience: "7 tahun",
     price: "Rp. 90.000",
     online: true,
     image: "https://via.placeholder.com/100",
   },
+  {
+    name: "dr. Rose, Sp.KK",
+    rating: 4.9,
+    experience: "7 tahun",
+    price: "Rp. 90.000",
+    online: true,
+    image: "https://via.placeholder.com/100",
+  },
+  // ... (data lainnya tetap)
 ];
 
-const DoctorCard = ({ doctor }) => (
-  <div className="bg-white shadow-md rounded-xl p-4 w-full sm:w-[300px] md:w-[300px] lg:w-[280px] m-8 transform transition-transform duration-300 hover:scale-105">
-    <div className="flex justify-between items-start">
-      <div className="flex items-center gap-2">
-        <img
-          src="/icons/dokter-konsul.svg"
-          alt={doctor.name}
-          className="w-14 h-14 rounded-full border-2"
-          style={{ borderColor: "#E36CC5" }}
-        />
-        <div>
-          <h2 className="font-bold text-sm text-black">{doctor.name}</h2>
-          <p className="text-xs text-gray-500">Spesialis Kulit</p>
+const DoctorCard = ({ doctor }) => {
+  const urlFriendlyName = doctor.name.replace(/\s+/g, "-").toLowerCase();
+
+  return (
+    <div className="bg-white shadow-md rounded-xl p-4 w-full sm:w-[300px] md:w-[300px] lg:w-[280px] m-8 transform transition-transform duration-300 hover:scale-105">
+      <div className="flex justify-between items-start">
+        <div className="flex items-center gap-2">
+          <img
+            src="/icons/dokter-konsul.svg"
+            alt={doctor.name}
+            className="w-14 h-14 rounded-full border-2"
+            style={{ borderColor: "#E36CC5" }}
+          />
+          <div>
+            <h2 className="font-bold text-sm text-black">{doctor.name}</h2>
+            <p className="text-xs text-gray-500">Spesialis Kulit</p>
+          </div>
         </div>
+        <Link
+          to={`/profil/${urlFriendlyName}`}
+          className="text-sm text-pink-500 hover:underline"
+        >
+          Lihat Profil
+        </Link>
       </div>
-      <button className="text-sm text-pink-500 hover:underline">
-        Lihat Profil
-      </button>
-    </div>
 
-    <div className="mt-2 text-yellow-400 text-sm flex items-center gap-1">
-      ★★★★★ <span className="ml-1 text-gray-600 text-xs">{doctor.rating}</span>
-      {doctor.online && (
-        <span className="ml-auto text-green-500 text-xs">🟢 Tersedia</span>
-      )}
-    </div>
+      <div className="mt-2 text-yellow-400 text-sm flex items-center gap-1">
+        ★★★★★ <span className="ml-1 text-gray-600 text-xs">{doctor.rating}</span>
+        {doctor.online && (
+          <span className="ml-auto text-green-500 text-xs">🟢 Tersedia</span>
+        )}
+      </div>
 
-    <div className="mt-2 text-xs text-gray-700 space-y-1">
-      <p>📅 Pengalaman: {doctor.experience}</p>
-      <p>💎 {doctor.price} / bulan (Membership)</p>
-    </div>
+      <div className="mt-2 text-xs text-gray-700 space-y-1">
+        <p>📅 Pengalaman: {doctor.experience}</p>
+        <p>💎 {doctor.price} / bulan (Membership)</p>
+      </div>
 
-    <div className="mt-3 flex gap-2 justify-center">
-      <button className="font-bold px-8 py-1 text-xs rounded-full border border-[#E36CC5] bg-[#E36CC5] text-white transition duration-200 hover:bg-white hover:text-black hover:border-black">
-        Buat Janji
-      </button>
-      <button className="font-bold border border-black text-black text-xs px-10 py-1 rounded-full bg-white transition duration-200 hover:bg-[#E36CC5] hover:text-white hover:border-[#E36CC5]">
-        Chat
-      </button>
+      <div className="mt-3 flex gap-2 justify-center">
+        <button className="font-bold px-8 py-1 text-xs rounded-full border border-[#E36CC5] bg-[#E36CC5] text-white transition duration-200 hover:bg-white hover:text-black hover:border-black">
+          Buat Janji
+        </button>
+        <button className="font-bold border border-black text-black text-xs px-10 py-1 rounded-full bg-white transition duration-200 hover:bg-[#E36CC5] hover:text-white hover:border-[#E36CC5]">
+          Chat
+        </button>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const Konsultasi = () => {
   return (
@@ -173,7 +158,7 @@ const Konsultasi = () => {
             Promo Khusus Hari Kesehatan Wanita
           </h2>
           <p className="text-xl mt-2">
-            Dapatkan <span className="font-bold text-red-600"> Diskon 30%</span>{" "}
+            Dapatkan <span className="font-bold text-red-600">Diskon 30%</span>{" "}
             untuk konsultasi dengan dokter <br /> spesialis kandungan. Berlaku
             hingga akhir bulan.
           </p>
