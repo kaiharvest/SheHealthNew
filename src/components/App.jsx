@@ -5,6 +5,8 @@ import Login from './Login';            // Login ada di folder components
 import Register from './Register';      // Register ada di folder components
 import Konsultasi from './Konsultasi';  // Konsultasi ada di folder components
 import Beranda from '../Beranda';       // Beranda ada di luar folder components
+import Footer from './Footer';
+import TestimonialsSection from './TestimonialsSection';
 
 // Tambahan halaman dummy
 const Layanan = () => <div className="p-4">Halaman Layanan Terdekat</div>;
@@ -22,6 +24,8 @@ const App = () => {
         <Route path="/layanan" element={<Layanan />} />
         <Route path="/edukasi" element={<Edukasi />} />
       </Routes>
+      <TestimonialsSection />
+      <Footer />
     </Router>
   );
 };
