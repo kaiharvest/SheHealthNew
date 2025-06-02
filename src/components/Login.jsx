@@ -11,29 +11,25 @@ const Login = () => {
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center font-poppins"
+      className="min-h-screen flex flex-col md:flex-row items-center justify-center font-poppins px-4 md:px-0"
       style={{
         background:
           "linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(227,108,197,0.2) 100%)",
       }}
     >
       {/* Form Section */}
-      <div className="md:w-1/2 p-8">
+      <div className="w-full md:w-1/2 p-6 md:p-8 max-w-md">
         <div className="text-pink-700 font-bold text-2xl flex items-center justify-center gap-2 mb-1">
           <img src="/LogoNew.png" alt="Logo" className="w-8 h-9" />
           <span style={{ color: "#E36CC5" }}>SheHealth</span>
         </div>
-        <h2 className="flex justify-center items-center text-2xl font-semibold text-gray-700 mt-4 mb-6">
+        <h2 className="text-2xl font-semibold text-gray-700 mt-4 mb-6 text-center">
           Masuk
         </h2>
         <form onSubmit={handleLogin}>
-          <div className="mb-2 px-20 py-2">
+          <div className="mb-4">
             <div className="flex items-center border border-black rounded px-3">
-              <img
-                src="icons/Vector.svg"
-                alt="email"
-                className="w-5 h-5 mr-3 "
-              />
+              <img src="icons/Vector.svg" alt="email" className="w-5 h-5 mr-3" />
               <input
                 type="email"
                 placeholder="Masukkan email anda"
@@ -42,9 +38,9 @@ const Login = () => {
               />
             </div>
           </div>
-          <div className="mb-3 px-20 py-2">
+          <div className="mb-4">
             <div className="flex items-center border border-black rounded px-3">
-              <img src="icons/Lock.svg" alt="email" className="w-5 h-5 mr-3" />
+              <img src="icons/Lock.svg" alt="password" className="w-5 h-5 mr-3" />
               <input
                 type={showPassword ? "text" : "password"}
                 placeholder="Masukkan kata sandi anda"
@@ -55,10 +51,13 @@ const Login = () => {
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
                 className="text-gray-500 ml-2"
-              ></button>
+                aria-label="Toggle password visibility"
+              >
+                {showPassword ? "🙈" : "👁️"}
+              </button>
             </div>
           </div>
-          <div className="flex justify-between items-center text-sm px-20 mb-6">
+          <div className="flex justify-between items-center text-sm mb-6">
             <label className="flex items-center">
               <input type="checkbox" className="mr-2" />
               Ingat Saya
@@ -67,11 +66,11 @@ const Login = () => {
               Lupa kata sandi?
             </a>
           </div>
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center mb-6">
             <button
               type="submit"
               style={{ backgroundColor: "#E36CC5" }}
-              className="text-white px-16 py-2 rounded-full shadow hover:opacity-80"
+              className="text-white px-16 py-2 rounded-full shadow hover:opacity-80 w-full max-w-xs"
             >
               Masuk
             </button>
@@ -82,7 +81,7 @@ const Login = () => {
           <div className="flex flex-col items-center space-y-3">
             <button
               type="button"
-              className="flex items-center justify-center border shadow-md rounded-lg px-8 py-2 text-black hover:bg-gray-100"
+              className="flex items-center justify-center border shadow-md rounded-lg px-8 py-2 text-black hover:bg-gray-100 w-full max-w-xs"
             >
               <img
                 src="https://www.svgrepo.com/show/355037/google.svg"
@@ -93,7 +92,7 @@ const Login = () => {
             </button>
             <button
               type="button"
-              className="flex items-center justify-center border shadow-md rounded-lg px-6 py-2 text-black hover:bg-gray-100"
+              className="flex items-center justify-center border shadow-md rounded-lg px-6 py-2 text-black hover:bg-gray-100 w-full max-w-xs"
             >
               <img
                 src="https://www.svgrepo.com/show/475647/facebook-color.svg"
@@ -117,9 +116,9 @@ const Login = () => {
       </div>
 
       {/* Illustration Section */}
-      <div className=" md:w-1/2 p-8">
-        <div className="text-black-700 max-w-md">
-          <h3 className="text-m mb-4">
+      <div className="w-full md:w-1/2 p-6 md:p-8 max-w-md">
+        <div className="text-black-700 max-w-md mx-auto">
+          <h3 className="text-base md:text-lg mb-4 text-center md:text-left">
             Platform <span style={{ color: "#E36CC5" }}>konsultasi online</span>{" "}
             untuk kebutuhan Anda. Dapatkan saran dari para ahli kapan saja
             <br /> dan dimana saja.
@@ -147,12 +146,13 @@ const Login = () => {
           </ul>
           <img
             src="rafiki.svg"
-            alt="Logo"
-            className="mt-5 w-96 md:w-full h-auto"
+            alt="Illustration"
+            className="mt-5 w-full h-auto max-w-xs mx-auto"
           />
         </div>
       </div>
     </div>
   );
 };
+
 export default Login;

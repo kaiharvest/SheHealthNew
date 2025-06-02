@@ -9,7 +9,6 @@ import Edukasi from './Edukasi';
 import Beranda from '../Beranda';
 import Footer from './Footer';
 
-
 // Halaman Dummy
 const Layanan = () => <div className="p-4">Halaman Layanan Terdekat</div>;
 
@@ -24,9 +23,8 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/layanan" element={<Layanan />} />
         <Route path="/edukasi" element={<Edukasi />} />
-        <Route path="/profil/:nama" element={<Profil />} /> {/* Halaman detail dokter */}
+        <Route path="/profil/:nama" element={<Profil />} />
       </Routes>
-      
       <Footer />
     </Router>
   );
