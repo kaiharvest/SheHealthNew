@@ -29,7 +29,7 @@ const Edukasi = () => {
 
         {/* Artikel Pilihan */}
         <div className="mb-12">
-          <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+          <h2 className="text-4xl font-bold text-gray-800 mb-4 flex items-center gap-2">
             <span className="text-yellow-500 text-2xl">⭐</span> Artikel Pilihan
           </h2>
 
@@ -63,7 +63,7 @@ const Edukasi = () => {
 
         {/* Artikel Terbaru */}
         <div className="mb-10">
-          <h2 className="text-xl font-bold text-gray-800 mb-4 flex items-center gap-2">
+          <h2 className="text-4xl font-bold text-gray-800 mb-4 flex items-center gap-2">
             <span className="text-yellow-500 text-2xl">⭐</span> Artikel Terbaru
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

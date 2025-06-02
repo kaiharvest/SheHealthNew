@@ -170,9 +170,9 @@ const Konsultasi = () => {
           </button>
         </div>
         <img
-          src="https://via.placeholder.com/100x150"
+          src="/promo.png"
           alt="Promo"
-          className="w-24 h-auto ml-4 rounded"
+          className="ml-4 relative top-6 left-6 rounded w-[600px] h-auto"
         />
       </div>
 

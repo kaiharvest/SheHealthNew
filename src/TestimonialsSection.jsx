@@ -29,8 +29,29 @@ const testimonials = [
         stars: 5,
         image: "/img-placeholder.png",
     },
-    
+    {
+        name: "Dewi Sartika",
+        age: "27 tahun",
+        comment: "Layanan konsultasi ini sangat membantu saya mengerti lebih baik tentang kesehatan saya.",
+        stars: 5,
+        image: "/img-placeholder.png",
+    },
+    {
+        name: "Hana Putri",
+        age: "22 tahun",
+        comment: "Informasinya mudah dipahami dan sangat detail, membuat saya merasa lebih tenang.",
+        stars: 5,
+        image: "/img-placeholder.png",
+    },
+    {
+        name: "Nadia Ramadhani",
+        age: "24 tahun",
+        comment: "Dokternya ramah dan sabar menjawab pertanyaan saya. Sangat direkomendasikan!",
+        stars: 5,
+        image: "/img-placeholder.png",
+    },
 ];
+
 
 const TestimonialsSection = () => {
     const [currentPage, setCurrentPage] = useState(0);
@@ -51,7 +72,7 @@ const TestimonialsSection = () => {
     };
 
     return (
-        <section className="py-20 bg-white text-center">
+        <section className="px-40 py-20 bg-white text-center">
             <h2 className="text-4xl font-bold mb-4">
                 Apa Kata Mereka <span className="text-pink-500">Tentang Kami?</span>
             </h2>

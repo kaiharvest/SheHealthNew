@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
 import Navbar from './Navbar';
 import Login from './Login';
 import Register from './Register';
@@ -9,7 +8,7 @@ import Profil from './Profil';
 import Edukasi from './Edukasi';
 import Beranda from '../Beranda';
 import Footer from './Footer';
-import TestimonialsSection from './TestimonialsSection';
+
 
 // Halaman Dummy
 const Layanan = () => <div className="p-4">Halaman Layanan Terdekat</div>;
@@ -27,7 +26,7 @@ const App = () => {
         <Route path="/edukasi" element={<Edukasi />} />
         <Route path="/profil/:nama" element={<Profil />} /> {/* Halaman detail dokter */}
       </Routes>
-      <TestimonialsSection />
+      
       <Footer />
     </Router>
   );
