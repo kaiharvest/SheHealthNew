@@ -4,49 +4,74 @@ import { IoArrowBack } from 'react-icons/io5';
 
 const LupaPassword = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+<div className="py-6 flex justify-center bg-gray-50">
+
       <div className="bg-white shadow-md rounded-lg flex flex-col md:flex-row w-full max-w-4xl p-6">
+
         {/* Form */}
         <div className="w-full md:w-1/2 px-4">
-          <div className="flex items-center mb-4 text-pink-600 font-bold text-lg">
-            <div className="w-6 h-6 bg-pink-500 rounded-full flex items-center justify-center text-white mr-2">+</div>
-            SheHealth
+          {/* Logo */}
+          <div className="flex justify-center items-center mb-4 text-pink-600 font-bold text-lg">
+            <img src="/LogoNew.png" alt="Logo" className="w-8 h-9 mr-2" />
+            <span style={{ color: "#E36CC5" }}>SheHealth</span>
           </div>
 
+          {/* Back Button */}
           <div className="flex items-center text-sm text-gray-600 cursor-pointer mb-3">
             <IoArrowBack className="mr-2" />
             Sebelumnya
           </div>
 
-          <h2 className="text-2xl font-bold mb-2">Lupa password?</h2>
+          {/* Title */}
+          <h2 className="text-2xl font-bold mb-2">Lupa Password?</h2>
           <p className="text-gray-500 mb-4">
             Masukkan alamat email Anda dan kami akan mengirimkan kode verifikasi untuk reset password.
           </p>
 
-          <label className="block text-sm mb-1 text-gray-700">Email</label>
+          {/* Email Input */}
+          <label className="block text-sm mb-1 text-black">Email</label>
           <input
             type="email"
             placeholder="masukkan email"
-            className="w-full px-4 py-2 border rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-pink-400"
+            className="w-full px-4 py-2 border border-black rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-pink-400"
           />
 
-          <button className="w-full bg-pink-500 text-white py-2 rounded-full shadow-lg hover:bg-pink-600 transition duration-200 mb-4">
+          {/* Submit Button */}
+          <button
+          style={{ backgroundColor: "#E36CC5" }}
+           className="w-full text-white py-2 rounded-full shadow-lg hover:bg-pink-600 transition duration-200 mb-2 mt-2">
             Kirim
           </button>
 
+          {/* Divider */}
           <div className="flex items-center my-4">
             <div className="flex-grow h-px bg-gray-300" />
             <span className="mx-2 text-sm text-gray-500">Atau login dengan</span>
             <div className="flex-grow h-px bg-gray-300" />
           </div>
 
-          <div className="space-y-3">
-            <button className="w-full flex items-center justify-center border py-2 rounded-md hover:bg-gray-100 transition duration-200">
-              <FaGoogle className="text-red-500 mr-2" />
+          {/* Social Login */}
+          <div className="flex flex-col items-center space-y-2">
+            <button
+              type="button"
+              className="flex items-center justify-center border shadow-md rounded-lg px-8 py-2 text-black hover:bg-gray-100 max-w-xs"
+            >
+              <img
+                src="https://www.svgrepo.com/show/355037/google.svg"
+                alt="Google"
+                className="h-5 w-5 mr-2"
+              />
               Login with Google
             </button>
-            <button className="w-full flex items-center justify-center border py-2 rounded-md hover:bg-gray-100 transition duration-200">
-              <FaFacebookF className="text-blue-600 mr-2" />
+            <button
+              type="button"
+              className="flex items-center justify-center border shadow-md rounded-lg px-6 py-2 text-black hover:bg-gray-100 max-w-xs"
+            >
+              <img
+                src="https://www.svgrepo.com/show/475647/facebook-color.svg"
+                alt="Facebook"
+                className="h-5 w-5 mr-2"
+              />
               Login with Facebook
             </button>
           </div>
@@ -55,11 +80,12 @@ const LupaPassword = () => {
         {/* Illustration */}
         <div className="hidden md:flex w-1/2 items-center justify-center">
           <img
-            src="/illustration_password.png" // ganti dengan path ilustrasi kamu
+            src="/lupapass.svg"
             alt="Forgot Password Illustration"
             className="w-full max-w-xs"
           />
         </div>
+
       </div>
     </div>
   );
