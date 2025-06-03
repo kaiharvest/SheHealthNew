@@ -23,10 +23,13 @@ const Login = () => {
           <img src="/LogoNew.png" alt="Logo" className="w-8 h-9" />
           <span style={{ color: "#E36CC5" }}>SheHealth</span>
         </div>
+
         <h2 className="text-2xl font-semibold text-gray-700 mt-4 mb-6 text-center">
           Masuk
         </h2>
+
         <form onSubmit={handleLogin}>
+          {/* Email */}
           <div className="mb-4">
             <div className="flex items-center border border-black rounded px-3">
               <img src="icons/Vector.svg" alt="email" className="w-5 h-5 mr-3" />
@@ -38,6 +41,8 @@ const Login = () => {
               />
             </div>
           </div>
+
+          {/* Password */}
           <div className="mb-4">
             <div className="flex items-center border border-black rounded px-3">
               <img src="icons/Lock.svg" alt="password" className="w-5 h-5 mr-3" />
@@ -57,15 +62,19 @@ const Login = () => {
               </button>
             </div>
           </div>
+
+          {/* Ingat saya & Lupa password */}
           <div className="flex justify-between items-center text-sm mb-6">
             <label className="flex items-center">
               <input type="checkbox" className="mr-2" />
               Ingat Saya
             </label>
-            <a href="#" className="text-gray-500 hover:underline">
+            <Link to="/lupapassword" className="text-gray-500 hover:underline">
               Lupa kata sandi?
-            </a>
+            </Link>
           </div>
+
+          {/* Tombol Login */}
           <div className="flex justify-center mb-6">
             <button
               type="submit"
@@ -75,9 +84,13 @@ const Login = () => {
               Masuk
             </button>
           </div>
+
+          {/* Atau */}
           <div className="flex items-center justify-center my-4">
             <span className="mx-2 text-sm text-gray-400">OR</span>
           </div>
+
+          {/* Login Sosial */}
           <div className="flex flex-col items-center space-y-3">
             <button
               type="button"
@@ -102,6 +115,8 @@ const Login = () => {
               Login with Facebook
             </button>
           </div>
+
+          {/* Daftar */}
           <p className="mt-4 text-sm text-center">
             Belum memiliki akun?{" "}
             <Link
@@ -115,7 +130,7 @@ const Login = () => {
         </form>
       </div>
 
-      {/* Illustration Section */}
+      {/* Ilustrasi */}
       <div className="w-full md:w-1/2 p-6 md:p-8 max-w-md">
         <div className="text-black-700 max-w-md mx-auto">
           <h3 className="text-base md:text-lg mb-4 text-center md:text-left">
@@ -144,6 +159,7 @@ const Login = () => {
               Biaya terjangkau dengan layanan berkualitas
             </li>
           </ul>
+
           <img
             src="rafiki.svg"
             alt="Illustration"
