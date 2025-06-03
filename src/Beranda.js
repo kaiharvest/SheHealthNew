@@ -107,6 +107,29 @@ function Beranda() {
         </div>
       </section>
 
+      {/* Statistik / Metrics Section */}
+      <section className="bg-slate-300 py-24">
+        <div className="container mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-center">
+          <div>
+            <h3 className="text-3xl font-bold text-pink-500 mb-2">250M+</h3>
+            <p className="text-gray-700 text-sm md:text-base">API requests per day, peaking at 13,000 requests a second.</p>
+          </div>
+          <div>
+            <h3 className="text-3xl font-bold text-pink-500 mb-2">99.999%</h3>
+            <p className="text-gray-700 text-sm md:text-base">historical uptime for services.</p>
+          </div>
+          <div>
+            <h3 className="text-3xl font-bold text-pink-500 mb-2">90%</h3>
+            <p className="text-gray-700 text-sm md:text-base">of U.S. adults have bought from businesses using Stripe.</p>
+          </div>
+          <div>
+            <h3 className="text-3xl font-bold text-pink-500 mb-2">135+</h3>
+            <p className="text-gray-700 text-sm md:text-base">currencies and payment methods supported.</p>
+          </div>
+        </div>
+      </section>
+
+
       {/* Testimoni */}
       <TestimonialsSection />
     </div>

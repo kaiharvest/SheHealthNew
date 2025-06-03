@@ -6,6 +6,7 @@ const ChatApp = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const chatEndRef = useRef(null);
 
+    // Data daftar chat
     const chatList = [
         {
             id: 1,
@@ -30,6 +31,7 @@ const ChatApp = () => {
         }
     ];
 
+    // Data pesan awal
     const [messages, setMessages] = useState([
         {
             id: 1,
@@ -59,6 +61,7 @@ const ChatApp = () => {
         },
     ]);
 
+    // Fungsi kirim pesan
     const handleSendMessage = () => {
         if (message.trim()) {
             const newMessage = {
@@ -72,18 +75,19 @@ const ChatApp = () => {
         }
     };
 
+    // Toggle sidebar untuk mobile view
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
 
+    // Scroll otomatis ke pesan terbaru
     useEffect(() => {
-        // Scroll to bottom whenever messages update
         chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [messages]);
 
     return (
         <div className="flex h-screen bg-gray-50 relative">
-            {/* Mobile Overlay */}
+            {/* Backdrop ketika sidebar terbuka di mobile */}
             {isSidebarOpen && (
                 <div
                     className="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden"
@@ -164,9 +168,9 @@ const ChatApp = () => {
                 </div>
             </div>
 
-            {/* Chat Area */}
+            {/* Area chat utama */}
             <div className="flex-1 flex flex-col lg:ml-0">
-                {/* Header */}
+                {/* Header chat */}
                 <div className="bg-white border-b border-gray-200 p-3 sm:p-4">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
@@ -180,7 +184,7 @@ const ChatApp = () => {
                                 👨‍⚕️
                             </div>
                             <div>
-                                <h2 className="font-semibold text-gray-900 text-sm sm:text-base">dr. Nindy, Sp.PD</h2>
+                                <h2 className="font-semibold text-gray-900 text-sm sm:text-base">{chatList[selectedChat].name}</h2>
                                 <div className="flex items-center gap-2">
                                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                                     <span className="text-xs sm:text-sm text-gray-500">Online</span>
@@ -193,14 +197,14 @@ const ChatApp = () => {
                     </div>
                 </div>
 
-                {/* Status */}
+                {/* Info waktu mulai konsultasi */}
                 <div className="bg-gray-100 px-3 sm:px-4 py-2 text-center">
                     <span className="bg-gray-300 text-gray-700 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">
                         Konsultasi dimulai - 10:30 WIB
                     </span>
                 </div>
 
-                {/* Messages */}
+                {/* Area pesan */}
                 <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4">
                     {messages.map((msg) => (
                         <div key={msg.id} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
@@ -211,8 +215,8 @@ const ChatApp = () => {
                                     </div>
                                 )}
                                 <div className={`px-3 sm:px-4 py-2 sm:py-3 rounded-2xl ${msg.sender === 'user'
-                                        ? 'bg-pink-500 text-white rounded-br-md'
-                                        : 'bg-white border border-gray-200 rounded-bl-md'
+                                    ? 'bg-pink-500 text-white rounded-br-md'
+                                    : 'bg-white border border-gray-200 rounded-bl-md'
                                     }`}>
                                     <p className={`text-sm ${msg.sender === 'user' ? 'text-white' : 'text-gray-800'}`}>
                                         {msg.text}
@@ -229,7 +233,7 @@ const ChatApp = () => {
                     <div ref={chatEndRef} />
                 </div>
 
-                {/* Input */}
+                {/* Input pesan */}
                 <div className="bg-white border-t border-gray-200 p-4">
                     <div className="flex items-center gap-3">
                         <div className="flex-1 relative">
@@ -246,7 +250,7 @@ const ChatApp = () => {
                             onClick={handleSendMessage}
                             className="w-12 h-12 bg-pink-500 hover:bg-pink-600 rounded-full flex items-center justify-center text-white transition-colors"
                         >
-                            <span className="text-lg">➤</span>
+                            <span className="text-xl">➤</span>
                         </button>
                     </div>
                 </div>
