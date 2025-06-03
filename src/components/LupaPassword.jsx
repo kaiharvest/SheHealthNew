@@ -1,13 +1,11 @@
 import React from 'react';
-import { FaGoogle, FaFacebookF } from 'react-icons/fa';
 import { IoArrowBack } from 'react-icons/io5';
 
 const LupaPassword = () => {
   return (
-<div className="py-6 flex justify-center bg-gray-50">
-
-      <div className="bg-white shadow-md rounded-lg flex flex-col md:flex-row w-full max-w-4xl p-6">
-
+    <div className="py-6 flex justify-center bg-gray-50">
+      <div className="bg-white shadow-md rounded-lg flex flex-col md:flex-row w-full max-w-4xl p-16">
+        
         {/* Form */}
         <div className="w-full md:w-1/2 px-4">
           {/* Logo */}
@@ -38,43 +36,11 @@ const LupaPassword = () => {
 
           {/* Submit Button */}
           <button
-          style={{ backgroundColor: "#E36CC5" }}
-           className="w-full text-white py-2 rounded-full shadow-lg hover:bg-pink-600 transition duration-200 mb-2 mt-2">
+            style={{ backgroundColor: "#E36CC5" }}
+            className="w-full text-white py-2 rounded-full shadow-lg hover:bg-pink-600 transition duration-200 mb-2 mt-2"
+          >
             Kirim
           </button>
-
-          {/* Divider */}
-          <div className="flex items-center my-4">
-            <div className="flex-grow h-px bg-gray-300" />
-            <span className="mx-2 text-sm text-gray-500">Atau login dengan</span>
-            <div className="flex-grow h-px bg-gray-300" />
-          </div>
-
-          {/* Social Login */}
-          <div className="flex flex-col items-center space-y-2">
-            <button
-              type="button"
-              className="flex items-center justify-center border shadow-md rounded-lg px-8 py-2 text-black hover:bg-gray-100 max-w-xs"
-            >
-              <img
-                src="https://www.svgrepo.com/show/355037/google.svg"
-                alt="Google"
-                className="h-5 w-5 mr-2"
-              />
-              Login with Google
-            </button>
-            <button
-              type="button"
-              className="flex items-center justify-center border shadow-md rounded-lg px-6 py-2 text-black hover:bg-gray-100 max-w-xs"
-            >
-              <img
-                src="https://www.svgrepo.com/show/475647/facebook-color.svg"
-                alt="Facebook"
-                className="h-5 w-5 mr-2"
-              />
-              Login with Facebook
-            </button>
-          </div>
         </div>
 
         {/* Illustration */}
