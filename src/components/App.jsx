@@ -6,6 +6,7 @@ import Footer from './Footer';
 import Login from './Login';
 import Register from './Register';
 import Konsultasi from './Konsultasi';
+import ChatApp from './Chat';
 import Profil from './Profil';
 import Edukasi from './Edukasi';
 import LupaPassword from './LupaPassword';
@@ -26,7 +27,7 @@ const App = () => {
             <Route path="/" element={<Beranda />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/konsultasi" element={<Konsultasi />} />
+            <Route path="/konsultasi" element={<ChatApp />} />
             <Route path="/layanan" element={<Layanan />} />
             <Route path="/edukasi" element={<Edukasi />} />
             <Route path="/profil/:nama" element={<Profil />} />
