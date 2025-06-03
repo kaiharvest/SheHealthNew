@@ -8,7 +8,8 @@ const testimonials = [
         comment:
             "Saya merasa sangat nyaman saat konsultasi di sini. Tidak ada rasa malu. Terima kasih sudah jadi ruang aman untuk kami",
         stars: 5,
-        image: "/img-placeholder.png",
+        image: "/orang.png"
+
     },
     {
         name: "Raisa Asekk",

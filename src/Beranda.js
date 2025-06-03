@@ -42,7 +42,7 @@ function Beranda() {
 
       {/* Konten Utama 2 */}
       <section className="pt-24 md:pt-36 pb-24 md:pb-40">
-        <div className="container mx-auto px-6 md:px-10 text-center">
+        <div className="container mx-auto text-center max-w-6xl">
           <h2 className="text-3xl md:text-5xl font-bold text-black mb-6">Mengapa memilih kami?</h2>
           <p className="text-gray-500 text-lg leading-relaxed max-w-4xl mx-auto">
             Siap mendampingi perempuan di setiap fase kehidupan. Kami hadir untuk membantu
@@ -70,7 +70,7 @@ function Beranda() {
                 key={idx}
                 className="p-8 w-full max-w-xs border border-gray-300 rounded-lg bg-white transition-transform duration-300 hover:scale-105 hover:shadow-lg"
               >
-                <img src="/icons/content2.png" alt="Icon" className="w-24 mb-6 mx-auto" />
+                <img src="/icons/content2.png" alt="Icon" className="w-24 mb-2" />
                 <h3 className="text-xl font-semibold mb-3 text-left">{item.title}</h3>
                 <p className="text-sm text-left text-gray-600">{item.desc}</p>
               </div>
@@ -86,14 +86,14 @@ function Beranda() {
 
           <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4 justify-items-center">
             {[
-              { label: 'Spesialis Kandungan & Kebidanan', icon: '/icons/mata.png' },
-              { label: 'Layanan Kandungan', icon: '/icons/kandungan.png' },
-              { label: 'Layanan Psikologi', icon: '/icons/psikologi.png' },
-              { label: 'Layanan Umum', icon: '/icons/umum.png' },
-              { label: 'Layanan Nutrisi', icon: '/icons/nutrisi.png' },
-              { label: 'Layanan Nutrisi', icon: '/icons/nutrisi.png' },
-              { label: 'Layanan Nutrisi', icon: '/icons/nutrisi.png' },
-              { label: 'Layanan Nutrisi', icon: '/icons/nutrisi.png' },
+              { label: 'Spesialis Kandungan & Kebidanan', icon: '/icons/kandungan.png' },
+              { label: 'Spesialis Saraf', icon: '/icons/otak.png' },
+              { label: 'Dokter Gigi Umum', icon: '/icons/gigi.png' },
+              { label: 'Spesialis Jantung & Pembuluh Darah', icon: '/icons/jantung.png' },
+              { label: 'Spesialis Mata', icon: '/icons/mata.png' },
+              { label: 'Dokter Kulit', icon: '/icons/kulit.png' },
+              { label: 'Dokter Gizi', icon: '/icons/gizi.png' },
+              { label: 'Dokter Gizi', icon: '/icons/dokter.png' },
             ].map((item, idx) => (
               <div key={idx} className="flex flex-col items-center text-center">
                 <div className="w-24 h-24 md:w-32 md:h-32 border-2 rounded-full flex items-center justify-center mb-4">

@@ -8,6 +8,7 @@ import Profil from './Profil';
 import Edukasi from './Edukasi';
 import Beranda from '../Beranda';
 import Footer from './Footer';
+import ChatApp from './Chat';
 
 // Halaman Dummy
 const Layanan = () => <div className="p-4">Halaman Layanan Terdekat</div>;
@@ -18,7 +19,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Beranda />} />
-        <Route path="/konsultasi" element={<Konsultasi />} />
+        <Route path="/konsultasi" element={<ChatApp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/layanan" element={<Layanan />} />

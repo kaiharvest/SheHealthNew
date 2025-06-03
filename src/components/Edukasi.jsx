@@ -1,15 +1,78 @@
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 const Edukasi = () => {
   const scrollRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
-  const articles = new Array(6).fill({
-    title: "7 Cara Efektif Menjaga Kesehatan Jantung di Era Modern",
-    excerpt:
-      "Penyakit jantung menjadi penyebab kematian nomor satu di dunia. Pelajari langkah-langkah sederhana namun efektif untuk menjaga kesehatan jantung Anda sejak dini.",
-    date: "5 hari yang lalu",
-    image: "https://via.placeholder.com/400x250?text=Stetoskop",
-  });
+  const articles = [
+    {
+      title: "7 Cara Menjaga Kesehatan Reproduksi Wanita",
+      excerpt:
+        "Pelajari cara menjaga kebersihan dan kesehatan organ reproduksi untuk mencegah infeksi dan masalah kesehatan lainnya.",
+      date: "3 hari yang lalu",
+      image: "https://via.placeholder.com/400x250?text=Kesehatan+Reproduksi",
+    },
+    {
+      title: "Pentingnya Nutrisi Seimbang untuk Wanita",
+      excerpt:
+        "Nutrisi yang tepat dapat membantu menjaga hormon, energi, dan kesehatan secara keseluruhan bagi wanita di segala usia.",
+      date: "5 hari yang lalu",
+      image: "https://via.placeholder.com/400x250?text=Nutrisi+Seimbang",
+    },
+    {
+      title: "Tips Mengurangi Stres dan Menjaga Kesehatan Mental Wanita",
+      excerpt:
+        "Ketahui teknik-teknik efektif untuk mengelola stres yang sering dialami wanita dalam kehidupan sehari-hari.",
+      date: "1 minggu yang lalu",
+      image: "https://via.placeholder.com/400x250?text=Kesehatan+Mental",
+    },
+    {
+      title: "Manfaat Olahraga Ringan untuk Kesehatan Wanita",
+      excerpt:
+        "Olahraga teratur seperti yoga dan jalan kaki bisa meningkatkan kesehatan jantung dan fleksibilitas tubuh wanita.",
+      date: "2 minggu yang lalu",
+      image: "https://via.placeholder.com/400x250?text=Olahraga+Ringan",
+    },
+    {
+      title: "Pentingnya Pemeriksaan Rutin untuk Deteksi Dini Kanker Payudara",
+      excerpt:
+        "Deteksi dini melalui pemeriksaan rutin bisa meningkatkan peluang kesembuhan kanker payudara pada wanita.",
+      date: "3 minggu yang lalu",
+      image: "https://via.placeholder.com/400x250?text=Kanker+Payudara",
+    },
+    {
+      title: "Cara Mengatasi Gejala Menopause dengan Alami",
+      excerpt:
+        "Beberapa perubahan gaya hidup dan pola makan dapat membantu mengurangi gejala menopause yang mengganggu.",
+      date: "1 bulan yang lalu",
+      image: "https://via.placeholder.com/400x250?text=Menopause",
+    },
+  ];
+
+  // Fungsi untuk update activeIndex berdasarkan scroll
+  const handleScroll = () => {
+    if (!scrollRef.current) return;
+    const scrollLeft = scrollRef.current.scrollLeft;
+    const containerWidth = scrollRef.current.offsetWidth;
+
+    // Lebar setiap card minimum + gap
+    const cardWidth = 360 + 20; // min-w-[320px], max-w-[360px] + gap-5 (20px)
+    // Hitung index yang paling dekat dengan scrollLeft
+    const index = Math.round(scrollLeft / cardWidth);
+    setActiveIndex(index);
+  };
+
+  useEffect(() => {
+    const refCurrent = scrollRef.current;
+    if (refCurrent) {
+      refCurrent.addEventListener("scroll", handleScroll);
+    }
+    return () => {
+      if (refCurrent) {
+        refCurrent.removeEventListener("scroll", handleScroll);
+      }
+    };
+  }, []);
 
   return (
     <div className="bg-[#f9f9f9] min-h-screen px-6 md:px-14 overflow-x-hidden">
@@ -59,6 +122,23 @@ const Edukasi = () => {
                 </p>
               </div>
             ))}
+          </div>
+
+          {/* Indikator titik-titik */}
+          <div className="flex justify-center mt-4 space-x-2">
+            {articles.slice(0, 6).map((_, index) => {
+              const isActive = index === activeIndex;
+              return (
+                <div
+                  key={index}
+                  className={`transition-all duration-300 rounded-full ${
+                    isActive
+                      ? "w-2 h-2 bg-pink-500"
+                      : "w-1.5 h-1.5 bg-gray-400 opacity-50"
+                  }`}
+                />
+              );
+            })}
           </div>
         </div>
 
