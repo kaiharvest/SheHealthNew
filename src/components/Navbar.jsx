@@ -7,7 +7,7 @@ const Navbar = () => {
 
   const menuItems = [
     { name: "Beranda", path: "/" },
-    { name: "Chat Dokter", path: "/konsultasi" },
+    { name: "Chat Dokter", path: "/chat" },
     { name: "Langganan", path: "/layanan" },
     { name: "Edukasi", path: "/edukasi" },
   ];
