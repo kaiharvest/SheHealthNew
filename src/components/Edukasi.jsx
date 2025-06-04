@@ -36,7 +36,7 @@ const Edukasi = () => {
 
           <div
             ref={scrollRef}
-            className="flex gap-5 overflow-x-auto scrollbar-thin scrollbar-thumb-pink-300 pb-2"
+            className="flex gap-5 overflow-x-auto pb-2 scrollbar-hide"
           >
             {articles.slice(0, 6).map((item, index) => (
               <div
