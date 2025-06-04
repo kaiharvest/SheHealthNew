@@ -12,19 +12,19 @@ function Beranda() {
         <div className="container mx-auto px-6 md:px-10 flex flex-col-reverse md:flex-row items-center gap-10">
           {/* Teks */}
           <div className="flex-1">
-            <h2 className="text-pink-400 text-3xl md:text-5xl font-semibold mb-2">Teman Sehat Perempuan</h2>
-            <h1 className="text-2xl md:text-4xl font-bold mb-6">di setiap tahap kehidupan.</h1>
+            <h2 className="text-[#E36CC5] text-3xl md:text-5xl font-bold mb-2">Teman Sehat Perempuan</h2>
+            <h1 className="text-2xl md:text-4xl font-semibold mb-6">di setiap tahap kehidupan.</h1>
             <p className="text-gray-600 mb-6 text-lg leading-relaxed">
               Kami di sini bukan hanya sebagai layanan saja, tapi juga sebagai teman.
               Teman yang siap mendengar, membantu, dan memberikan solusi terbaik untuk Anda.
             </p>
             <Link
               to="/konsultasi"
-              className="bg-pink-400 text-white px-10 py-4 rounded-full hover:bg-pink-500 transition inline-block w-full md:w-auto text-center"
+              className="bg-[#E36CC5] text-white px-10 py-4 rounded-full hover:bg-pink-400 transition inline-block w-full md:w-auto text-center"
             >
               Konsultasi
             </Link>
-            <div className='bg-pink-500 mt-8 w-24 h-1 hidden md:block'></div>
+            <div className='bg-[#E36CC5] mt-6 w-24 h-1 hidden md:block'></div>
           </div>
 
           {/* Gambar */}
@@ -81,9 +81,9 @@ function Beranda() {
       </section>
 
       {/* Konten Utama 3 - Layanan */}
-      <section className="pt-24 pb-40 bg-pink-50">
+      <section className="pt-24 pb-40 bg-white">
         <div className="container mx-auto px-6 md:px-10 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-black mb-10">Layanan Tersedia</h2>
+          <h2 className="text-3xl md:text-5xl font-semibold text-gray-600 mb-10">Layanan Tersedia</h2>
 
           <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4 justify-items-center">
             {[
@@ -108,23 +108,23 @@ function Beranda() {
       </section>
 
       {/* Statistik / Metrics Section */}
-      <section className="bg-slate-300 py-24">
+      <section className="bg-pink-100 py-24">
         <div className="container mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-center">
           <div>
-            <h3 className="text-3xl font-bold text-pink-500 mb-2">250M+</h3>
-            <p className="text-gray-700 text-sm md:text-base">API requests per day, peaking at 13,000 requests a second.</p>
+            <h3 className="text-3xl font-bold text-[#E36CC5] mb-2">| 250M+</h3>
+            <p className="text-black text-sm md:text-base">API requests per day, peaking at 13,000 requests a second.</p>
           </div>
           <div>
-            <h3 className="text-3xl font-bold text-pink-500 mb-2">99.999%</h3>
-            <p className="text-gray-700 text-sm md:text-base">historical uptime for services.</p>
+            <h3 className="text-3xl font-bold text-[#E36CC5] mb-2">| 99.999%</h3>
+            <p className="text-black text-sm md:text-base">historical uptime for services.</p>
           </div>
           <div>
-            <h3 className="text-3xl font-bold text-pink-500 mb-2">90%</h3>
-            <p className="text-gray-700 text-sm md:text-base">of U.S. adults have bought from businesses using Stripe.</p>
+            <h3 className="text-3xl font-bold text-[#E36CC5] mb-2">| 90%</h3>
+            <p className="text-black text-sm md:text-base">of U.S. adults have bought from businesses using Stripe.</p>
           </div>
           <div>
-            <h3 className="text-3xl font-bold text-pink-500 mb-2">135+</h3>
-            <p className="text-gray-700 text-sm md:text-base">currencies and payment methods supported.</p>
+            <h3 className="text-3xl font-bold text-[#E36CC5] mb-2">| 135+</h3>
+            <p className="text-black text-sm md:text-base">currencies and payment methods supported.</p>
           </div>
         </div>
       </section>

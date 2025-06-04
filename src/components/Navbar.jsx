@@ -17,9 +17,9 @@ const Navbar = () => {
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center space-x-3">
-          <img src="/LogoNew.png" alt="Logo" className="w-8 h-8" />
-          <span className="text-xl font-bold text-pink-500">SheHealth</span>
+        <div className="ml-10 flex items-center space-x-3">
+          <img src="/LogoNew.png" alt="Logo" className="w-8 h-9" />
+          <span className="text-xl font-bold text-[#E36CC5]">SheHealth</span>
         </div>
 
         {/* Desktop Menu */}
@@ -31,11 +31,11 @@ const Navbar = () => {
                 <li key={idx}>
                   <Link
                     to={item.path}
-                    className={`relative group transition ${isActive ? "text-pink-500 font-semibold" : "text-gray-700 hover:text-pink-500"}`}
+                    className={`relative group transition ${isActive ? "text-[#E36CC5] font-semibold" : "text-gray-700 hover:text-[#E36CC5]"}`}
                   >
                     {item.name}
                     <span
-                      className={`absolute left-0 -bottom-1 h-0.5 bg-pink-500 transition-all duration-300 ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
+                      className={`absolute left-0 -bottom-1 h-0.5 bg-[#E36CC5] transition-all duration-300 ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
                     ></span>
                   </Link>
                 </li>
@@ -45,7 +45,7 @@ const Navbar = () => {
 
           {/* Tombol Masuk */}
           <Link to="/login">
-            <button className="ml-6 bg-pink-500 text-white font-semibold px-6 py-2 rounded-full hover:bg-pink-600 transition duration-200">
+            <button className="mr-10 bg-[#E36CC5] text-white font-semibold px-6 py-2 rounded-full hover:bg-pink-500 transition duration-200">
               Masuk
             </button>
           </Link>
