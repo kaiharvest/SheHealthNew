@@ -10,11 +10,8 @@ import Konsultasi from './Konsultasi'; // Konsultasi dari Beranda
 import Profil from './Profil';
 import Edukasi from './Edukasi';
 import LupaPassword from './LupaPassword';
-
+import Membership from './Membership'
 import Beranda from '../Beranda';
-
-// Halaman Dummy
-const Layanan = () => <div className="p-4">Halaman Layanan Terdekat</div>;
 
 const App = () => {
   return (
@@ -29,7 +26,7 @@ const App = () => {
             <Route path="/register" element={<Register />} />
             <Route path="/chat" element={<ChatApp />} />            {/* Route Chat Dokter */}
             <Route path="/konsultasi" element={<Konsultasi />} />  {/* Route Konsultasi dari Beranda */}
-            <Route path="/layanan" element={<Layanan />} />
+            <Route path="/layanan" element={<Membership />} />
             <Route path="/edukasi" element={<Edukasi />} />
             <Route path="/profil/:nama" element={<Profil />} />
             <Route path="/lupapassword" element={<LupaPassword />} />

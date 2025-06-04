@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
+  const location = useLocation();
 
   const menuItems = [
     { name: "Beranda", path: "/" },
@@ -23,18 +24,23 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-10">
-          <ul className="flex space-x-8 text-gray-700 font-medium">
-            {menuItems.map((item, idx) => (
-              <li key={idx}>
-                <Link
-                  to={item.path}
-                  className="relative group hover:text-pink-500 transition"
-                >
-                  {item.name}
-                  <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-pink-500 group-hover:w-full transition-all duration-300"></span>
-                </Link>
-              </li>
-            ))}
+          <ul className="flex space-x-8 font-medium">
+            {menuItems.map((item, idx) => {
+              const isActive = location.pathname === item.path;
+              return (
+                <li key={idx}>
+                  <Link
+                    to={item.path}
+                    className={`relative group transition ${isActive ? "text-pink-500 font-semibold" : "text-gray-700 hover:text-pink-500"}`}
+                  >
+                    {item.name}
+                    <span
+                      className={`absolute left-0 -bottom-1 h-0.5 bg-pink-500 transition-all duration-300 ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
+                    ></span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
           {/* Tombol Masuk */}
@@ -53,16 +59,13 @@ const Navbar = () => {
           >
             <div className="space-y-1">
               <span
-                className={`block h-0.5 w-6 bg-current transform transition duration-300 ${isOpen ? "rotate-45 translate-y-1.5" : ""
-                  }`}
+                className={`block h-0.5 w-6 bg-current transform transition duration-300 ${isOpen ? "rotate-45 translate-y-1.5" : ""}`}
               />
               <span
-                className={`block h-0.5 w-6 bg-current transition duration-300 ${isOpen ? "opacity-0" : ""
-                  }`}
+                className={`block h-0.5 w-6 bg-current transition duration-300 ${isOpen ? "opacity-0" : ""}`}
               />
               <span
-                className={`block h-0.5 w-6 bg-current transform transition duration-300 ${isOpen ? "-rotate-45 -translate-y-1.5" : ""
-                  }`}
+                className={`block h-0.5 w-6 bg-current transform transition duration-300 ${isOpen ? "-rotate-45 -translate-y-1.5" : ""}`}
               />
             </div>
           </button>
@@ -73,18 +76,23 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-white shadow-md px-4 pb-4">
           <ul className="space-y-3 text-gray-800 font-medium">
-            {menuItems.map((item, idx) => (
-              <li key={idx}>
-                <Link
-                  to={item.path}
-                  onClick={() => setIsOpen(false)}
-                  className="block relative group hover:text-pink-500 transition"
-                >
-                  {item.name}
-                  <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-pink-500 group-hover:w-full transition-all duration-300"></span>
-                </Link>
-              </li>
-            ))}
+            {menuItems.map((item, idx) => {
+              const isActive = location.pathname === item.path;
+              return (
+                <li key={idx}>
+                  <Link
+                    to={item.path}
+                    onClick={() => setIsOpen(false)}
+                    className={`block relative group transition ${isActive ? "text-pink-500 font-semibold" : "hover:text-pink-500"}`}
+                  >
+                    {item.name}
+                    <span
+                      className={`absolute left-0 -bottom-1 h-0.5 bg-pink-500 transition-all duration-300 ${isActive ? "w-full" : "w-0 group-hover:w-full"}`}
+                    ></span>
+                  </Link>
+                </li>
+              );
+            })}
             <li>
               <Link to="/login" onClick={() => setIsOpen(false)}>
                 <button className="w-full bg-pink-500 text-white font-semibold px-4 py-2 rounded-full hover:bg-pink-600 transition duration-200">

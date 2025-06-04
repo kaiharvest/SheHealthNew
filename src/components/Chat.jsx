@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const ChatApp = () => {
+const DoctorChatApp = () => {
     const [selectedChat, setSelectedChat] = useState(0);
     const [message, setMessage] = useState('');
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const chatEndRef = useRef(null);
 
-    // Data daftar chat
     const chatList = [
         {
             id: 1,
@@ -31,7 +30,6 @@ const ChatApp = () => {
         }
     ];
 
-    // Data pesan awal
     const [messages, setMessages] = useState([
         {
             id: 1,
@@ -61,7 +59,6 @@ const ChatApp = () => {
         },
     ]);
 
-    // Fungsi kirim pesan
     const handleSendMessage = () => {
         if (message.trim()) {
             const newMessage = {
@@ -75,19 +72,16 @@ const ChatApp = () => {
         }
     };
 
-    // Toggle sidebar untuk mobile view
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
     };
 
-    // Scroll otomatis ke pesan terbaru
     useEffect(() => {
         chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [messages]);
 
     return (
         <div className="flex h-screen bg-gray-50 relative">
-            {/* Backdrop ketika sidebar terbuka di mobile */}
             {isSidebarOpen && (
                 <div
                     className="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden"
@@ -142,8 +136,7 @@ const ChatApp = () => {
                     {chatList.map((chat, index) => (
                         <div
                             key={chat.id}
-                            className={`p-4 border-b border-gray-100 cursor-pointer hover:bg-gray-50 ${selectedChat === index ? 'bg-pink-50 border-r-2 border-r-pink-500' : ''
-                                }`}
+                            className={`p-4 border-b border-gray-100 cursor-pointer hover:bg-gray-50 ${selectedChat === index ? 'bg-pink-50 border-r-2 border-r-pink-500' : ''}`}
                             onClick={() => {
                                 setSelectedChat(index);
                                 setIsSidebarOpen(false);
@@ -168,9 +161,8 @@ const ChatApp = () => {
                 </div>
             </div>
 
-            {/* Area chat utama */}
+            {/* Chat Main Area */}
             <div className="flex-1 flex flex-col lg:ml-0">
-                {/* Header chat */}
                 <div className="bg-white border-b border-gray-200 p-3 sm:p-4">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
@@ -197,14 +189,13 @@ const ChatApp = () => {
                     </div>
                 </div>
 
-                {/* Info waktu mulai konsultasi */}
                 <div className="bg-gray-100 px-3 sm:px-4 py-2 text-center">
                     <span className="bg-gray-300 text-gray-700 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">
                         Konsultasi dimulai - 10:30 WIB
                     </span>
                 </div>
 
-                {/* Area pesan */}
+                {/* Chat Messages */}
                 <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4">
                     {messages.map((msg) => (
                         <div key={msg.id} className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
@@ -230,27 +221,25 @@ const ChatApp = () => {
                             </div>
                         </div>
                     ))}
-                    <div ref={chatEndRef} />
+                    <div ref={chatEndRef}></div>
                 </div>
 
-                {/* Input pesan */}
-                <div className="bg-white border-t border-gray-200 p-4">
+                {/* Input area */}
+                <div className="bg-white p-3 sm:p-4 border-t border-gray-200">
                     <div className="flex items-center gap-3">
-                        <div className="flex-1 relative">
-                            <input
-                                type="text"
-                                value={message}
-                                onChange={(e) => setMessage(e.target.value)}
-                                onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
-                                placeholder="Tulis pesan disini..."
-                                className="w-full px-4 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-500 focus:border-transparent"
-                            />
-                        </div>
+                        <input
+                            type="text"
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
+                            onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
+                            placeholder="Ketik pesan..."
+                            className="flex-1 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-500"
+                        />
                         <button
                             onClick={handleSendMessage}
-                            className="w-12 h-12 bg-pink-500 hover:bg-pink-600 rounded-full flex items-center justify-center text-white transition-colors"
+                            className="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-full transition duration-200"
                         >
-                            <span className="text-xl">➤</span>
+                            Kirim
                         </button>
                     </div>
                 </div>
@@ -259,4 +248,4 @@ const ChatApp = () => {
     );
 };
 
-export default ChatApp;
+export default DoctorChatApp;
