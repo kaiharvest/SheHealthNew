@@ -55,10 +55,14 @@ const Login = () => {
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="text-gray-500 ml-2"
+                className="ml-2 focus:outline-none"
                 aria-label="Toggle password visibility"
               >
-                {showPassword ? "🙈" : "👁️"}
+                <img
+                  src={showPassword ? "icons/Hidden.png" : "icons/eye.png"}
+                  alt={showPassword ? "Sembunyikan password" : "Lihat password"}
+                  className="w-5 h-5"
+                />
               </button>
             </div>
           </div>
