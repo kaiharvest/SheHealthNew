@@ -1,15 +1,32 @@
 // src/pages/Konsultasi.jsx
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const doctors = new Array(9).fill({
-  name: "dr. Rose, Sp.KK",
+// Daftar dokter
+const doctorsData = [
+  { name: "dr. Ayu, Sp.OG", specialization: "Spesialis Kandungan & Kebidanan", image: "/images/1.jpg" },
+  { name: "dr. Budi, Sp.S", specialization: "Spesialis Saraf", image: "/images/2.jpg" },
+  { name: "dr. Citra", specialization: "Dokter Gigi Umum", image: "/images/3.jpg" },
+  { name: "dr. Dimas, Sp.JP", specialization: "Spesialis Jantung & Pembuluh Darah", image: "/images/4.jpg" },
+  { name: "dr. Elok, Sp.M", specialization: "Spesialis Mata", image: "/images/5.jpg" },
+  { name: "dr. Fajar", specialization: "Dokter Kulit", image: "/images/6.jpg" },
+  { name: "dr. Gina", specialization: "Dokter Gizi", image: "/images/7.jpg" },
+  { name: "dr. Hendra", specialization: "Dokter Umum", image: "/images/8.jpg" },
+  { name: "dr. Intan, Sp.OG", specialization: "Spesialis Kandungan & Kebidanan", image: "/images/9.jpg" },
+  { name: "dr. Joko, Sp.S", specialization: "Spesialis Saraf", image: "/images/10.jpg" },
+  { name: "dr. Karin", specialization: "Dokter Gigi Umum", image: "/images/11.jpg" },
+  { name: "dr. Lilis, Sp.JP", specialization: "Spesialis Jantung & Pembuluh Darah", image: "/images/12.jpg" },
+  { name: "dr. Miko, Sp.M", specialization: "Spesialis Mata", image: "/images/13.jpg" },
+  { name: "dr. Nia", specialization: "Dokter Kulit", image: "/images/14.jpg" },
+  { name: "dr. Oki", specialization: "Dokter Gizi", image: "/images/15.jpg" },
+  { name: "dr. Putri", specialization: "Dokter Umum", image: "/images/16.jpg" },
+].map((d) => ({
+  ...d,
   rating: 4.9,
   experience: "7 tahun",
   price: "Rp. 90.000",
   online: true,
-  image: "https://via.placeholder.com/100",
-});
+}));
 
 const DoctorCard = ({ doctor }) => {
   const urlFriendlyName = doctor.name.replace(/\s+/g, "-").toLowerCase();
@@ -17,6 +34,10 @@ const DoctorCard = ({ doctor }) => {
 
   const handleBuatJanji = () => {
     navigate("/buatjanji", { state: { doctor } });
+  };
+
+  const handleChat = () => {
+    navigate("/chat", { state: { doctor } });
   };
 
   return (
@@ -30,13 +51,12 @@ const DoctorCard = ({ doctor }) => {
           />
           <div>
             <h3 className="font-semibold text-sm text-gray-900">{doctor.name}</h3>
-            <p className="text-xs text-gray-500">Spesialis Kulit</p>
+            <p className="text-xs text-gray-500">{doctor.specialization}</p>
           </div>
         </div>
         <Link
           to={`/profil/${urlFriendlyName}`}
           className="text-sm text-[#E36CC5] hover:underline"
-          aria-label={`Lihat profil ${doctor.name}`}
         >
           Profil
         </Link>
@@ -47,9 +67,7 @@ const DoctorCard = ({ doctor }) => {
           <span className="text-yellow-400">★★★★★</span>
           <span className="ml-2">{doctor.rating}</span>
           {doctor.online && (
-            <span className="text-green-500 ml-auto" aria-label="Dokter Online">
-              🟢 Online
-            </span>
+            <span className="text-green-500 ml-auto">🟢 Online</span>
           )}
         </div>
         <p>📅 Pengalaman: {doctor.experience}</p>
@@ -59,11 +77,14 @@ const DoctorCard = ({ doctor }) => {
       <div className="mt-4 flex gap-2 justify-center">
         <button
           onClick={handleBuatJanji}
-          className="text-xs font-semibold px-5 py-2 bg-[#E36CC5] text-white rounded-full border border-[#E36CC5] hover:bg-white hover:text-[#E36CC5] transition text-center"
+          className="text-xs font-semibold px-5 py-2 bg-[#E36CC5] text-white rounded-full border border-[#E36CC5] hover:bg-white hover:text-[#E36CC5] transition"
         >
           Buat Janji
         </button>
-        <button className="text-xs font-semibold px-5 py-2 border border-gray-400 rounded-full hover:bg-[#E36CC5] hover:text-white transition">
+        <button
+          onClick={handleChat}
+          className="text-xs font-semibold px-5 py-2 border border-gray-400 rounded-full hover:bg-[#E36CC5] hover:text-white transition"
+        >
           Chat
         </button>
       </div>
@@ -72,6 +93,14 @@ const DoctorCard = ({ doctor }) => {
 };
 
 const Konsultasi = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filteredDoctors = doctorsData.filter(
+    (doctor) =>
+      doctor.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      doctor.specialization.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="px-6 md:px-24 py-10 font-poppins">
       {/* Search */}
@@ -85,8 +114,9 @@ const Konsultasi = () => {
         <input
           type="text"
           placeholder="Cari dokter, spesialis..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
           className="w-full px-12 py-3 border border-gray-300 rounded-full focus:outline-none shadow-sm placeholder:text-sm"
-          aria-label="Cari dokter atau spesialis"
         />
       </div>
 
@@ -113,9 +143,13 @@ const Konsultasi = () => {
 
       {/* Doctor Cards */}
       <div className="flex flex-wrap justify-center">
-        {doctors.map((doctor, index) => (
-          <DoctorCard key={index} doctor={doctor} />
-        ))}
+        {filteredDoctors.length > 0 ? (
+          filteredDoctors.map((doctor, index) => (
+            <DoctorCard key={index} doctor={doctor} />
+          ))
+        ) : (
+          <p className="text-gray-500 text-sm">Dokter tidak ditemukan.</p>
+        )}
       </div>
     </div>
   );
