@@ -31,10 +31,10 @@ const Verifikasi = () => {
   return (
     <div className="min-h-screen bg-[#f8f8f8] flex items-center justify-center px-4">
       <div className="bg-white rounded-2xl shadow-md max-w-6xl w-full flex flex-col lg:flex-row p-6 lg:p-12 gap-10">
-        
+
         {/* Kiri: Form */}
         <div className="w-full lg:w-1/2 flex flex-col justify-center">
-          
+
           {/* Tombol kembali */}
           <button
             onClick={() => navigate("/lupapassword")}
@@ -75,11 +75,10 @@ const Verifikasi = () => {
             Belum menerima kode?{" "}
             <span
               onClick={handleKirimUlang}
-              className={`${
-                bisaKirimUlang
+              className={`${bisaKirimUlang
                   ? "text-pink-600 hover:underline cursor-pointer"
                   : "text-gray-400 cursor-not-allowed"
-              }`}
+                }`}
             >
               Kirim Ulang
             </span>
@@ -87,7 +86,7 @@ const Verifikasi = () => {
 
           {/* Tombol verifikasi */}
           <button
-            onClick={() => alert("Kode diverifikasi (simulasi)")}
+            onClick={() => navigate("/login")}
             className="w-full bg-gradient-to-r from-pink-400 to-pink-500 hover:opacity-90 text-white py-2 rounded-full text-sm font-semibold shadow-md transition duration-300"
           >
             Verifikasi
