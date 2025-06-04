@@ -1,5 +1,6 @@
+// src/pages/Konsultasi.jsx
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const doctors = new Array(9).fill({
   name: "dr. Rose, Sp.KK",
@@ -12,6 +13,11 @@ const doctors = new Array(9).fill({
 
 const DoctorCard = ({ doctor }) => {
   const urlFriendlyName = doctor.name.replace(/\s+/g, "-").toLowerCase();
+  const navigate = useNavigate();
+
+  const handleBuatJanji = () => {
+    navigate("/buatjanji", { state: { doctor } });
+  };
 
   return (
     <div className="bg-white rounded-2xl shadow-lg p-4 w-[280px] m-4 hover:shadow-xl transition-all duration-300">
@@ -30,6 +36,7 @@ const DoctorCard = ({ doctor }) => {
         <Link
           to={`/profil/${urlFriendlyName}`}
           className="text-sm text-[#E36CC5] hover:underline"
+          aria-label={`Lihat profil ${doctor.name}`}
         >
           Profil
         </Link>
@@ -39,14 +46,21 @@ const DoctorCard = ({ doctor }) => {
         <div className="flex items-center justify-between mb-1">
           <span className="text-yellow-400">★★★★★</span>
           <span className="ml-2">{doctor.rating}</span>
-          {doctor.online && <span className="text-green-500 ml-auto">🟢 Online</span>}
+          {doctor.online && (
+            <span className="text-green-500 ml-auto" aria-label="Dokter Online">
+              🟢 Online
+            </span>
+          )}
         </div>
         <p>📅 Pengalaman: {doctor.experience}</p>
         <p>💎 {doctor.price} / bulan</p>
       </div>
 
       <div className="mt-4 flex gap-2 justify-center">
-        <button className="text-xs font-semibold px-5 py-2 bg-[#E36CC5] text-white rounded-full border border-[#E36CC5] hover:bg-white hover:text-[#E36CC5] transition">
+        <button
+          onClick={handleBuatJanji}
+          className="text-xs font-semibold px-5 py-2 bg-[#E36CC5] text-white rounded-full border border-[#E36CC5] hover:bg-white hover:text-[#E36CC5] transition text-center"
+        >
           Buat Janji
         </button>
         <button className="text-xs font-semibold px-5 py-2 border border-gray-400 rounded-full hover:bg-[#E36CC5] hover:text-white transition">
@@ -62,16 +76,17 @@ const Konsultasi = () => {
     <div className="px-6 md:px-24 py-10 font-poppins">
       {/* Search */}
       <div className="mb-8 relative w-full max-w-3xl mx-auto">
-        <div className="absolute inset-y-0 left-0 pl-4 flex items-center">
+        <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
           <img src="/icons/search.svg" alt="Search Icon" className="h-6 w-6" />
         </div>
-        <div className="absolute inset-y-0 right-0 pr-4 flex items-center">
+        <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
           <img src="/icons/setting.svg" alt="Settings Icon" className="h-5 w-5" />
         </div>
         <input
           type="text"
           placeholder="Cari dokter, spesialis..."
           className="w-full px-12 py-3 border border-gray-300 rounded-full focus:outline-none shadow-sm placeholder:text-sm"
+          aria-label="Cari dokter atau spesialis"
         />
       </div>
 

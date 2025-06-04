@@ -5,13 +5,14 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import Login from './Login';
 import Register from './Register';
-import ChatApp from './Chat';       // Chat Dokter
-import Konsultasi from './Konsultasi'; // Konsultasi dari Beranda
+import ChatApp from './Chat';             // Chat Dokter
+import Konsultasi from './Konsultasi';     // Konsultasi dari Beranda
 import Profil from './Profil';
 import Edukasi from './Edukasi';
 import LupaPassword from './LupaPassword';
-import Membership from './Membership'
+import Membership from './Membership';
 import Beranda from '../Beranda';
+import BuatJanji from './BuatJanji';       // ✅ Import halaman Buat Janji
 
 const App = () => {
   return (
@@ -24,12 +25,13 @@ const App = () => {
             <Route path="/" element={<Beranda />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/chat" element={<ChatApp />} />            {/* Route Chat Dokter */}
-            <Route path="/konsultasi" element={<Konsultasi />} />  {/* Route Konsultasi dari Beranda */}
+            <Route path="/chat" element={<ChatApp />} />
+            <Route path="/konsultasi" element={<Konsultasi />} />
             <Route path="/layanan" element={<Membership />} />
             <Route path="/edukasi" element={<Edukasi />} />
             <Route path="/profil/:nama" element={<Profil />} />
             <Route path="/lupapassword" element={<LupaPassword />} />
+            <Route path="/buatjanji" element={<BuatJanji />} />  {/* ✅ Tambahkan route Buat Janji */}
           </Routes>
         </main>
 
