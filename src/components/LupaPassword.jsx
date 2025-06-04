@@ -1,7 +1,10 @@
 import React from 'react';
 import { IoArrowBack } from 'react-icons/io5';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const LupaPassword = () => {
+  const navigate = useNavigate(); // Inisialisasi navigate
+
   return (
     <div className="py-6 flex justify-center bg-gray-50">
       <div className="bg-white shadow-md rounded-lg flex flex-col md:flex-row w-full max-w-4xl p-16">
@@ -15,7 +18,10 @@ const LupaPassword = () => {
           </div>
 
           {/* Back Button */}
-          <div className="flex items-center text-sm text-gray-600 cursor-pointer mb-3">
+          <div
+            onClick={() => navigate('/login')} // Navigasi ke halaman login
+            className="flex items-center text-sm text-gray-600 cursor-pointer mb-3 hover:text-[#E36CC5] transition"
+          >
             <IoArrowBack className="mr-2" />
             Sebelumnya
           </div>

@@ -5,14 +5,14 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 import Login from './Login';
 import Register from './Register';
-import ChatApp from './Chat';             // Chat Dokter
-import Konsultasi from './Konsultasi';     // Konsultasi dari Beranda
+import ChatApp from './Chat';            
+import Konsultasi from './Konsultasi';     
 import Profil from './Profil';
 import Edukasi from './Edukasi';
 import LupaPassword from './LupaPassword';
 import Membership from './Membership';
 import Beranda from '../Beranda';
-import BuatJanji from './BuatJanji';       // ✅ Import halaman Buat Janji
+import BuatJanji from './BuatJanji';      
 
 const App = () => {
   return (

@@ -9,7 +9,7 @@ const BuatJanji = () => {
           className="absolute top-6 left-6 w-10 h-10 bg-[#E36CC5] rounded-full flex justify-center text-white text-3xl leading-none"
           aria-label="Kembali"
           onClick={() => window.history.back()}
-        >
+        > 
           ←
         </button>
 
