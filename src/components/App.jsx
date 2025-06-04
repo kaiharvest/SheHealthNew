@@ -1,18 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+// Komponen Halaman
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Login from './Login';
 import Register from './Register';
-import ChatApp from './Chat';            
-import Konsultasi from './Konsultasi';     
+import ChatApp from './Chat';
+import Konsultasi from './Konsultasi';
 import Profil from './Profil';
 import Edukasi from './Edukasi';
 import LupaPassword from './LupaPassword';
 import Membership from './Membership';
 import Beranda from '../Beranda';
-import BuatJanji from './BuatJanji';      
+import BuatJanji from './BuatJanji';
+import Verifikasi from './Verifikasi'; // ✅ Tambahkan Verifikasi
 
 const App = () => {
   return (
@@ -31,7 +33,8 @@ const App = () => {
             <Route path="/edukasi" element={<Edukasi />} />
             <Route path="/profil/:nama" element={<Profil />} />
             <Route path="/lupapassword" element={<LupaPassword />} />
-            <Route path="/buatjanji" element={<BuatJanji />} />  {/* ✅ Tambahkan route Buat Janji */}
+            <Route path="/verifikasi" element={<Verifikasi />} /> {/* ✅ Routing ke halaman Verifikasi */}
+            <Route path="/buatjanji" element={<BuatJanji />} />
           </Routes>
         </main>
 

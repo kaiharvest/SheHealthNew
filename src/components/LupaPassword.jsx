@@ -5,6 +5,12 @@ import { useNavigate } from 'react-router-dom'; // Import useNavigate
 const LupaPassword = () => {
   const navigate = useNavigate(); // Inisialisasi navigate
 
+  // Fungsi ketika tombol "Kirim" ditekan
+  const handleKirim = () => {
+    // Anda bisa menambahkan validasi email atau API di sini
+    navigate('/verifikasi'); // Arahkan ke halaman Verifikasi
+  };
+
   return (
     <div className="py-6 flex justify-center bg-gray-50">
       <div className="bg-white shadow-md rounded-lg flex flex-col md:flex-row w-full max-w-4xl p-16">
@@ -19,7 +25,7 @@ const LupaPassword = () => {
 
           {/* Back Button */}
           <div
-            onClick={() => navigate('/login')} // Navigasi ke halaman login
+            onClick={() => navigate('/login')}
             className="flex items-center text-sm text-gray-600 cursor-pointer mb-3 hover:text-[#E36CC5] transition"
           >
             <IoArrowBack className="mr-2" />
@@ -42,6 +48,7 @@ const LupaPassword = () => {
 
           {/* Submit Button */}
           <button
+            onClick={handleKirim}
             style={{ backgroundColor: "#E36CC5" }}
             className="w-full text-white py-2 rounded-full shadow-lg hover:bg-pink-600 transition duration-200 mb-2 mt-2"
           >
@@ -57,7 +64,6 @@ const LupaPassword = () => {
             className="w-full max-w-xs"
           />
         </div>
-
       </div>
     </div>
   );
