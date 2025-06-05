@@ -4,21 +4,61 @@ import { Link, useNavigate } from "react-router-dom";
 
 // Daftar dokter
 const doctorsData = [
-  { name: "dr. Ayu, Sp.OG", specialization: "Spesialis Kandungan & Kebidanan", image: "/images/1.jpg" },
-  { name: "dr. Budi, Sp.S", specialization: "Spesialis Saraf", image: "/images/2.jpg" },
-  { name: "dr. Citra", specialization: "Dokter Gigi Umum", image: "/images/3.jpg" },
-  { name: "dr. Dimas, Sp.JP", specialization: "Spesialis Jantung & Pembuluh Darah", image: "/images/4.jpg" },
-  { name: "dr. Elok, Sp.M", specialization: "Spesialis Mata", image: "/images/5.jpg" },
-  { name: "dr. Fajar", specialization: "Dokter Kulit", image: "/images/6.jpg" },
-  { name: "dr. Gina", specialization: "Dokter Gizi", image: "/images/7.jpg" },
-  { name: "dr. Hendra", specialization: "Dokter Umum", image: "/images/8.jpg" },
-  { name: "dr. Intan, Sp.OG", specialization: "Spesialis Kandungan & Kebidanan", image: "/images/9.jpg" },
-  { name: "dr. Joko, Sp.S", specialization: "Spesialis Saraf", image: "/images/10.jpg" },
-  { name: "dr. Karin", specialization: "Dokter Gigi Umum", image: "/images/11.jpg" },
-  { name: "dr. Lilis, Sp.JP", specialization: "Spesialis Jantung & Pembuluh Darah", image: "/images/12.jpg" },
-  { name: "dr. Miko, Sp.M", specialization: "Spesialis Mata", image: "/images/13.jpg" },
+  {
+    name: "dr. Jennie, Sp.OG",
+    specialization: "Spesialis Kandungan & Kebidanan",
+    image: "/images/1.jpg",
+  },
+  {
+    name: "dr. Rose, Sp.S",
+    specialization: "Spesialis Saraf",
+    image: "/images/2.jpg",
+  },
+  {
+    name: "dr. Lisa",
+    specialization: "Dokter Gigi Umum",
+    image: "/images/3.jpg",
+  },
+  {
+    name: "dr. Jisoo, Sp.JP",
+    specialization: "Spesialis Jantung & Pembuluh Darah",
+    image: "/images/4.jpg",
+  },
+  {
+    name: "dr. Giselle, Sp.M",
+    specialization: "Spesialis Mata",
+    image: "/images/5.jpg",
+  },
+  { name: "dr. Karina", specialization: "Dokter Kulit", image: "/images/6.jpg" },
+  { name: "dr. Irene", specialization: "Dokter Gizi", image: "/images/7.jpg" },
+  { name: "dr. Wendy", specialization: "Dokter Umum", image: "/images/8.jpg" },
+  {
+    name: "dr. Yeri, Sp.OG",
+    specialization: "Spesialis Kandungan & Kebidanan",
+    image: "/images/9.jpg",
+  },
+  {
+    name: "dr. Mina, Sp.S",
+    specialization: "Spesialis Saraf",
+    image: "/images/10.jpg",
+  },
+  {
+    name: "dr. Jihyo",
+    specialization: "Dokter Gigi Umum",
+    image: "/images/11.jpg",
+  },
+  {
+    name: "dr. Hansohe, Sp.JP",
+    specialization: "Spesialis Jantung & Pembuluh Darah",
+    image: "/images/12.jpg",
+  },
+  {
+    name: "dr. Miko, Sp.M",
+    specialization: "Spesialis Mata",
+    image: "/images/13.jpg",
+  },
   { name: "dr. Nia", specialization: "Dokter Kulit", image: "/images/14.jpg" },
-  { name: "dr. Oki", specialization: "Dokter Gizi", image: "/images/15.jpg" },
+  { name: "dr. Sari", specialization: "Dokter Gizi", image: "/images/15.jpg" },
   { name: "dr. Putri", specialization: "Dokter Umum", image: "/images/16.jpg" },
 ].map((d) => ({
   ...d,
@@ -47,10 +87,13 @@ const DoctorCard = ({ doctor }) => {
           <img
             src={doctor.image}
             alt={doctor.name}
-            className="w-14 h-14 rounded-full border-2 border-[#E36CC5]"
+            className="w-14 h-14 rounded-full border-2 border-[#E36CC5] object-cover aspect-square"
           />
+
           <div>
-            <h3 className="font-semibold text-sm text-gray-900">{doctor.name}</h3>
+            <h3 className="font-semibold text-sm text-gray-900">
+              {doctor.name}
+            </h3>
             <p className="text-xs text-gray-500">{doctor.specialization}</p>
           </div>
         </div>
@@ -79,11 +122,11 @@ const DoctorCard = ({ doctor }) => {
           onClick={handleBuatJanji}
           className="text-xs font-semibold px-5 py-2 bg-[#E36CC5] text-white rounded-full border border-[#E36CC5] hover:bg-white hover:text-[#E36CC5] transition"
         >
-          Buat Janji
+          Buat Janji  
         </button>
         <button
           onClick={handleChat}
-          className="text-xs font-semibold px-5 py-2 border border-gray-400 rounded-full hover:bg-[#E36CC5] hover:text-white transition"
+          className="text-xs font-semibold px-5 py-2 border border-gray-400 rounded-full hover:bg-white hover:text-[#E36CC5] transition"
         >
           Chat
         </button>
@@ -108,9 +151,6 @@ const Konsultasi = () => {
         <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
           <img src="/icons/search.svg" alt="Search Icon" className="h-6 w-6" />
         </div>
-        <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none">
-          <img src="/icons/setting.svg" alt="Settings Icon" className="h-5 w-5" />
-        </div>
         <input
           type="text"
           placeholder="Cari dokter, spesialis..."
@@ -121,14 +161,15 @@ const Konsultasi = () => {
       </div>
 
       {/* Promo */}
-      <div className="bg-[#FFEFFB] border-l-8 border-[#E36CC5] rounded-xl flex flex-col md:flex-row items-center p-6 mb-10">
-        <div className="flex-1">
+      <div className="bg-[#FFEFFB] border-l-8 border-[#E36CC5] rounded-xl flex flex-col md:flex-row items-center">
+        <div className="flex-1 mx-14">
           <h2 className="text-xl md:text-2xl font-bold text-gray-900">
             Promo Khusus Hari Kesehatan Wanita
           </h2>
           <p className="text-sm md:text-base mt-2">
-            Dapatkan <span className="font-bold text-red-600">Diskon 30%</span> untuk konsultasi
-            dengan dokter spesialis kandungan. Berlaku hingga akhir bulan.
+            Dapatkan <span className="font-bold text-red-600">Diskon 30%</span>{" "}
+            untuk konsultasi dengan dokter spesialis kandungan. Berlaku hingga
+            akhir bulan.
           </p>
           <button className="mt-4 bg-[#E36CC5] text-white text-sm px-6 py-2 rounded-full hover:opacity-90">
             Lihat Detail

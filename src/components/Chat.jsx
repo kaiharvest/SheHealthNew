@@ -94,12 +94,9 @@ const DoctorChatApp = () => {
 
       {/* Sidebar */}
       <div
-        className={`
-          w-80 bg-white border-r border-gray-200 flex flex-col z-30
-          fixed lg:relative lg:translate-x-0 transition-transform duration-300 ease-in-out
-          ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"}
-          h-full lg:w-80 md:w-72 sm:w-64
-        `}
+        className={`w-80 bg-white border-r border-gray-200 flex flex-col z-30 fixed lg:relative lg:translate-x-0 transition-transform duration-300 ease-in-out ${
+          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        } h-full lg:w-80 md:w-72 sm:w-64`}
       >
         <div className="p-4 border-b border-gray-200">
           <div className="flex items-center justify-between mb-4">
@@ -117,9 +114,11 @@ const DoctorChatApp = () => {
             </button>
           </div>
           <div className="relative">
-            <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 text-sm">
-              🔍
-            </span>
+            <img
+              src="/icons/search.svg"
+              alt="Search"
+              className="absolute left-3 top-1/2 transform -translate-y-1/2 w-6 text-gray-400"
+            />
             <input
               type="text"
               placeholder="Cari"
@@ -246,9 +245,7 @@ const DoctorChatApp = () => {
                       : "bg-white border border-gray-200 rounded-bl-md"
                   }`}
                 >
-                  <p className="text-sm">
-                    {msg.text}
-                  </p>
+                  <p className="text-sm">{msg.text}</p>
                   {msg.time && (
                     <div
                       className={`text-xs mt-1 ${
