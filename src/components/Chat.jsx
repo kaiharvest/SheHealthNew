@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 
 const DoctorChatApp = () => {
-  const [selectedChat, setSelectedChat] = useState(0);
+  const [selectedChat, setSelectedChat] = useState(null); // null = belum pilih chat
   const [message, setMessage] = useState("");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const chatEndRef = useRef(null);
 
-  const avatarImg = "/icons/dokter-chat.svg"; // path gambar avatar
+  const avatarImg = "/icons/dokter-chat.svg";
 
   const chatList = [
     {
@@ -15,52 +15,54 @@ const DoctorChatApp = () => {
       specialty: "Poli Kesehatan, Spesialis Penyakit Dalam Anak",
       avatar: avatarImg,
       isActive: true,
+      messages: [
+        {
+          id: 1,
+          sender: "doctor",
+          text: "Selamat siang, Anis. Saya dr. Nindy. Terima kasih telah memilih layanan konsultasi kami. Bagaimana saya bisa membantu Anda hari ini?",
+          time: "10:30",
+        },
+        {
+          id: 2,
+          sender: "user",
+          text: "Selamat siang, Dokter. Saya ingin konsultasi tentang sakit kepala saya.",
+          time: "10:32",
+        },
+      ],
     },
     {
       id: 2,
-      name: "dr. Nindy, Sp.PD",
-      specialty: "Poli Kesehatan, Spesialis Penyakit Dalam Anak",
+      name: "dr. Rina, Sp.A",
+      specialty: "Spesialis Anak",
       avatar: avatarImg,
       isActive: false,
+      messages: [
+        {
+          id: 1,
+          sender: "doctor",
+          text: "Halo, saya dr. Rina. Ada yang bisa saya bantu?",
+          time: "09:45",
+        },
+      ],
     },
     {
       id: 3,
-      name: "dr. Nindy, Sp.PD",
-      specialty: "Poli Kesehatan, Spesialis Penyakit Dalam Anak",
+      name: "dr. Budi, Sp.JP",
+      specialty: "Spesialis Jantung",
       avatar: avatarImg,
       isActive: false,
+      messages: [],
     },
   ];
 
-  const [messages, setMessages] = useState([
-    {
-      id: 1,
-      sender: "doctor",
-      text: "Selamat siang, Anis. Saya dr. Nindy. Terima kasih telah memilih layanan konsultasi kami. Bagaimana saya bisa membantu Anda hari ini?",
-      time: "10:30",
-    },
-    {
-      id: 2,
-      sender: "user",
-      text: "Selamat siang, Dokter. Terima kasih. Saya ingin berkonsultasi mengenai sakit kepala yang saya alami hampir setiap hari selama 2 minggu terakhir. Biasanya terjadi di pagi hari dan terkadang disertai mual.",
-      time: "10:30",
-    },
-    {
-      id: 3,
-      sender: "doctor",
-      text: "Baik, Budi. Saya mengerti keluhan Anda. Apakah intensitas nyeri kepala tersebut bertambah dari waktu ke waktu? Dan apakah ada aktivitas atau makanan tertentu yang memicu sakit kepala tersebut?",
-      time: "10:30",
-    },
-    {
-      id: 4,
-      sender: "user",
-      text: "Ya, sepertinya makin terasa setiap harinya. Saya perhatikan kadang muncul setelah minum kopi atau kurang tidur.",
-      time: "10:31",
-    },
-  ]);
+  // Simpan semua chat dengan messages, agar tiap chat punya history masing-masing
+  const [allChats, setAllChats] = useState(chatList);
+
+  // Ambil messages chat yg sedang aktif, kalau belum pilih chat, kosong
+  const messages = selectedChat !== null ? allChats[selectedChat].messages : [];
 
   const handleSendMessage = () => {
-    if (message.trim()) {
+    if (message.trim() && selectedChat !== null) {
       const newMessage = {
         id: messages.length + 1,
         sender: "user",
@@ -70,7 +72,13 @@ const DoctorChatApp = () => {
           minute: "2-digit",
         }),
       };
-      setMessages((prev) => [...prev, newMessage]);
+      // Update messages chat yang dipilih
+      const updatedChats = [...allChats];
+      updatedChats[selectedChat] = {
+        ...updatedChats[selectedChat],
+        messages: [...updatedChats[selectedChat].messages, newMessage],
+      };
+      setAllChats(updatedChats);
       setMessage("");
     }
   };
@@ -85,6 +93,7 @@ const DoctorChatApp = () => {
 
   return (
     <div className="flex h-screen bg-gray-50 relative">
+      {/* Overlay for sidebar in mobile */}
       {isSidebarOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden"
@@ -94,17 +103,14 @@ const DoctorChatApp = () => {
 
       {/* Sidebar */}
       <div
-        className={`w-80 bg-white border-r border-gray-200 flex flex-col z-30 fixed lg:relative lg:translate-x-0 transition-transform duration-300 ease-in-out ${
-          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } h-full lg:w-80 md:w-72 sm:w-64`}
+        className={`w-80 bg-white border-r border-gray-200 flex flex-col z-30 fixed lg:relative lg:translate-x-0 transition-transform duration-300 ease-in-out ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+          } h-full lg:w-80 md:w-72 sm:w-64`}
       >
         <div className="p-4 border-b border-gray-200">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
               <img src="/LogoNew.png" alt="Logo" className="w-8 h-9" />
-              <span className="text-xl font-bold text-[#E36CC5]">
-                SheHealth
-              </span>
+              <span className="text-xl font-bold text-[#E36CC5]">SheHealth</span>
             </div>
             <button
               className="lg:hidden p-2 hover:bg-gray-100 rounded-lg"
@@ -139,14 +145,13 @@ const DoctorChatApp = () => {
         </div>
 
         <div className="flex-1 overflow-y-auto">
-          {chatList.map((chat, index) => (
+          {allChats.map((chat, index) => (
             <div
               key={chat.id}
-              className={`p-4 border-b border-gray-100 cursor-pointer hover:bg-gray-50 ${
-                selectedChat === index
+              className={`p-4 border-b border-gray-100 cursor-pointer hover:bg-gray-50 ${selectedChat === index
                   ? "bg-pink-50 border-r-2 border-r-[#E36CC5]"
                   : ""
-              }`}
+                }`}
               onClick={() => {
                 setSelectedChat(index);
                 setIsSidebarOpen(false);
@@ -179,110 +184,153 @@ const DoctorChatApp = () => {
 
       {/* Chat Main Area */}
       <div className="flex-1 flex flex-col lg:ml-0">
-        <div className="bg-white border-b border-gray-200 p-3 sm:p-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <button
-                className="lg:hidden p-2 hover:bg-gray-100 rounded-lg"
-                onClick={toggleSidebar}
-              >
-                <span className="text-gray-600 text-lg">☰</span>
-              </button>
-              <img
-                src={chatList[selectedChat].avatar}
-                alt={chatList[selectedChat].name}
-                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover"
-              />
-              <div>
-                <h2 className="font-semibold text-gray-900 text-sm sm:text-base">
-                  {chatList[selectedChat].name}
-                </h2>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span className="text-xs sm:text-sm text-gray-500">
-                    Online
-                  </span>
-                </div>
-              </div>
-            </div>
-            <button className="p-2 hover:bg-gray-100 rounded-lg">
-              <span className="text-gray-500 text-lg">⋮</span>
-            </button>
-          </div>
-        </div>
-
-        <div className="bg-gray-100 px-3 sm:px-4 py-2 text-center">
-          <span className="bg-gray-300 text-gray-700 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">
-            Konsultasi dimulai - 10:30 WIB
-          </span>
-        </div>
-
-        {/* Chat Messages */}
-        <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4">
-          {messages.map((msg) => (
-            <div
-              key={msg.id}
-              className={`flex ${
-                msg.sender === "user" ? "justify-end" : "justify-start"
-              }`}
-            >
-              <div
-                className={`flex items-end gap-2 max-w-[85%] sm:max-w-xs lg:max-w-md ${
-                  msg.sender === "user" ? "flex-row-reverse" : ""
-                }`}
-              >
-                {msg.sender === "doctor" && (
-                  <img
-                    src={avatarImg}
-                    alt="Doctor"
-                    className="w-6 h-6 sm:w-8 sm:h-8 rounded-full object-cover flex-shrink-0"
-                  />
-                )}
-                <div
-                  className={`px-3 sm:px-4 py-2 sm:py-3 rounded-2xl ${
-                    msg.sender === "user"
-                      ? "bg-[#E36CC5] text-white rounded-br-md"
-                      : "bg-white border border-gray-200 rounded-bl-md"
-                  }`}
-                >
-                  <p className="text-sm">{msg.text}</p>
-                  {msg.time && (
-                    <div
-                      className={`text-xs mt-1 ${
-                        msg.sender === "user"
-                          ? "text-pink-100"
-                          : "text-gray-500"
-                      }`}
-                    >
-                      {msg.time}
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-          ))}
-          <div ref={chatEndRef}></div>
-        </div>
-
-        {/* Input area */}
-        <div className="bg-white p-3 sm:p-4 border-t border-gray-200">
+        {/* Header */}
+        <div className="bg-white border-b border-gray-200 p-3 sm:p-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
+            <button
+              className="lg:hidden p-2 hover:bg-gray-100 rounded-lg"
+              onClick={toggleSidebar}
+            >
+              <span className="text-gray-600 text-lg">☰</span>
+            </button>
+
+            {/* Show avatar and name if chat selected */}
+            {selectedChat !== null ? (
+              <>
+                <img
+                  src={allChats[selectedChat].avatar}
+                  alt={allChats[selectedChat].name}
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover"
+                />
+                <div>
+                  <h2 className="font-semibold text-gray-900 text-sm sm:text-base">
+                    {allChats[selectedChat].name}
+                  </h2>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span className="text-xs sm:text-sm text-gray-500">
+                      Online
+                    </span>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <h2 className="font-semibold text-gray-900 text-sm sm:text-base">
+                Pilih chat untuk memulai percakapan
+              </h2>
+            )}
+          </div>
+
+          <button className="p-2 hover:bg-gray-100 rounded-lg">
+            <span className="text-gray-500 text-lg">⋮</span>
+          </button>
+        </div>
+
+        {/* Info bar */}
+        {selectedChat !== null && (
+          <div className="bg-gray-100 px-3 sm:px-4 py-2 text-center">
+            <span className="bg-gray-300 text-gray-700 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">
+              Konsultasi dimulai - 10:30 WIB
+            </span>
+          </div>
+        )}
+
+        {/* Chat Messages or placeholder */}
+        <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4">
+          {selectedChat === null ? (
+            <div className="h-full flex items-center justify-center text-gray-400 text-lg">
+              Pilih chat dari daftar di sebelah kiri untuk mulai ngobrol
+            </div>
+          ) : messages.length === 0 ? (
+            <div className="h-full flex items-center justify-center text-gray-400 text-lg">
+              Belum ada pesan. Mulai ketik pesan di bawah.
+            </div>
+          ) : (
+            messages.map((msg) => (
+              <div
+                key={msg.id}
+                className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"
+                  }`}
+              >
+                <div
+                  className={`flex items-end gap-2 max-w-[85%] sm:max-w-xs lg:max-w-md ${msg.sender === "user" ? "flex-row-reverse" : ""
+                    }`}
+                >
+                  {msg.sender === "doctor" && (
+                    <img
+                      src={avatarImg}
+                      alt="Doctor"
+                      className="w-6 h-6 sm:w-8 sm:h-8 rounded-full object-cover flex-shrink-0"
+                    />
+                  )}
+                  <div
+                    className={`px-3 sm:px-4 py-2 sm:py-3 rounded-2xl ${msg.sender === "user"
+                        ? "bg-[#E36CC5] text-white rounded-br-md"
+                        : "bg-white border border-gray-200 rounded-bl-md"
+                      }`}
+                  >
+                    <p className="text-sm">{msg.text}</p>
+                    {msg.time && (
+                      <span
+                        className={`block mt-1 text-xs ${msg.sender === "user"
+                            ? "text-white/70"
+                            : "text-gray-400"
+                          }`}
+                      >
+                        {msg.time}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))
+          )}
+          <div ref={chatEndRef} />
+        </div>
+
+        {/* Input form */}
+        {selectedChat !== null && (
+          <form
+            className="bg-white p-3 sm:p-4 flex items-center gap-3 border-t border-gray-200"
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSendMessage();
+            }}
+          >
             <input
               type="text"
+              placeholder="Ketik pesan..."
+              className="flex-1 border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
-              placeholder="Ketik pesan..."
-              className="flex-1 px-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-pink-500"
+              autoFocus
             />
             <button
-              onClick={handleSendMessage}
-              className="bg-[#E36CC5] hover:bg-pink-500 text-white px-4 py-2 rounded-full transition duration-200"
+              type="submit"
+              disabled={!message.trim()}
+              className={`p-2 rounded-full ${message.trim()
+                  ? "bg-[#E36CC5] hover:bg-pink-600 text-white"
+                  : "bg-gray-300 cursor-not-allowed"
+                }`}
             >
-              Kirim
+              {/* Paper airplane SVG icon */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M2.5 19.5L21 12 2.5 4.5v7.5l13.5 0-13.5 0v7.5z"
+                />
+              </svg>
             </button>
-          </div>
-        </div>
+          </form>
+        )}
       </div>
     </div>
   );

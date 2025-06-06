@@ -6,7 +6,7 @@ const Register = () => {
       className="min-h-screen flex flex-col md:flex-row w-full items-center justify-center font-poppins px-6 py-10 md:py-20 bg-gradient-to-br from-white to-pink-100"
     >
       {/* Left Illustration */}
-      <div className="md:w-1/2 w-full flex items-center justify-center p-6">
+      <div className="md:w-1/2 hidden md:flex items-center justify-center p-6">
         <img
           src="pana.svg"
           alt="Doctor Illustration"
@@ -15,7 +15,7 @@ const Register = () => {
       </div>
 
       {/* Right Form */}
-      <div className="md:w-1/2 w-full max-w-md bg-white shadow-lg rounded-2xl p-8 md:p-10">
+      <div className="md:w-1/2 w-full max-w-md bg-white shadow-lg rounded-2xl p-8 md:p-10 font-poppins">
         <div className="flex items-center justify-center gap-2 mb-1">
           <img src="/LogoNew.png" alt="Logo" className="w-8 h-9" />
           <h2 className="text-3xl font-bold text-pink-500">SheHealth</h2>
@@ -24,7 +24,7 @@ const Register = () => {
           Pendaftaran
         </h3>
 
-        <form className="space-y-4">
+        <form className="space-y-4 font-poppins">
           <div className="flex items-center border border-gray-300 rounded-full px-4 py-2 bg-gray-50">
             <img
               src="icons/ic_baseline-person.svg"
@@ -92,7 +92,7 @@ const Register = () => {
         </form>
 
         <p className="text-sm text-center mt-4">
-          Sudah memiliki akun?{' '}
+          Sudah memiliki akun?{" "}
           <a href="Login" className="text-pink-500 hover:underline font-medium">
             Masuk
           </a>

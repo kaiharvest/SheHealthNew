@@ -15,18 +15,19 @@ const Edukasi = () => {
     <div className="bg-[#f9f9f9] min-h-screen px-6 md:px-14 overflow-x-hidden">
       <div className="max-w-screen-xl mx-auto">
         {/* Header */}
-        <div className="mt-10 mb-14">
-          <div className="max-w-4xl mx-auto sm:px-10 text-center">
-            <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-2 flex justify-center items-center gap-2">
-              Tingkatkan Pengetahuan Kesehatan Anda
+        <div className="w-screen bg-pink-50 py-12 mb-10 relative left-1/2 right-1/2 -translate-x-1/2">
+          <div className="max-w-4xl mx-auto px-6 sm:px-16 text-center">
+            <h1 className="text-2xl sm:text-4xl font-bold text-[#E36CC5] mb-4 leading-tight">
+              Tingkatkan Pengetahuan <br className="sm:hidden" />
+              Kesehatan Anda
             </h1>
-            <p className="text-gray-600 text-sm sm:text-base">
-              Dapatkan informasi kesehatan terpercaya dari para ahli medis
-              <br />
-              untuk hidup yang lebih sehat dan berkualitas.
+            <p className="text-black text-sm sm:text-base sm:text-xl leading-relaxed">
+              Dapatkan informasi kesehatan terpercaya dari para ahli medis untuk <br className="sm:hidden" />
+              hidup yang lebih sehat dan berkualitas
             </p>
           </div>
         </div>
+
 
         {/* Artikel Pilihan */}
         <div className="mb-12">
@@ -119,7 +120,7 @@ const Edukasi = () => {
           <div className="flex justify-center mt-8">
             <button className="flex items-center gap-2 px-6 py-2 border border-gray-400 text-gray-700 rounded-full hover:bg-[#E36CC5] hover:text-white hover:border-[#E36CC5] transition">
               Lihat Semua
-             
+
             </button>
           </div>
         </div>

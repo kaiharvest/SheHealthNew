@@ -7,20 +7,53 @@ import { Link } from 'react-router-dom';
 function Beranda() {
   return (
     <div className="font-poppins">
-      <section className="bg-white pt-12 md:pt-32 pb-24 md:pb-40 relative overflow-hidden">
-        {/* Background image */}
+      <section className="bg-white pt-16 md:pt-32 pb-24 md:pb-40 relative overflow-visible">
+        {/* Background image - hidden di mobile, muncul di md ke atas */}
         <div
-          className="absolute inset-0 bg-no-repeat bg-right-top"
+          className="hidden md:block absolute inset-0 bg-no-repeat bg-right-top z-0 pointer-events-none"
           style={{
             backgroundImage: "url('/icons/background1.png')",
             backgroundSize: "50%",
-            zIndex: 0,
           }}
         ></div>
 
-        <div className="relative z-10 container mx-auto px-4 md:px-12 grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-12">
+        <div className="relative container mx-auto px-4 md:px-12 grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-12">
+          {/* Gambar dokter dan icon */}
+          <div className="relative z-50 scale-90 md:scale-100 origin-top md:origin-top-right mt-10 md:mt-0 order-1 md:order-2">
+            {/* Icon hati */}
+            <img
+              src="/icons/hati.svg"
+              alt="Heart Icon"
+              className="absolute -top-6 left-6 md:-top-10 md:left-4 w-10 md:w-16 z-50"
+            />
+            {/* Icon rumah sakit */}
+            <img
+              src="/icons/rumah-sakit.svg"
+              alt="Hospital Icon"
+              className="absolute top-2 right-4 md:top-6 md:right-2 w-10 md:w-16 z-50"
+            />
+            {/* Icon logo */}
+            <img
+              src="/icons/logo.svg"
+              alt="Shield Icon"
+              className="absolute -bottom-6 right-6 md:-bottom-10 md:right-4 w-12 md:w-16 z-50"
+            />
+            {/* Card item */}
+            <img
+              src="/icons/Card Item.svg"
+              alt="Plus Icon"
+              className="absolute bottom-0 left-6 md:bottom-4 md:left-4 w-14 md:w-32 z-50"
+            />
+            {/* Gambar dokter */}
+            <img
+              src="/dokter & bundaran.png"
+              alt="Dokter"
+              className="rounded-lg w-full max-w-xs md:max-w-md mx-auto relative z-50"
+            />
+          </div>
+
           {/* Teks */}
-          <div className="scale-100 md:scale-100 origin-top-left text-center md:text-left">
+          <div className="relative z-10 scale-100 origin-top-left text-center md:text-left order-2 md:order-1">
             <h2 className="text-[#E36CC5] text-3xl md:text-5xl font-bold mb-2 leading-tight">
               Teman Sehat Perempuan
             </h2>
@@ -28,8 +61,8 @@ function Beranda() {
               di setiap tahap kehidupan.
             </h1>
             <p className="text-gray-600 mb-6 text-sm md:text-lg leading-relaxed max-w-md mx-auto md:mx-0">
-              Kami di sini bukan hanya sebagai layanan saja, tapi juga sebagai teman. Teman yang siap mendengar,
-              membantu, dan memberikan solusi terbaik untuk Anda.
+              Kami di sini bukan hanya sebagai layanan saja, tapi juga sebagai teman.
+              Teman yang siap mendengar, membantu, dan memberikan solusi terbaik untuk Anda.
             </p>
             <Link
               to="/konsultasi"
@@ -39,45 +72,6 @@ function Beranda() {
             </Link>
             <div className="bg-[#E36CC5] mt-8 w-12 h-1 hidden md:block"></div>
           </div>
-
-          {/* Gambar Dokter + Icon */}
-          <div className="relative scale-90 md:scale-100 origin-top md:origin-top-right mt-10 md:mt-0">
-            {/* Icon hati */}
-            <img
-              src="/icons/hati.svg"
-              alt="Heart Icon"
-              className="absolute -top-6 left-6 md:-top-10 md:left-4 w-10 md:w-16 z-30"
-            />
-
-            {/* Icon rumah sakit */}
-            <img
-              src="/icons/rumah-sakit.svg"
-              alt="Hospital Icon"
-              className="absolute top-2 right-4 md:top-6 md:right-2 w-10 md:w-16 z-30"
-            />
-
-            {/* Icon logo */}
-            <img
-              src="/icons/logo.svg"
-              alt="Shield Icon"
-              className="absolute -bottom-6 right-6 md:-bottom-10 md:right-4 w-12 md:w-16 z-30"
-            />
-
-            {/* Card item */}
-            <img
-              src="/icons/Card Item.svg"
-              alt="Plus Icon"
-              className="absolute bottom-0 left-6 md:bottom-4 md:left-4 w-14 md:w-32 z-30"
-            />
-
-            {/* Gambar dokter */}
-            <img
-              src="/dokter & bundaran.png"
-              alt="Dokter"
-              className="rounded-lg w-full max-w-xs md:max-w-md mx-auto relative z-10"
-            />
-          </div>
-
         </div>
       </section>
 
