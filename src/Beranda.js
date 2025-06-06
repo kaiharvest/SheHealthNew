@@ -1,4 +1,3 @@
-// Beranda.jsx
 import './index.css';
 import TestimonialsSection from './TestimonialsSection';
 import MemberSection from './components/MemberSection';
@@ -7,8 +6,8 @@ import { Link } from 'react-router-dom';
 function Beranda() {
   return (
     <div className="font-poppins">
-      <section className="bg-white pt-16 md:pt-32 pb-24 md:pb-40 relative overflow-visible">
-        {/* Background image - hidden di mobile, muncul di md ke atas */}
+      <section className="bg-white pt-16 md:pt-32 pb-24 md:pb-40 relative overflow-visible z-0">
+        {/* Background image */}
         <div
           className="hidden md:block absolute inset-0 bg-no-repeat bg-right-top z-0 pointer-events-none"
           style={{
@@ -19,36 +18,31 @@ function Beranda() {
 
         <div className="relative container mx-auto px-4 md:px-12 grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-12">
           {/* Gambar dokter dan icon */}
-          <div className="relative z-50 scale-90 md:scale-100 origin-top md:origin-top-right mt-10 md:mt-0 order-1 md:order-2">
-            {/* Icon hati */}
+          <div className="relative z-10 scale-90 md:scale-100 origin-top md:origin-top-right mt-10 md:mt-0 order-1 md:order-2">
             <img
               src="/icons/hati.svg"
               alt="Heart Icon"
-              className="absolute -top-6 left-6 md:-top-10 md:left-4 w-10 md:w-16 z-50"
+              className="absolute -top-6 left-6 md:-top-10 md:left-4 w-10 md:w-16 z-20"
             />
-            {/* Icon rumah sakit */}
             <img
               src="/icons/rumah-sakit.svg"
               alt="Hospital Icon"
-              className="absolute top-2 right-4 md:top-6 md:right-2 w-10 md:w-16 z-50"
+              className="absolute top-2 right-4 md:top-6 md:right-2 w-10 md:w-16 z-20"
             />
-            {/* Icon logo */}
             <img
               src="/icons/logo.svg"
               alt="Shield Icon"
-              className="absolute -bottom-6 right-6 md:-bottom-10 md:right-4 w-12 md:w-16 z-50"
+              className="absolute -bottom-6 right-6 md:-bottom-10 md:right-4 w-12 md:w-16 z-20"
             />
-            {/* Card item */}
             <img
               src="/icons/Card Item.svg"
               alt="Plus Icon"
-              className="absolute bottom-0 left-6 md:bottom-4 md:left-4 w-14 md:w-32 z-50"
+              className="absolute bottom-0 left-6 md:bottom-4 md:left-4 w-14 md:w-32 z-20"
             />
-            {/* Gambar dokter */}
             <img
               src="/dokter & bundaran.png"
               alt="Dokter"
-              className="rounded-lg w-full max-w-xs md:max-w-md mx-auto relative z-50"
+              className="rounded-lg w-full max-w-xs md:max-w-md mx-auto relative z-10"
             />
           </div>
 
@@ -75,11 +69,9 @@ function Beranda() {
         </div>
       </section>
 
-      {/* Anggota */}
-      < MemberSection />
+      <MemberSection />
 
-      {/* Konten Utama 2 */}
-      <section section className="pt-24 md:pt-36 pb-24 md:pb-40" >
+      <section className="pt-24 md:pt-36 pb-24 md:pb-40">
         <div className="container mx-auto px-6 md:px-10 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-black mb-6">Mengapa memilih kami?</h2>
           <p className="text-gray-500 text-lg leading-relaxed max-w-4xl mx-auto">
@@ -88,7 +80,6 @@ function Beranda() {
             mendukung Anda mencapai hidup yang lebih sehat — semua bisa diakses dengan mudah lewat ponsel Anda.
           </p>
 
-          {/* Cards */}
           <div className="mt-16 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center">
             {[
               {
@@ -115,13 +106,11 @@ function Beranda() {
             ))}
           </div>
         </div>
-      </section >
+      </section>
 
-      {/* Konten Utama 3 - Layanan */}
-      <section section className="pt-24 pb-40 bg-white" >
+      <section className="pt-24 pb-40 bg-white">
         <div className="container mx-auto px-6 md:px-10 text-center">
           <h2 className="text-3xl md:text-5xl font-semibold text-gray-600 mb-10">Layanan Tersedia</h2>
-
           <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4 justify-items-center">
             {[
               { label: 'Spesialis Kandungan & Kebidanan', icon: '/icons/kandungan.png' },
@@ -142,10 +131,9 @@ function Beranda() {
             ))}
           </div>
         </div>
-      </section >
+      </section>
 
-      {/* Statistik / Metrics Section */}
-      <section section className="bg-pink-100 py-24" >
+      <section className="bg-pink-100 py-24">
         <div className="container mx-auto px-6 md:px-10 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
           <div>
             <h3 className="text-xl md:text-3xl font-bold text-[#E36CC5] mb-2">| 250M+</h3>
@@ -164,13 +152,10 @@ function Beranda() {
             <p className="text-black text-xs md:text-base">currencies and payment methods supported.</p>
           </div>
         </div>
-      </section >
+      </section>
 
-
-
-      {/* Testimoni */}
-      < TestimonialsSection />
-    </div >
+      <TestimonialsSection />
+    </div>
   );
 }
 
