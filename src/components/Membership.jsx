@@ -1,6 +1,10 @@
 // src/components/Membership.jsx
 
+import { useNavigate } from 'react-router-dom';
+
 export default function Membership() {
+    const navigate = useNavigate();
+
     return (
         <div className="text-gray-700 font-sans">
             {/* Section 1 - Membership Card & Description */}
@@ -19,7 +23,10 @@ export default function Membership() {
                     <p className="text-sm text-gray-500 mb-4">Konsultasi Bebas Unlimited</p>
                     <p className="text-red-500 text-3xl font-extrabold mb-1">Rp 90k</p>
                     <p className="text-gray-500 mb-6">1 bulan</p>
-                    <button className="text-pink-500 border border-pink-500 hover:bg-pink-50 px-6 py-2 rounded-full text-sm transition duration-200">
+                    <button
+                        onClick={() => navigate("/payment")}
+                        className="text-pink-500 border border-pink-500 hover:bg-pink-50 px-6 py-2 rounded-full text-sm transition duration-200"
+                    >
                         Langganan Sekarang
                     </button>
                 </div>

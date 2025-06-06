@@ -15,6 +15,8 @@ import Membership from './Membership';
 import Beranda from '../Beranda';
 import BuatJanji from './BuatJanji';
 import Verifikasi from './Verifikasi'; // ✅ Tambahkan Verifikasi
+import PaymentPage from "./PaymentPage";
+import PaymentSuccessPopup from './PaymentSuccessPopup';
 
 const App = () => {
   return (
@@ -33,6 +35,8 @@ const App = () => {
             <Route path="/edukasi" element={<Edukasi />} />
             <Route path="/profil/:nama" element={<Profil />} />
             <Route path="/lupapassword" element={<LupaPassword />} />
+            <Route path="/payment" element={<PaymentPage />} />
+            <Route path="/paymentpopup" element={<PaymentSuccessPopup />} />
             <Route path="/verifikasi" element={<Verifikasi />} /> {/* ✅ Routing ke halaman Verifikasi */}
             <Route path="/buatjanji" element={<BuatJanji />} />
           </Routes>
