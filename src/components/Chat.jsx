@@ -47,7 +47,7 @@ const DoctorChatApp = () => {
     },
     {
       id: 3,
-      name: "dr. Budi, Sp.JP",
+      name: "dr. Giselle, Sp.JP",
       specialty: "Spesialis Jantung",
       avatar: avatarImg,
       isActive: false,
@@ -300,7 +300,7 @@ const DoctorChatApp = () => {
             <input
               type="text"
               placeholder="Ketik pesan..."
-              className="flex-1 border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="flex-1 border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#E36CC5]"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               autoFocus
@@ -309,7 +309,7 @@ const DoctorChatApp = () => {
               type="submit"
               disabled={!message.trim()}
               className={`p-2 rounded-full ${message.trim()
-                  ? "bg-[#E36CC5] hover:bg-pink-600 text-white"
+                  ? "bg-[#E36CC5] hover:bg-pink-500 text-white"
                   : "bg-gray-300 cursor-not-allowed"
                 }`}
             >

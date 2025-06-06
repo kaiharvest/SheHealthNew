@@ -29,22 +29,18 @@ const Edukasi = () => {
         </div>
 
 
-        {/* Artikel Pilihan */}
+        {/* Artikel Terbaru */}
         <div className="mb-12">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-            <span className="text-yellow-500 text-2xl">⭐</span> Artikel Pilihan
-          </h2>
-
           {/* Layout sesuai desain: 1 besar kiri, 3 kecil kanan dengan tinggi sama */}
           <div className="flex flex-col md:flex-row gap-6">
             {/* Artikel utama besar */}
-            <div className="flex-1 bg-white rounded-2xl shadow-md p-5 flex flex-col justify-between transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer">
+            <div className="flex-1 bg-white rounded-2xl shadow-md p-10 flex flex-col justify-between transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer">
               <img
                 src={articles[0].image}
                 alt={articles[0].title}
-                className="w-full h-56 object-cover rounded-lg mb-4"
+                className="w-full h-56 object-cover rounded-lg mb-8"
               />
-              <span className="inline-block bg-pink-600 text-white text-xs font-semibold px-3 py-1 rounded-full mb-2 w-fit">
+              <span className="inline-block bg-[#E36CC5] text-white text-xs font-semibold px-3 py-1 rounded-full mb-2 w-fit">
                 Terbaru
               </span>
               <h3 className="font-semibold text-lg text-gray-800 mb-1 leading-tight">
@@ -84,7 +80,7 @@ const Edukasi = () => {
         {/* Artikel Terbaru */}
         <div className="mb-10">
           <h2 className="text-4xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-            <span className="text-yellow-500 text-2xl">📰</span> Artikel Terbaru
+            <span className="text-yellow-500 text-2xl">📰</span> Artikel Lainnya
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -108,7 +104,7 @@ const Edukasi = () => {
                   <p className="text-gray-400 flex items-center gap-1">
                     🕒 {item.date}
                   </p>
-                  <span className="text-pink-600 font-medium hover:underline cursor-pointer">
+                  <span className="text-[#E36CC5] font-medium hover:underline cursor-pointer">
                     Baca Selengkapnya →
                   </span>
                 </div>
@@ -120,7 +116,6 @@ const Edukasi = () => {
           <div className="flex justify-center mt-8">
             <button className="flex items-center gap-2 px-6 py-2 border border-gray-400 text-gray-700 rounded-full hover:bg-[#E36CC5] hover:text-white hover:border-[#E36CC5] transition">
               Lihat Semua
-
             </button>
           </div>
         </div>
