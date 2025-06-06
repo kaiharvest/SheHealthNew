@@ -7,42 +7,85 @@ import { Link } from 'react-router-dom';
 function Beranda() {
   return (
     <div className="font-poppins">
-      {/* Konten Utama 1 */}
-      <section className="bg-white pt-24 md:pt-40 pb-24 md:pb-40">
-        <div className="container mx-auto px-6 md:px-10 flex flex-col-reverse md:flex-row items-center gap-10">
+      <section className="bg-white pt-12 md:pt-32 pb-24 md:pb-40 relative overflow-hidden">
+        {/* Background image */}
+        <div
+          className="absolute inset-0 bg-no-repeat bg-right-top"
+          style={{
+            backgroundImage: "url('/icons/background1.png')",
+            backgroundSize: "50%",
+            zIndex: 0,
+          }}
+        ></div>
+
+        <div className="relative z-10 container mx-auto px-4 md:px-12 grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-12">
           {/* Teks */}
-          <div className="flex-1">
-            <h2 className="text-[#E36CC5] text-3xl md:text-5xl font-bold mb-2">Teman Sehat Perempuan</h2>
-            <h1 className="text-2xl md:text-4xl font-semibold mb-6">di setiap tahap kehidupan.</h1>
-            <p className="text-gray-600 mb-6 text-lg leading-relaxed">
-              Kami di sini bukan hanya sebagai layanan saja, tapi juga sebagai teman.
-              Teman yang siap mendengar, membantu, dan memberikan solusi terbaik untuk Anda.
+          <div className="scale-100 md:scale-100 origin-top-left text-center md:text-left">
+            <h2 className="text-[#E36CC5] text-3xl md:text-5xl font-bold mb-2 leading-tight">
+              Teman Sehat Perempuan
+            </h2>
+            <h1 className="text-xl md:text-3xl font-semibold mb-4 leading-snug text-black">
+              di setiap tahap kehidupan.
+            </h1>
+            <p className="text-gray-600 mb-6 text-sm md:text-lg leading-relaxed max-w-md mx-auto md:mx-0">
+              Kami di sini bukan hanya sebagai layanan saja, tapi juga sebagai teman. Teman yang siap mendengar,
+              membantu, dan memberikan solusi terbaik untuk Anda.
             </p>
             <Link
               to="/konsultasi"
-              className="bg-[#E36CC5] text-white px-10 py-4 rounded-full hover:bg-pink-400 transition inline-block w-full md:w-auto text-center"
+              className="bg-[#E36CC5] text-white px-6 py-2 md:px-10 md:py-4 rounded-full hover:bg-pink-400 transition inline-block w-full md:w-auto text-center text-sm md:text-lg font-medium"
             >
               Konsultasi
             </Link>
-            <div className='bg-[#E36CC5] mt-6 w-24 h-1 hidden md:block'></div>
+            <div className="bg-[#E36CC5] mt-8 w-12 h-1 hidden md:block"></div>
           </div>
 
-          {/* Gambar */}
-          <div className="flex-1 relative">
-            <img src="/icons/hati.svg" alt="Heart Icon" className="absolute -top-5 left-36 w-20 z-30 hidden md:block" />
-            <img src="/icons/rumah-sakit.svg" alt="Hospital Icon" className="absolute top-10 right-16 w-16 z-30 hidden md:block" />
-            <img src="/icons/logo.svg" alt="Shield Icon" className="absolute -bottom-20 right-24 w-24 z-30 hidden md:block" />
-            <img src="/icons/Card Item.svg" alt="Plus Icon" className="absolute bottom-1 left-16 w-28 md:w-56 z-30 hidden md:block" />
-            <img src="/dokter & bundaran.png" alt="Dokter" className="rounded-lg w-full max-w-sm mx-auto relative z-10" />
+          {/* Gambar Dokter + Icon */}
+          <div className="relative scale-90 md:scale-100 origin-top md:origin-top-right mt-10 md:mt-0">
+            {/* Icon hati */}
+            <img
+              src="/icons/hati.svg"
+              alt="Heart Icon"
+              className="absolute -top-6 left-6 md:-top-10 md:left-4 w-10 md:w-16 z-30"
+            />
+
+            {/* Icon rumah sakit */}
+            <img
+              src="/icons/rumah-sakit.svg"
+              alt="Hospital Icon"
+              className="absolute top-2 right-4 md:top-6 md:right-2 w-10 md:w-16 z-30"
+            />
+
+            {/* Icon logo */}
+            <img
+              src="/icons/logo.svg"
+              alt="Shield Icon"
+              className="absolute -bottom-6 right-6 md:-bottom-10 md:right-4 w-12 md:w-16 z-30"
+            />
+
+            {/* Card item */}
+            <img
+              src="/icons/Card Item.svg"
+              alt="Plus Icon"
+              className="absolute bottom-0 left-6 md:bottom-4 md:left-4 w-14 md:w-32 z-30"
+            />
+
+            {/* Gambar dokter */}
+            <img
+              src="/dokter & bundaran.png"
+              alt="Dokter"
+              className="rounded-lg w-full max-w-xs md:max-w-md mx-auto relative z-10"
+            />
           </div>
+
         </div>
       </section>
 
       {/* Anggota */}
-      <MemberSection />
+      < MemberSection />
 
       {/* Konten Utama 2 */}
-      <section className="pt-24 md:pt-36 pb-24 md:pb-40">
+      <section section className="pt-24 md:pt-36 pb-24 md:pb-40" >
         <div className="container mx-auto px-6 md:px-10 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-black mb-6">Mengapa memilih kami?</h2>
           <p className="text-gray-500 text-lg leading-relaxed max-w-4xl mx-auto">
@@ -78,23 +121,23 @@ function Beranda() {
             ))}
           </div>
         </div>
-      </section>
+      </section >
 
       {/* Konten Utama 3 - Layanan */}
-      <section className="pt-24 pb-40 bg-white">
+      <section section className="pt-24 pb-40 bg-white" >
         <div className="container mx-auto px-6 md:px-10 text-center">
           <h2 className="text-3xl md:text-5xl font-semibold text-gray-600 mb-10">Layanan Tersedia</h2>
 
           <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-4 justify-items-center">
             {[
-              { label: 'Spesialis Kandungan & Kebidanan', icon: '/icons/mata.png' },
-              { label: 'Layanan Kandungan', icon: '/icons/kandungan.png' },
-              { label: 'Layanan Psikologi', icon: '/icons/psikologi.png' },
-              { label: 'Layanan Umum', icon: '/icons/umum.png' },
-              { label: 'Layanan Nutrisi', icon: '/icons/nutrisi.png' },
-              { label: 'Layanan Nutrisi', icon: '/icons/nutrisi.png' },
-              { label: 'Layanan Nutrisi', icon: '/icons/nutrisi.png' },
-              { label: 'Layanan Nutrisi', icon: '/icons/nutrisi.png' },
+              { label: 'Spesialis Kandungan & Kebidanan', icon: '/icons/kandungan.png' },
+              { label: 'Spesialis Saraf', icon: 'icons/saraf.png' },
+              { label: 'Dokter Gigi Umum', icon: '/icons/gigi.png' },
+              { label: 'Spesialis Jantung & Pembuluh Darah', icon: '/icons/jantung.png' },
+              { label: 'Spesialis Mata', icon: '/icons/mata.png' },
+              { label: 'Dokter Kulit', icon: '/icons/kulit.png' },
+              { label: 'Dokter Gizi', icon: '/icons/gizi.png' },
+              { label: 'Dokter Umum', icon: '/icons/dokterumum.png' },
             ].map((item, idx) => (
               <div key={idx} className="flex flex-col items-center text-center">
                 <div className="w-24 h-24 md:w-32 md:h-32 border-2 rounded-full flex items-center justify-center mb-4">
@@ -105,34 +148,35 @@ function Beranda() {
             ))}
           </div>
         </div>
-      </section>
+      </section >
 
       {/* Statistik / Metrics Section */}
-      <section className="bg-pink-100 py-24">
-        <div className="container mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 text-center">
+      <section section className="bg-pink-100 py-24" >
+        <div className="container mx-auto px-6 md:px-10 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
           <div>
-            <h3 className="text-3xl font-bold text-[#E36CC5] mb-2">| 250M+</h3>
-            <p className="text-black text-sm md:text-base">API requests per day, peaking at 13,000 requests a second.</p>
+            <h3 className="text-xl md:text-3xl font-bold text-[#E36CC5] mb-2">| 250M+</h3>
+            <p className="text-black text-xs md:text-base">API requests per day, peaking at 13,000 requests a second.</p>
           </div>
           <div>
-            <h3 className="text-3xl font-bold text-[#E36CC5] mb-2">| 99.999%</h3>
-            <p className="text-black text-sm md:text-base">historical uptime for services.</p>
+            <h3 className="text-xl md:text-3xl font-bold text-[#E36CC5] mb-2">| 99.999%</h3>
+            <p className="text-black text-xs md:text-base">historical uptime for services.</p>
           </div>
           <div>
-            <h3 className="text-3xl font-bold text-[#E36CC5] mb-2">| 90%</h3>
-            <p className="text-black text-sm md:text-base">of U.S. adults have bought from businesses using Stripe.</p>
+            <h3 className="text-xl md:text-3xl font-bold text-[#E36CC5] mb-2">| 90%</h3>
+            <p className="text-black text-xs md:text-base">of U.S. adults have bought from businesses using Stripe.</p>
           </div>
           <div>
-            <h3 className="text-3xl font-bold text-[#E36CC5] mb-2">| 135+</h3>
-            <p className="text-black text-sm md:text-base">currencies and payment methods supported.</p>
+            <h3 className="text-xl md:text-3xl font-bold text-[#E36CC5] mb-2">| 135+</h3>
+            <p className="text-black text-xs md:text-base">currencies and payment methods supported.</p>
           </div>
         </div>
-      </section>
+      </section >
+
 
 
       {/* Testimoni */}
-      <TestimonialsSection />
-    </div>
+      < TestimonialsSection />
+    </div >
   );
 }
 
