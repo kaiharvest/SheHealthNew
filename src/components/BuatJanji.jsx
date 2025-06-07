@@ -25,7 +25,7 @@ const BuatJanji = () => {
       <div className="w-full mt-6 mb-6 max-w-4xl px-10">
         <div className="bg-white border border-[#E36CC5] rounded-xl p-8 shadow-md flex items-center space-x-4">
           <img
-            src="https://via.placeholder.com/60"
+            src="/icons/dokter-konsul.svg"
             alt="dokter"
             className="w-16 h-16 rounded-full object-cover"
           />

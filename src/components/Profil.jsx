@@ -41,9 +41,9 @@ const Profil = () => {
             Tentang
           </h2>
           <p className="text-sm text-black">
-            dr. Alifa, Sp.KK dokter spesialis kulit dan kelamin yang berdedikasi
+            dr. Rose, Sp.KK dokter spesialis kulit dan kelamin yang berdedikasi
             dalam memberikan pelayanan terbaik di bidang dermatologi dan
-            venerologi. dr. Alifa berkomitmen untuk membantu pasien mengatasi
+            venerologi. dr. Rose berkomitmen untuk membantu pasien mengatasi
             berbagai permasalahan kulit, rambut, kuku, serta penyakit menular
             seksual dengan pendekatan medis yang profesional, empatik, dan
             berbasis bukti.
@@ -138,7 +138,7 @@ const Profil = () => {
               <p className="text-sm text-gray-700">
                 {index === 2
                   ? "Pelayanan baik dan dokter sangat sabar menjelaskan kondisi kulit saya. Hanya saja jadwal praktik agak terbatas, tapi overall puas dengan pelayanannya. Konsultasi online sangat membantu dan praktis."
-                  : "Dr. Alifa sangat profesional dan ramah. Penjelasannya sangat detail dan mudah dipahami. Masalah jerawat saya sudah membaik setelah mengikuti pengobatan yang diberikan. Terima kasih dokter!"}
+                  : "Dr. Rose sangat profesional dan ramah. Penjelasannya sangat detail dan mudah dipahami. Masalah jerawat saya sudah membaik setelah mengikuti pengobatan yang diberikan. Terima kasih dokter!"}
               </p>
             </div>
           ))}

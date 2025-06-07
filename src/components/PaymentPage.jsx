@@ -13,14 +13,28 @@ export default function PaymentPage() {
     const ewallets = ["Gopay", "ShopeePay", "Ovo", "Dana"];
     const mbankings = ["BRI", "BNI", "BCA"];
 
+    // Mapping metode ke gambar
+    const paymentImages = {
+        Gopay: "/icons/gopay.svg",
+        ShopeePay: "/icons/shopepay.svg",
+        Ovo: "/icons/ovo.svg",
+        Dana: "/icons/dana.svg",
+        BRI: "/icons/bri.svg",
+        BNI: "/icons/bni.svg",
+        BCA: "/icons/bca.svg",
+    };
+
     const renderOption = (name) => (
         <label
             key={name}
             className="flex items-center justify-between border rounded-lg px-4 py-2 cursor-pointer hover:border-pink-400 transition"
         >
             <div className="flex items-center gap-3">
-                {/* Tempat gambar/icon */}
-                <div className="w-6 h-6 bg-gray-200 rounded-full" />
+                <img
+                    src={paymentImages[name]}
+                    alt={name}
+                    className="w-6 h-6 object-contain"
+                />
                 <span className="font-medium">{name}</span>
             </div>
             <input

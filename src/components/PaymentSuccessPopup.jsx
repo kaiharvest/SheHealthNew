@@ -9,7 +9,7 @@ export default function PaymentSuccessPopup() {
 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-40 z-50">
-            <div className="bg-white p-6 rounded-2xl border-2 border-pink-300 text-center shadow-lg max-w-sm w-full">
+            <div className="bg-white p-6 rounded-2xl border-2 border-[#E36CC5] text-center shadow-lg max-w-sm w-full">
                 <div className="flex justify-center mb-4">
                     <div className="bg-green-400 rounded-full p-4">
                         <svg
@@ -34,7 +34,7 @@ export default function PaymentSuccessPopup() {
                 </p>
                 <button
                     onClick={() => navigate("/")}
-                    className="mt-4 bg-pink-400 hover:bg-pink-500 text-white font-bold py-2 px-6 rounded-full"
+                    className="mt-4 bg-[#E36CC5] hover:bg-pink-400 text-white font-bold py-2 px-6 rounded-full"
                 >
                     Beranda
                 </button>
