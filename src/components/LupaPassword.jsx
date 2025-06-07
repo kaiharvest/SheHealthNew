@@ -10,49 +10,52 @@ const LupaPassword = () => {
   };
 
   return (
-    <div className="flex justify-center bg-gray-50 px-4 pt-4 pb-6">
+    <div className="flex justify-center px-10 pt-20">
       {/* Card utama */}
       <div className="bg-white shadow-md rounded-lg flex flex-col md:flex-row w-full max-w-4xl p-4 md:p-10 mt-4 mb-2">
         
         {/* Form */}
         <div className="w-full md:w-1/2 px-2 md:px-4 flex flex-col">
-          {/* Logo */}
-          <div className="flex justify-center items-center mb-4 text-pink-600 font-bold text-lg">
-            <img src="/LogoNew.png" alt="Logo" className="w-8 h-9 mr-2" />
-            <span style={{ color: "#E36CC5" }}>SheHealth</span>
-          </div>
-
-          {/* Tombol Kembali */}
+          
+          {/* Tombol Kembali di kiri atas */}
           <div
             onClick={() => navigate('/login')}
-            className="flex items-center text-sm text-gray-600 cursor-pointer mb-3 hover:text-[#E36CC5] transition"
+            className="flex items-center text-sm text-gray-600 cursor-pointer hover:text-[#E36CC5] transition mb-4 w-fit"
           >
-            <IoArrowBack className="mr-2" />
+            <IoArrowBack className="mr-1" />
             Sebelumnya
+          </div>
+
+          {/* Header Logo */}
+          <div className="flex items-center justify-center text-[#E36CC5] font-bold text-lg mb-4">
+            <img src="/LogoNew.png" alt="Logo" className="w-8 h-9 mr-2" />
+            <span>SheHealth</span>
           </div>
 
           {/* Judul */}
           <h2 className="text-2xl font-bold mb-2">Lupa Password?</h2>
-          <p className="text-gray-500 mb-4">
+          <p className="text-gray-500 mb-3">
             Masukkan alamat email Anda dan kami akan mengirimkan kode verifikasi untuk reset password.
           </p>
 
           {/* Input Email */}
-          <label className="block text-sm mb-1 text-black">Email</label>
+          <label className="text-sm mb-1 text-black">Email</label>
           <input
             type="email"
             placeholder="masukkan email"
-            className="w-full px-4 py-2 border border-black rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-pink-400"
+            className="px-4 py-2 border border-black rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-[#E36CC5]"
           />
 
-          {/* Tombol Kirim */}
-          <button
-            onClick={handleKirim}
-            style={{ backgroundColor: "#E36CC5" }}
-            className="w-full text-white py-2 rounded-full shadow-lg hover:bg-pink-600 transition duration-200 mt-auto"
-          >
-            Kirim
-          </button>
+          {/* Tombol Kirim di tengah */}
+          <div className="flex justify-center mt-3">
+            <button
+              onClick={handleKirim}
+              style={{ backgroundColor: "#E36CC5" }}
+              className="text-white px-4 py-2 rounded-full shadow-lg hover:bg-pink-400 transition duration-200 w-32"
+            >
+              Kirim
+            </button>
+          </div>
         </div>
 
         {/* Ilustrasi */}

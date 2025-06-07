@@ -94,10 +94,6 @@ const DoctorChatApp = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
-  useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
-
   return (
     <div className="flex h-screen bg-gray-50 relative">
       {/* Overlay for sidebar in mobile */}
@@ -115,10 +111,7 @@ const DoctorChatApp = () => {
       >
         <div className="p-4 border-b border-gray-200">
           <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-3">
-              <img src="/LogoNew.png" alt="Logo" className="w-8 h-9" />
-              <span className="text-xl font-bold text-[#E36CC5]">SheHealth</span>
-            </div>
+            
             <button
               className="lg:hidden p-2 hover:bg-gray-100 rounded-lg"
               onClick={toggleSidebar}
@@ -151,7 +144,7 @@ const DoctorChatApp = () => {
           </div>
         </div>
 
-        <div className="flex-1 overflow-y-auto">
+        <div className="flex-1 overflow-y-auto scrollbar-hide"> 
           {allChats.map((chat, index) => (
             <div
               key={chat.id}
@@ -190,7 +183,7 @@ const DoctorChatApp = () => {
       </div>
 
       {/* Chat Main Area */}
-      <div className="flex-1 flex flex-col lg:ml-0">
+      <div className="flex-1 flex flex-col ">
         {/* Header */}
         <div className="bg-white border-b border-gray-200 p-3 sm:p-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -243,7 +236,7 @@ const DoctorChatApp = () => {
         )}
 
         {/* Chat Messages or placeholder */}
-        <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3 sm:space-y-4">
+       <div className="flex-1 overflow-y-auto scrollbar-hide p-3 sm:p-4 space-y-3 sm:space-y-4">
           {selectedChat === null ? (
             <div className="h-full flex items-center justify-center text-gray-400 text-lg">
               Pilih chat dari daftar di sebelah kiri untuk mulai ngobrol
@@ -316,7 +309,7 @@ const DoctorChatApp = () => {
               type="submit"
               disabled={!message.trim()}
               className={`p-2 rounded-full ${message.trim()
-                  ? "bg-[#E36CC5] hover:bg-pink-500 text-white"
+                  ? "bg-[#E36CC5] hover:bg-pink-400 text-white"
                   : "bg-gray-300 cursor-not-allowed"
                 }`}
             >

@@ -12,7 +12,6 @@ export default function ResetPassword() {
       alert("Password tidak cocok!");
     } else {
       alert("Password berhasil diubah!");
-      // Kirim password ke backend
     }
   };
 
@@ -33,7 +32,7 @@ export default function ResetPassword() {
                 placeholder="Masukkan password baru"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
+                className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#E36CC5]"
               />
               <button
                 type="button"
@@ -49,7 +48,7 @@ export default function ResetPassword() {
                 placeholder="Masukkan ulang password baru"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
-                className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-500"
+                className="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-[#E36CC5]"
               />
               <button
                 type="button"
@@ -61,7 +60,7 @@ export default function ResetPassword() {
             </div>
             <button
               type="submit"
-              className="w-full bg-pink-500 hover:bg-pink-600 text-white py-3 rounded font-semibold"
+              className="w-full bg-[#E36CC5] hover:bg-pink-600 text-white py-3 rounded font-semibold"
             >
               Atur Password
             </button>
