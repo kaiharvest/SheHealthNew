@@ -10,9 +10,9 @@ const Login = () => {
   };
 
   return (
-    <div className="py-6 flex justify-center bg-gray-50">
+    <div className="px-4 py-10 md:py-8 flex justify-center items-start md:items-center bg-gray-50 min-h-screen md:min-h-fit">
       <div className="bg-white shadow-md rounded-lg flex flex-col md:flex-row w-full max-w-4xl">
-        
+
         {/* Form Section */}
         <div className="w-full md:w-1/2 p-6 md:p-8 max-w-md">
           <div className="text-[#E36CC5] font-bold text-2xl flex items-center justify-center gap-2 mb-1">
@@ -133,7 +133,7 @@ const Login = () => {
         </div>
 
         {/* Ilustrasi */}
-        <div className="w-full md:w-1/2 p-6 md:p-8 max-w-md">
+        <div className="w-full md:w-1/2 p-6 md:p-8 max-w-md flex flex-col justify-center">
           <div className="text-gray-700 max-w-md mx-auto">
             <h3 className="text-base md:text-lg mb-4 text-center md:text-left">
               Platform <span style={{ color: "#E36CC5" }}>konsultasi online</span>{" "}

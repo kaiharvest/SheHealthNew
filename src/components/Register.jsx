@@ -3,7 +3,7 @@ import React from "react";
 const Register = () => {
   return (
     <div
-      className="min-h-screen flex flex-col md:flex-row w-full items-center justify-center font-poppins px-6 py-10 md:py-20 bg-gradient-to-br from-white to-pink-100"
+      className="flex flex-col md:flex-row w-full items-center md:justify-center font-poppins px-6 pt-10 pb-2 md:py-10 bg-gradient-to-br from-white to-pink-100"
     >
       {/* Left Illustration */}
       <div className="md:w-1/2 hidden md:flex items-center justify-center p-6">
@@ -15,17 +15,16 @@ const Register = () => {
       </div>
 
       {/* Right Form */}
-      <div className="md:w-1/2 w-full max-w-md bg-white shadow-lg rounded-2xl p-8 md:p-10 font-poppins">
-        
-          <div className="text-[#E36CC5] font-bold text-2xl flex items-center justify-center gap-2 mb-1">
-            <img src="/LogoNew.png" alt="Logo" className="w-8 h-9" />
-            <span style={{ color: "#E36CC5" }}>SheHealth</span>
-          </div>
+      <div className="md:w-1/2 w-full max-w-md bg-white shadow-lg rounded-2xl p-8 md:p-10 font-poppins mb-10">
+        <div className="text-[#E36CC5] font-bold text-2xl flex items-center justify-center gap-2 mb-1">
+          <img src="/LogoNew.png" alt="Logo" className="w-8 h-9" />
+          <span style={{ color: "#E36CC5" }}>SheHealth</span>
+        </div>
         <h3 className="text-center text-xl font-semibold text-gray-800 mb-6">
           Pendaftaran
         </h3>
 
-        <form className="space-y-4 font-poppins">
+        <form className="space-y-4 font-poppins mb-0">
           <div className="flex items-center border border-gray-300 rounded-full px-4 py-2 bg-gray-50">
             <img
               src="icons/ic_baseline-person.svg"
@@ -41,11 +40,7 @@ const Register = () => {
           </div>
 
           <div className="flex items-center border border-gray-300 rounded-full px-4 py-2 bg-gray-50">
-            <img
-              src="icons/Vector.svg"
-              alt="email"
-              className="w-5 h-5 mr-3"
-            />
+            <img src="icons/Vector.svg" alt="email" className="w-5 h-5 mr-3" />
             <input
               type="email"
               placeholder="Masukkan email anda"
@@ -55,11 +50,7 @@ const Register = () => {
           </div>
 
           <div className="flex items-center border border-gray-300 rounded-full px-4 py-2 bg-gray-50">
-            <img
-              src="icons/Lock.svg"
-              alt="lock"
-              className="w-5 h-5 mr-3"
-            />
+            <img src="icons/Lock.svg" alt="lock" className="w-5 h-5 mr-3" />
             <input
               type="password"
               placeholder="Masukkan password anda"
@@ -69,11 +60,7 @@ const Register = () => {
           </div>
 
           <div className="flex items-center border border-gray-300 rounded-full px-4 py-2 bg-gray-50">
-            <img
-              src="icons/Lock.svg"
-              alt="lock"
-              className="w-5 h-5 mr-3"
-            />
+            <img src="icons/Lock.svg" alt="lock" className="w-5 h-5 mr-3" />
             <input
               type="password"
               placeholder="Konfirmasi kata sandi anda"
@@ -92,7 +79,8 @@ const Register = () => {
           </div>
         </form>
 
-        <p className="text-sm text-center mt-4">
+        {/* Footer text with margin top sama dengan margin bottom card */}
+        <p className="text-sm text-center mt-10">
           Sudah memiliki akun?{" "}
           <a href="Login" className="text-[#E36CC5] hover:underline font-medium">
             Masuk

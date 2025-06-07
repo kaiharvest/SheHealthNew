@@ -6,22 +6,22 @@ export default function Membership() {
   return (
     <div className="text-gray-700 font-sans">
       {/* Section 1 - Membership */}
-      <section className="px-4 sm:px-6 pt-8 lg:pt-10">
+      <section className="px-4 sm:px-8 md:px-12 pt-8 lg:pt-10">
         <div className="text-center mb-10">
-          <h1 className="text-3xl sm:text-4xl font-bold">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
             <span className="text-[#E36CC5]">SheHealth</span>{" "}
             <span className="text-gray-700">Membership</span>
           </h1>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center gap-10">
+        <div className="flex flex-col md:flex-row-reverse items-center md:items-start justify-center gap-8 md:gap-12">
           {/* Kartu harga */}
-          <div className="bg-white border border-[#E36CC5] rounded-2xl p-10 text-center shadow-md w-full max-w-xs order-2 lg:order-none">
+          <div className="order-1 md:order-2 bg-white border border-[#E36CC5] rounded-2xl p-6 sm:p-8 text-center shadow-md w-full max-w-xs md:max-w-sm">
             <div className="mb-4 flex items-center justify-center">
               <img
                 src="/icons/premium.svg"
                 alt="Premium"
-                className="w-20 h-20"
+                className="w-16 h-16 sm:w-20 sm:h-20"
               />
             </div>
             <hr className="border-t-2 border-pink-300 w-1/3 mx-auto mb-4" />
@@ -38,32 +38,30 @@ export default function Membership() {
             <p className="text-gray-500 text-sm mb-6">1 bulan</p>
             <button
               onClick={() => navigate("/payment")}
-              className=" bg-[#E36CC5] text-white border border-[#E36CC5] hover:bg-white hover:text-[#E36CC5] px-6 py-2 rounded-full text-sm transition duration-200"
+              className="bg-[#E36CC5] text-white border border-[#E36CC5] hover:bg-white hover:text-[#E36CC5] px-6 py-2 rounded-full text-sm transition duration-200"
             >
               Langganan Sekarang
             </button>
           </div>
 
           {/* Deskripsi */}
-          <div className="max-w-2xl text-center lg:text-left order-1 lg:order-none pt-6">
-            <h2 className="text-xl sm:text-2xl font-bold text-[#E36CC5] mb-4 leading-snug">
-              Solusi Kesehatan Lengkap <br className="hidden sm:block" /> dalam
-              Genggaman
+          <div className="order-2 md:order-1 max-w-2xl text-center md:text-left pt-6 md:pt-2">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#E36CC5] mb-4 leading-snug">
+              Solusi Kesehatan Lengkap <br className="hidden sm:block" /> dalam Genggaman
             </h2>
             <p className="text-gray-600 mb-5 text-sm sm:text-base leading-relaxed">
               Dapatkan kebebasan berkonsultasi dengan dokter <br />
               berpengalaman kapan saja, di mana saja. <br />
-              Tanpa batasan waktu, tanpa antrian panjang, tanpa khawatir biaya
-              konsultasi bertambah.
+              Tanpa batasan waktu, tanpa antrian panjang, tanpa khawatir biaya konsultasi bertambah.
             </p>
-            <ul className="space-y-3 text-sm sm:text-base text-left max-w-md mx-auto lg:mx-0">
+            <ul className="space-y-3 text-sm sm:text-base text-left max-w-md mx-auto md:mx-0">
               {[
                 "Konsultasi 24/7 tanpa batas dengan dokter umum ataupun spesialis selama satu bulan",
                 "Reminder jadwal konsultasi",
                 "Akses riwayat konsultasi kapan saja",
                 "Privasi terjamin dan data aman",
               ].map((text, idx) => (
-                <li key={idx} className="flex items-start gap-2">
+                <li key={idx} className="flex items-start gap-3">
                   <img
                     src="/icons/centang.svg"
                     alt="check icon"
@@ -75,26 +73,28 @@ export default function Membership() {
             </ul>
           </div>
         </div>
+
+
       </section>
 
       {/* Section 2 - Statistik */}
       <section
-        className="text-white py-12 sm:py-10 px-4 sm:px-6 mt-16 bg-cover bg-center"
+        className="text-white py-12 sm:py-14 px-4 sm:px-8 md:px-12 mt-16 bg-cover bg-center"
         style={{ backgroundImage: "url('/bg-langganan.svg')" }}
       >
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 max-w-6xl mx-auto">
           <div className="text-center md:text-left">
-            <h2 className="text-5xl font-bold mb-2">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-2 leading-snug">
               Mengalami Inovasi <br /> dan Kepercayaan
             </h2>
-            <p>
+            <p className="text-sm sm:text-base">
               Bergabunglah dengan ratusan pasien yang telah merasakan pelayanan
               kesehatan digital terbaik. Kami berkomitmen untuk memberikan
               layanan yang cepat, aman, dan terpercaya.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-2 gap-4 text-center">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 text-center">
             {[
               {
                 icon: "langganan.svg",
@@ -111,18 +111,18 @@ export default function Membership() {
             ].map((item, index) => (
               <div
                 key={index}
-                className="bg-white/20 border border-white p-4 sm:p-6 rounded-lg flex gap-4 items-start transform transition duration-300 hover:shadow-lg hover:scale-105"
+                className="bg-white/20 border border-white p-4 sm:p-5 rounded-lg flex gap-3 items-start transition hover:shadow-lg hover:scale-105 duration-300"
               >
                 <img
                   src={`/icons/${item.icon}`}
                   alt={item.desc}
-                  className="w-14 sm:w-20 h-14 sm:h-20 object-contain"
+                  className="w-12 h-12 object-contain"
                 />
                 <div className="text-left">
-                  <div className="text-xl sm:text-3xl font-bold">
+                  <div className="text-xl sm:text-2xl font-bold">
                     {item.title}
                   </div>
-                  <p className="text-xs sm:text-sm mt-1 sm:mt-2">{item.desc}</p>
+                  <p className="text-xs sm:text-sm mt-1">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -131,11 +131,11 @@ export default function Membership() {
       </section>
 
       {/* Section 3 - Manfaat */}
-      <section className="py-14 sm:px-14 text-center">
+      <section className="py-14 px-4 sm:px-8 md:px-12 text-center">
         <h2 className="text-2xl sm:text-3xl font-bold mb-8">
           Manfaat Berlangganan
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
           {[
             {
               title: "Dokter Berpengalaman",
@@ -152,7 +152,7 @@ export default function Membership() {
           ].map((item, index) => (
             <div
               key={index}
-              className="bg-white border border-gray-500 rounded-xl p-6 shadow-sm hover:shadow-lg hover:scale-105 transition duration-300 transform"
+              className="bg-white border border-gray-300 rounded-xl p-6 shadow-sm hover:shadow-lg hover:scale-105 transition duration-300"
             >
               <div className="mb-3 flex flex-col items-center">
                 <img
