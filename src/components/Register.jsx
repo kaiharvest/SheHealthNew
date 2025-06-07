@@ -16,10 +16,11 @@ const Register = () => {
 
       {/* Right Form */}
       <div className="md:w-1/2 w-full max-w-md bg-white shadow-lg rounded-2xl p-8 md:p-10 font-poppins">
-        <div className="flex items-center justify-center gap-2 mb-1">
-          <img src="/LogoNew.png" alt="Logo" className="w-8 h-9" />
-          <h2 className="text-3xl font-bold text-pink-500">SheHealth</h2>
-        </div>
+        
+          <div className="text-[#E36CC5] font-bold text-2xl flex items-center justify-center gap-2 mb-1">
+            <img src="/LogoNew.png" alt="Logo" className="w-8 h-9" />
+            <span style={{ color: "#E36CC5" }}>SheHealth</span>
+          </div>
         <h3 className="text-center text-xl font-semibold text-gray-800 mb-6">
           Pendaftaran
         </h3>
@@ -84,7 +85,7 @@ const Register = () => {
           <div className="flex justify-center items-center">
             <button
               type="submit"
-              className="bg-pink-500 text-white px-12 py-3 rounded-full shadow-lg hover:bg-pink-600 transition duration-200"
+              className="bg-[#E36CC5] text-white px-12 py-3 rounded-full shadow-lg hover:bg-pink-600 transition duration-200"
             >
               Daftar
             </button>
@@ -93,7 +94,7 @@ const Register = () => {
 
         <p className="text-sm text-center mt-4">
           Sudah memiliki akun?{" "}
-          <a href="Login" className="text-pink-500 hover:underline font-medium">
+          <a href="Login" className="text-[#E36CC5] hover:underline font-medium">
             Masuk
           </a>
         </p>

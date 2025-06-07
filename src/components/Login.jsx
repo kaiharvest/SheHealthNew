@@ -15,7 +15,7 @@ const Login = () => {
         
         {/* Form Section */}
         <div className="w-full md:w-1/2 p-6 md:p-8 max-w-md">
-          <div className="text-pink-700 font-bold text-2xl flex items-center justify-center gap-2 mb-1">
+          <div className="text-[#E36CC5] font-bold text-2xl flex items-center justify-center gap-2 mb-1">
             <img src="/LogoNew.png" alt="Logo" className="w-8 h-9" />
             <span style={{ color: "#E36CC5" }}>SheHealth</span>
           </div>
