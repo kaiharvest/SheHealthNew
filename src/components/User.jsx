@@ -1,24 +1,65 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React, { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 
 const User = () => {
   const { nama } = useParams();
-  return (
-    <div className="min-h-screen bg-gray-50 p-6">
+  const navigate = useNavigate();
 
-      {/* Banner */}
-      <div className="bg-pink-100 text-center py-3 rounded-xl shadow text-xl font-semibold text-gray-800 mb-8">
-        Profile
-      </div>
+  // State untuk form
+  const [formData, setFormData] = useState({
+    nama: "Addina Zara",
+    email: "hekel@gmail.com",
+    tanggalLahir: "19 Januari 2007",
+    noTelepon: "",
+  });
+
+  // Handle perubahan input
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  // Handle simpan data (contoh: alert, bisa diganti API call)
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Data disimpan:\n" + JSON.stringify(formData, null, 2));
+    // Di sini bisa tambahkan logic simpan ke backend/API
+  };
+
+  // Logout (contoh)
+  const handleLogout = () => {
+    // localStorage.removeItem("token"); misal hapus token
+    navigate("/login");
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50 p-4 md:p-8">
+      {/* Header dengan judul dan tombol logout */}
+      <header className="flex justify-between items-center bg-pink-100 rounded-xl p-4 shadow mb-8">
+        <h1 className="text-2xl font-semibold text-gray-800">Profil {nama}</h1>
+        <button
+          onClick={handleLogout}
+          className="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-full text-sm font-semibold transition"
+          aria-label="Logout"
+        >
+          Logout
+        </button>
+      </header>
 
       {/* Profile Picture */}
-      <div className="flex justify-center mb-6 relative">
+      <div className="flex justify-center mb-8 relative">
         <img
           src="https://randomuser.me/api/portraits/women/44.jpg"
           alt="Profile"
-          className="w-32 h-32 rounded-full object-cover border-4 border-white shadow-md"
+          className="w-28 h-28 sm:w-32 sm:h-32 rounded-full object-cover border-4 border-white shadow-md"
         />
-        <button className="absolute bottom-0 right-[calc(50%-64px)] bg-pink-500 text-white p-2 rounded-full border-2 border-white">
+        <button
+          aria-label="Edit Profile Picture"
+          className="absolute bottom-0 right-[calc(50%-56px)] sm:right-[calc(50%-64px)] bg-pink-500 text-white p-2 rounded-full border-2 border-white shadow-lg hover:bg-pink-600 transition"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-4 w-4"
@@ -36,17 +77,22 @@ const User = () => {
         </button>
       </div>
 
-      {/* Form */}
-      <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+      {/* Form Profile */}
+      <form
+        onSubmit={handleSubmit}
+        className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6 bg-white p-6 rounded-xl shadow-md"
+      >
         <div>
           <label className="block mb-1 text-sm font-medium text-gray-700">
             Nama
           </label>
           <input
             type="text"
-            className="w-full border rounded-md px-4 py-2 text-sm bg-gray-100"
-            value="Addina Zara"
-            readOnly
+            name="nama"
+            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
+            value={formData.nama}
+            onChange={handleChange}
+            required
           />
         </div>
         <div>
@@ -55,9 +101,11 @@ const User = () => {
           </label>
           <input
             type="email"
-            className="w-full border rounded-md px-4 py-2 text-sm bg-gray-100"
-            value="hekel@gmail.com"
-            readOnly
+            name="email"
+            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
+            value={formData.email}
+            onChange={handleChange}
+            required
           />
         </div>
         <div>
@@ -66,9 +114,11 @@ const User = () => {
           </label>
           <input
             type="text"
-            className="w-full border rounded-md px-4 py-2 text-sm bg-gray-100"
-            value="19 Januari 2007"
-            readOnly
+            name="tanggalLahir"
+            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
+            value={formData.tanggalLahir}
+            onChange={handleChange}
+            required
           />
         </div>
         <div>
@@ -77,18 +127,24 @@ const User = () => {
           </label>
           <input
             type="text"
-            className="w-full border rounded-md px-4 py-2 text-sm bg-gray-100"
+            name="noTelepon"
+            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
+            value={formData.noTelepon}
+            onChange={handleChange}
             placeholder="Isi nomor telepon"
           />
         </div>
-      </div>
 
-      {/* Simpan Button */}
-      <div className="flex justify-end mt-8">
-        <button className="bg-pink-500 text-white px-8 py-2 rounded-full text-sm font-semibold shadow hover:bg-pink-600 transition">
-          Simpan
-        </button>
-      </div>
+        {/* Kosongkan 2 kolom bawah supaya button full width di kanan bawah */}
+        <div className="sm:col-span-2 flex justify-end mt-2">
+          <button
+            type="submit"
+            className="bg-pink-500 text-white px-8 py-3 rounded-full text-sm font-semibold shadow hover:bg-pink-600 transition"
+          >
+            Simpan
+          </button>
+        </div>
+      </form>
     </div>
   );
 };

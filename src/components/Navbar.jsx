@@ -14,9 +14,7 @@ const Navbar = () => {
   useEffect(() => {
     const loggedIn = localStorage.getItem("isLoggedIn") === "true";
     const namaUser = localStorage.getItem("nama") || "";
-    // Ambil profileImage dari localStorage jika ada, jika tidak pakai default
-    const image =
-      localStorage.getItem("profileImage") || "/default-profile.png";
+    const image = localStorage.getItem("profileImage") || "/default-profile.png";
 
     setIsLoggedIn(loggedIn);
     setNama(namaUser);
@@ -26,6 +24,7 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem("isLoggedIn");
     localStorage.removeItem("nama");
+    localStorage.removeItem("profileImage");
     setIsLoggedIn(false);
     setNama("");
     setProfileImage("");
@@ -75,7 +74,7 @@ const Navbar = () => {
             })}
           </ul>
 
-          {/* Tombol Masuk atau Profil & Logout */}
+          {/* Tombol Masuk atau Foto Profil */}
           {!isLoggedIn ? (
             <Link to="/login">
               <button className="mr-10 bg-[#E36CC5] text-white font-semibold px-6 py-2 rounded-full hover:bg-pink-500 transition duration-200">
@@ -83,28 +82,13 @@ const Navbar = () => {
               </button>
             </Link>
           ) : (
-            <div className="mr-10 flex items-center space-x-4 text-gray-700">
+            <Link to={`/user/${nama}`} className="mr-10">
               <img
-                src="/Avatar-Image.png"
+                src={profileImage}
                 alt={nama || "User Profile"}
-                className="w-10 h-10 rounded-full object-cover"
+                className="w-10 h-10 rounded-full object-cover cursor-pointer"
               />
-              <div className="flex flex-col">
-                <Link
-                  to={`/User/${nama}`}
-                  className=" hover:text-[#E36CC5] font-semibold"
-                >
-                  {nama || "User"}
-                </Link>
-                <span className="text-gray-500 text-sm">18 Tahun</span>
-              </div>
-              <button
-                onClick={handleLogout}
-                className="bg-[#E36CC5] text-white text-sm font-medium px-4 py-1 rounded-full hover:bg-pink-500 transition duration-200 ml-0"
-              >
-                Logout
-              </button>
-            </div>
+            </Link>
           )}
         </div>
 
@@ -147,9 +131,7 @@ const Navbar = () => {
                     to={item.path}
                     onClick={() => setIsOpen(false)}
                     className={`block relative group transition ${
-                      isActive
-                        ? "text-pink-500 font-semibold"
-                        : "hover:text-pink-500"
+                      isActive ? "text-pink-500 font-semibold" : "hover:text-pink-500"
                     }`}
                   >
                     {item.name}
@@ -171,9 +153,8 @@ const Navbar = () => {
                 </Link>
               ) : (
                 <div className="flex flex-col space-y-2">
-                  <span className="block px-4 py-2">Hai, {nama}</span>
                   <Link
-                    to={`/profil/${nama}`}
+                    to={`/user/${nama}`}
                     onClick={() => setIsOpen(false)}
                     className="px-4 py-2 underline hover:text-pink-600"
                   >
