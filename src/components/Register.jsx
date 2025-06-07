@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 const Register = () => {
   return (
-    <div className="flex flex-col md:flex-row  items-center md:justify-center font-poppins px-6 pb-2 md:py-10 bg-gradient-to-br from-white to-pink-100">
+    <div className="flex flex-col md:flex-row items-center justify-center font-poppins px-6 py-10 bg-gradient-to-br from-white min-h-screen">
+
       {/* Left Illustration */}
       <div className="md:w-1/2 hidden md:flex items-center justify-center p-6">
         <img
@@ -14,7 +15,7 @@ const Register = () => {
       </div>
 
       {/* Right Form */}
-      <div className="md:w-1/2 w-full max-w-md bg-white shadow-lg rounded-2xl p-8 md:p-10 font-poppins mb-10">
+      <div className="md:w-1/2 w-full max-w-md bg-white shadow-lg rounded-2xl p-8 md:p-10 font-poppins mb-10 z-0">
         {/* Logo */}
         <div className="text-[#E36CC5] font-bold text-2xl flex items-center justify-center gap-2 mb-1">
           <img src="/LogoNew.png" alt="Logo" className="w-8 h-9" />
