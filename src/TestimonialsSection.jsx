@@ -11,7 +11,7 @@ const testimonials = [
         image: "/img-placeholder.png",
     },
     {
-        name: "Raisa Asekk",
+        name: "Raisa",
         age: "19 tahun",
         comment:
             "Penjelasan dokternya jelas dan ramah. Baru kali ini saya benar-benar paham soal siklus haid saya.",
@@ -80,7 +80,7 @@ const TestimonialsSection = () => {
     return (
         <section className="px-6 md:px-24 py-20 bg-white text-center">
             <h2 className="text-4xl font-bold mb-4">
-                Apa Kata Mereka <span className="text-pink-500">Tentang Kami?</span>
+                Apa Kata Mereka <span className="text-[#E36CC5]">Tentang Kami?</span>
             </h2>
             <p className="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
                 Karena setiap cerita berarti, dan setiap pengalaman membentuk kami jadi lebih baik.
@@ -100,7 +100,7 @@ const TestimonialsSection = () => {
 
                         <div className="flex items-center gap-4 mb-4">
                             <img
-                                src={item.image}
+                                src="/testimonial.png"
                                 alt={item.name}
                                 className="w-12 h-12 rounded-full object-cover border-2 border-pink-300"
                             />
@@ -123,14 +123,14 @@ const TestimonialsSection = () => {
                     <button
                         onClick={handlePrev}
                         disabled={currentPage === 0}
-                        className="w-10 h-10 rounded-full bg-pink-500 text-white text-xl flex items-center justify-center hover:bg-pink-600 transition disabled:opacity-40"
+                        className="w-10 h-10 rounded-full bg-[#E36CC5] text-white text-xl flex items-center justify-center hover:bg-pink-600 transition disabled:opacity-40"
                     >
                         ‹
                     </button>
                     <button
                         onClick={handleNext}
                         disabled={currentPage === totalPages - 1}
-                        className="w-10 h-10 rounded-full bg-pink-500 text-white text-xl flex items-center justify-center hover:bg-pink-600 transition disabled:opacity-40"
+                        className="w-10 h-10 rounded-full bg-[#E36CC5] text-white text-xl flex items-center justify-center hover:bg-pink-600 transition disabled:opacity-40"
                     >
                         ›
                     </button>

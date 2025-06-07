@@ -64,7 +64,7 @@ function Beranda() {
             >
               Konsultasi
             </Link>
-            <div className="bg-[#E36CC5] mt-8 w-12 h-1 hidden md:block"></div>
+            <div className="bg-[#E36CC5] mt-6 w-20 h-1 hidden md:block ml-10"></div>
           </div>
         </div>
       </section>

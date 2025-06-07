@@ -51,7 +51,14 @@ const DoctorChatApp = () => {
       specialty: "Spesialis Jantung",
       avatar: avatarImg,
       isActive: false,
-      messages: [],
+      messages: [
+                {
+          id: 1,
+          sender: "doctor",
+          text: "Halo, saya dr. Giselle. Ada yang bisa saya bantu?",
+          time: "09:45",
+        },
+      ],
     },
   ];
 

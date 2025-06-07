@@ -22,23 +22,23 @@ const Edukasi = () => {
               Kesehatan Anda
             </h1>
             <p className="text-black text-sm sm:text-base sm:text-xl leading-relaxed">
-              Dapatkan informasi kesehatan terpercaya dari para ahli medis untuk <br className="sm:hidden" />
+              Dapatkan informasi kesehatan terpercaya dari para ahli medis untuk{" "}
+              <br className="sm:hidden" />
               hidup yang lebih sehat dan berkualitas
             </p>
           </div>
         </div>
-
 
         {/* Artikel Terbaru */}
         <div className="mb-12">
           {/* Layout sesuai desain: 1 besar kiri, 3 kecil kanan dengan tinggi sama */}
           <div className="flex flex-col md:flex-row gap-6">
             {/* Artikel utama besar */}
-            <div className="flex-1 bg-white rounded-2xl shadow-md p-10 flex flex-col justify-between transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer">
+            <div className="flex-1 bg-white rounded-2xl shadow-md p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer">
               <img
-                src={articles[0].image}
+                src="/artikel-terbaru.png"
                 alt={articles[0].title}
-                className="w-full h-56 object-cover rounded-lg mb-8"
+                className=" h-80 object-cover rounded-lg mb-8"
               />
               <span className="inline-block bg-[#E36CC5] text-white text-xs font-semibold px-3 py-1 rounded-full mb-2 w-fit">
                 Terbaru
@@ -50,16 +50,16 @@ const Edukasi = () => {
                 {articles[0].excerpt}
               </p>
             </div>
+            
             {/* Tiga artikel kecil kanan dengan tinggi total sama dengan artikel kiri */}
             <div className="flex flex-col gap-4 flex-1 max-w-xs h-full justify-between">
-              {[1, 2, 3].map((idx) => (
+              {[1, 2, 3, 4].map((idx) => (
                 <div
                   key={idx}
-                  className="flex gap-3 bg-white rounded-2xl shadow-md p-3 items-center h-1/3 min-h-[90px] flex-1 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer"
-                  style={{ minHeight: '110px' }}
+                  className="flex gap-3 bg-white rounded-2xl shadow-md p-3 items-center h-1/3 min-h-[110px] flex-1 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer"
                 >
                   <img
-                    src={articles[idx].image}
+                    src={articles[idx].image} // ← gunakan image dari array agar konsisten
                     alt={articles[idx].title}
                     className="w-20 h-20 object-cover rounded-lg"
                   />
@@ -76,11 +76,44 @@ const Edukasi = () => {
             </div>
           </div>
         </div>
+        {/* Artikel Pilihan */}
+        <div className="mb-11">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+            <span className="text-yellow-400 text-xl">⭐</span> Artikel Pilihan
+          </h2>
 
-        {/* Artikel Terbaru */}
+          {/* Scroll horizontal */}
+          <div className="flex gap-6 overflow-x-auto scrollbar-hide py-4">
+            {articles.map((item, index) => (
+              <div
+                key={index}
+                className="min-w-[300px] sm:min-w-[320px] max-w-[320px] bg-white rounded-2xl shadow-md overflow-hidden flex-shrink-0 transition-transform duration-300 hover:shadow-lg hover:-translate-y-1"
+              >
+                <img
+                  src="/artikel1.jpg"
+                  alt={item.title}
+                  className="w-full h-40 object-cover"
+                />
+                <div className="p-4">
+                  <h3 className="font-semibold text-sm sm:text-base text-gray-800 mb-2 line-clamp-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs text-gray-600 mb-4 line-clamp-3">
+                    {item.excerpt}
+                  </p>
+                  <div className="flex items-center text-gray-400 text-xs">
+                    🕒 {item.date}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Artikel Lainnya */}
         <div className="mb-10">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4 flex items-center gap-2">
-            <span className="text-yellow-500 text-2xl">📰</span> Artikel Lainnya
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 flex items-center gap-2">
+            <span className="text-yellow-500 text-2xl">⭐</span> Artikel Lainnya
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -90,7 +123,7 @@ const Edukasi = () => {
                 className="bg-white rounded-2xl shadow p-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
               >
                 <img
-                  src={item.image}
+                  src="/artikel2.png"
                   alt={item.title}
                   className="w-full h-48 object-cover rounded-lg mb-4"
                 />
