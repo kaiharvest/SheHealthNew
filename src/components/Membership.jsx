@@ -1,4 +1,3 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Membership() {
@@ -20,7 +19,7 @@ export default function Membership() {
           <div className="order-1 md:order-2 bg-white border border-[#E36CC5] rounded-2xl p-6 sm:p-8 text-center shadow-md w-full max-w-xs md:max-w-sm">
             <div className="mb-4 flex items-center justify-center">
               <img
-                src="/icons/premium.svg"
+                src={`${process.env.PUBLIC_URL}/icons/premium.svg`}
                 alt="Premium"
                 className="w-16 h-16 sm:w-20 sm:h-20"
               />
@@ -64,7 +63,7 @@ export default function Membership() {
               ].map((text, idx) => (
                 <li key={idx} className="flex items-start gap-3">
                   <img
-                    src="/icons/centang.svg"
+                    src={`${process.env.PUBLIC_URL}/icons/centang.svg`}
                     alt="check icon"
                     className="w-5 h-5 mt-1"
                   />
@@ -79,7 +78,7 @@ export default function Membership() {
       {/* Section 2 - Statistik */}
       <section
         className="text-white py-12 sm:py-14 px-4 sm:px-8 md:px-12 mt-16 bg-cover bg-center"
-        style={{ backgroundImage: "url('/bg-langganan.svg')" }}
+        style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/bg-langganan.svg)` }}
       >
         <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10 max-w-6xl mx-auto">
           <div className="text-center md:text-left">
@@ -113,7 +112,7 @@ export default function Membership() {
                 className="bg-white/20 border border-white p-4 sm:p-5 rounded-lg flex gap-3 items-start transition hover:shadow-lg hover:scale-105 duration-300"
               >
                 <img
-                  src={`/icons/${item.icon}`}
+                  src={`${process.env.PUBLIC_URL}/icons/${item.icon}`}
                   alt={item.desc}
                   className="w-12 h-12 object-contain"
                 />
@@ -155,7 +154,7 @@ export default function Membership() {
             >
               <div className="mb-3 flex flex-col items-center">
                 <img
-                  src="/icons/manfaat-memb.svg"
+                  src={`${process.env.PUBLIC_URL}/icons/manfaat-memb.svg`}
                   alt={item.title}
                   className="w-14 h-14 object-contain mb-2"
                 />
