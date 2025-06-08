@@ -61,7 +61,7 @@ export default function ResetPassword() {
               <button
                 type="button"
                 onClick={() => setIsVisible(!isVisible)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500"
+                className="absolute right-4 top-14 -translate-y-1/2 text-gray-500"
               >
                 {isVisible ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
@@ -80,7 +80,7 @@ export default function ResetPassword() {
               <button
                 type="button"
                 onClick={() => setIsConfirmVisible(!isConfirmVisible)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500"
+                className="absolute right-4 top-14 -translate-y-1/2 text-gray-500"
               >
                 {isVisible ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
