@@ -23,7 +23,7 @@ const Edukasi = () => {
               Tingkatkan Pengetahuan <br className="sm:hidden" />
               Kesehatan Anda
             </h1>
-            <p className="text-black text-sm sm:text-base sm:text-xl leading-relaxed">
+            <p className="text-black text-sm sm:text-xl leading-relaxed">
               Dapatkan informasi kesehatan terpercaya dari para ahli medis untuk{" "}
               <br className="sm:hidden" />
               hidup yang lebih sehat dan berkualitas
