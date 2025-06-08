@@ -11,7 +11,7 @@ function Beranda() {
         <div
           className="hidden md:block absolute inset-0 bg-no-repeat bg-right-top z-0 pointer-events-none"
           style={{
-            backgroundImage: "url('/icons/background1.png')",
+            backgroundImage: `url(${process.env.PUBLIC_URL}/icons/background1.png)`,
             backgroundSize: "50%",
           }}
         ></div>
@@ -20,27 +20,27 @@ function Beranda() {
           {/* Gambar dokter dan icon */}
           <div className="relative z-10 scale-90 md:scale-100 origin-top md:origin-top-right mt-10 md:mt-0 order-1 md:order-2">
             <img
-              src="/icons/hati.svg"
+              src={`${process.env.PUBLIC_URL}/icons/hati.svg`}
               alt="Heart Icon"
               className="absolute -top-6 left-6 md:-top-10 md:left-4 w-10 md:w-16 z-20"
             />
             <img
-              src="/icons/rumah-sakit.svg"
+              src={`${process.env.PUBLIC_URL}/icons/rumah-sakit.svg`}
               alt="Hospital Icon"
               className="absolute top-2 right-4 md:top-6 md:right-2 w-10 md:w-16 z-20"
             />
             <img
-              src="/icons/logo.svg"
+              src={`${process.env.PUBLIC_URL}/icons/logo.svg`}
               alt="Shield Icon"
               className="absolute -bottom-6 right-6 md:-bottom-10 md:right-4 w-12 md:w-16 z-20"
             />
             <img
-              src="/icons/Card Item.svg"
+              src={`${process.env.PUBLIC_URL}/icons/Card Item.svg`}
               alt="Plus Icon"
               className="absolute bottom-0 left-6 md:bottom-4 md:left-4 w-14 md:w-32 z-20"
             />
             <img
-              src="/dokter-&-bundaran.png"
+              src={`${process.env.PUBLIC_URL}/dokter-&-bundaran.png`}
               alt="Dokter"
               className="rounded-lg w-full max-w-xs md:max-w-md mx-auto relative z-10"
             />
@@ -99,7 +99,7 @@ function Beranda() {
                 key={idx}
                 className="p-8 w-full max-w-xs border border-gray-300 rounded-lg bg-white transition-transform duration-300 hover:scale-105 hover:shadow-lg"
               >
-                <img src="/icons/content2.png" alt="Icon" className="w-24 mb-6 mx-auto" />
+                <img src={`${process.env.PUBLIC_URL}/icons/content2.png`} alt="Icon" className="w-24 mb-6 mx-auto" />
                 <h3 className="text-xl font-semibold mb-3 text-left">{item.title}</h3>
                 <p className="text-sm text-left text-gray-600">{item.desc}</p>
               </div>
@@ -124,7 +124,7 @@ function Beranda() {
             ].map((item, idx) => (
               <div key={idx} className="flex flex-col items-center text-center">
                 <div className="w-24 h-24 md:w-32 md:h-32 border-2 rounded-full flex items-center justify-center mb-4">
-                  <img src={item.icon} alt={item.label} className="w-10 md:w-14" />
+                  <img src={`${process.env.PUBLIC_URL}${item.icon}`} alt={item.label} className="w-10 md:w-14" />
                 </div>
                 <p className="text-sm md:text-lg font-medium text-black">{item.label}</p>
               </div>
