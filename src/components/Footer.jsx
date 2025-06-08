@@ -1,8 +1,6 @@
 import React from "react";
 
 const Footer = () => {
-  const baseUrl = "https://username.github.io/repo-name/icons";
-
   return (
     <footer
       className="text-white py-10 px-8"
@@ -10,13 +8,18 @@ const Footer = () => {
     >
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-8">
         {/* Logo & Deskripsi */}
-        <div className="md:w-1/4">
-          <h2 className="text-2xl font-bold flex items-center gap-3 text-[#E36CC5]">
-            <img src={`${baseUrl}/logo.svg`} alt="Logo" className="w-7 h-7" />
-            SheHealth
-          </h2>
+        <div className="md:w-1/4 flex items-center gap-3">
+          <img
+            src={`${process.env.PUBLIC_URL}/icons/logo.svg`}
+            alt="Logo"
+            className="w-7 h-7"
+          />
+          <h2 className="text-2xl font-bold text-[#E36CC5]">SheHealth</h2>
+        </div>
 
-          <p className="mt-4 text-sm">
+        {/* Deskripsi */}
+        <div className="md:w-1/4">
+          <p>
             Solusi kesehatan, mudah diakses kapan saja melalui konsultasi online
             dengan dokter berpengalaman.
           </p>
@@ -26,8 +29,8 @@ const Footer = () => {
               className="w-10 h-10 rounded-full flex items-center justify-center"
             >
               <img
-                src={`${baseUrl}/youtube.svg`}
-                alt="Play Icon"
+                src={`${process.env.PUBLIC_URL}/icons/youtube.svg`}
+                alt="Youtube Icon"
                 className="w-8 h-8"
               />
             </button>
@@ -36,8 +39,8 @@ const Footer = () => {
               className="w-10 h-10 rounded-full flex items-center justify-center"
             >
               <img
-                src={`${baseUrl}/instagram.svg`}
-                alt="Play Icon"
+                src={`${process.env.PUBLIC_URL}/icons/instagram.svg`}
+                alt="Instagram Icon"
                 className="w-8 h-8"
               />
             </button>
@@ -45,7 +48,11 @@ const Footer = () => {
               onClick={() => window.open("https://x.com", "_blank")}
               className="w-10 h-10 rounded-full flex items-center justify-center"
             >
-              <img src={`${baseUrl}/x.svg`} alt="Play Icon" className="w-8 h-8" />
+              <img
+                src={`${process.env.PUBLIC_URL}/icons/x.svg`}
+                alt="X Icon"
+                className="w-8 h-8"
+              />
             </button>
           </div>
         </div>
@@ -76,7 +83,7 @@ const Footer = () => {
           <ul className="space-y-2 text-sm">
             <li className="flex items-center gap-2">
               <img
-                src={`${baseUrl}/email.svg`}
+                src={`${process.env.PUBLIC_URL}/icons/email.svg`}
                 alt="Email Icon"
                 className="w-4 h-4"
               />
@@ -84,7 +91,7 @@ const Footer = () => {
             </li>
             <li className="flex items-center gap-2">
               <img
-                src={`${baseUrl}/call.svg`}
+                src={`${process.env.PUBLIC_URL}/icons/call.svg`}
                 alt="Phone Icon"
                 className="w-4 h-4"
               />
