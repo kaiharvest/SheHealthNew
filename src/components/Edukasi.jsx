@@ -8,7 +8,7 @@ const Edukasi = () => {
     excerpt:
       "Penyakit jantung menjadi penyebab kematian nomor satu di dunia. Pelajari langkah-langkah sederhana namun efektif untuk menjaga kesehatan jantung Anda sejak dini.",
     date: "5 hari yang lalu",
-    image: `${baseUrl}/jantung22.png`,
+    image: `{${process.env.PUBLIC_URL}/jantung22.png`,
   });
 
   return (
@@ -36,7 +36,7 @@ const Edukasi = () => {
             {/* Artikel utama besar */}
             <div className="flex-1 bg-white rounded-2xl shadow-md p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer">
               <img
-                src={`${baseUrl}/artikel-terbaru.png`}
+                src={`{${process.env.PUBLIC_URL}/artikel-terbaru.png`}
                 alt={articles[0].title}
                 className="h-80 w-full object-contain rounded-lg mb-8 transition-transform duration-300 hover:scale-105 hover:shadow-lg cursor-pointer"
               />
@@ -91,7 +91,7 @@ const Edukasi = () => {
                 className="min-w-[300px] sm:min-w-[320px] max-w-[320px] bg-white rounded-2xl shadow-md overflow-hidden flex-shrink-0 transition-transform duration-300 hover:shadow-lg hover:-translate-y-1"
               >
                 <img
-                  src={`${baseUrl}/artikel1.jpg`}
+                  src={`{${process.env.PUBLIC_URL}/artikel1.jpg`}
                   alt={item.title}
                   className="w-full h-40 object-contain transition-transform duration-300 hover:scale-105 hover:shadow-lg cursor-pointer"
                 />
@@ -124,7 +124,7 @@ const Edukasi = () => {
                 className="bg-white rounded-2xl shadow p-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
               >
                 <img
-                  src={`${baseUrl}/artikel2.png`}
+                  src={`{${process.env.PUBLIC_URL}/artikel2.png`}
                   alt={item.title}
                   className="w-full h-48 object-contain rounded-lg mb-4 transition-transform duration-300 hover:scale-105 hover:shadow-lg cursor-pointer"
                 />
