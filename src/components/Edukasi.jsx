@@ -1,9 +1,7 @@
-import React, { useRef } from "react";
+import React from "react";
 
 const Edukasi = () => {
-  const scrollRef = useRef(null);
-
-  const baseUrl = "https://username.github.io/repo-name/images";
+  const baseUrl = process.env.PUBLIC_URL + "/images";
 
   const articles = new Array(6).fill({
     title: "7 Cara Efektif Menjaga Kesehatan Jantung di Era Modern",
