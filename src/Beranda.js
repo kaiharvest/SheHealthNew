@@ -40,7 +40,7 @@ function Beranda() {
               className="absolute bottom-0 left-6 md:bottom-4 md:left-4 w-14 md:w-32 z-20"
             />
             <img
-              src="/dokter & bundaran.png"
+              src="/dokter-&-bundaran.png"
               alt="Dokter"
               className="rounded-lg w-full max-w-xs md:max-w-md mx-auto relative z-10"
             />

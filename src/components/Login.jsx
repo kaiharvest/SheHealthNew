@@ -55,7 +55,11 @@ const Login = ({ onLoginSuccess }) => {
 
           {/* Logo */}
           <div className="text-[#E36CC5] font-bold text-2xl flex items-center justify-center gap-2 mb-1">
-            <img src="/LogoNew.png" alt="Logo SheHealth" className="w-8 h-9" />
+            <img
+              src={`${process.env.PUBLIC_URL}/LogoNew.png`}
+              alt="Logo SheHealth"
+              className="w-8 h-9"
+            />
             <span>SheHealth</span>
           </div>
 
@@ -68,7 +72,7 @@ const Login = ({ onLoginSuccess }) => {
             <div className="mb-4">
               <div className="flex items-center border border-black rounded px-3">
                 <img
-                  src="icons/Vector.svg"
+                  src={`${process.env.PUBLIC_URL}/icons/Vector.svg`}
                   alt="Ikon Email"
                   className="w-5 h-5 mr-3"
                 />
@@ -87,7 +91,7 @@ const Login = ({ onLoginSuccess }) => {
             <div className="mb-4">
               <div className="flex items-center border border-black rounded px-3">
                 <img
-                  src="icons/Lock.svg"
+                  src={`${process.env.PUBLIC_URL}/icons/Lock.svg`}
                   alt="Ikon Password"
                   className="w-5 h-5 mr-3"
                 />
@@ -105,7 +109,11 @@ const Login = ({ onLoginSuccess }) => {
                   className="ml-2 focus:outline-none"
                 >
                   <img
-                    src={showPassword ? "icons/Hidden.png" : "icons/eye.png"}
+                    src={
+                      showPassword
+                        ? `${process.env.PUBLIC_URL}/icons/Hidden.png`
+                        : `${process.env.PUBLIC_URL}/icons/eye.png`
+                    }
                     alt={
                       showPassword ? "Sembunyikan password" : "Lihat password"
                     }
@@ -121,10 +129,7 @@ const Login = ({ onLoginSuccess }) => {
                 <input type="checkbox" className="mr-2" />
                 Ingat Saya
               </label>
-              <Link
-                to="/lupapassword"
-                className="text-gray-500 hover:underline"
-              >
+              <Link to="/lupapassword" className="text-gray-500 hover:underline">
                 Lupa kata sandi?
               </Link>
             </div>
@@ -197,7 +202,7 @@ const Login = ({ onLoginSuccess }) => {
               ].map((item, idx) => (
                 <li key={idx} className="flex items-start">
                   <img
-                    src="icons/Frame.svg"
+                    src={`${process.env.PUBLIC_URL}/icons/Frame.svg`}
                     alt="Checklist"
                     className="w-6 mr-2"
                   />
@@ -207,7 +212,7 @@ const Login = ({ onLoginSuccess }) => {
             </ul>
 
             <img
-              src="rafiki.svg"
+              src={`${process.env.PUBLIC_URL}/rafiki.svg`}
               alt="Ilustrasi Konsultasi"
               className="mt-5 h-auto max-w-xs mx-auto"
             />
