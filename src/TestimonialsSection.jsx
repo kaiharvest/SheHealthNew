@@ -64,7 +64,8 @@ const TestimonialsSection = () => {
     return (
         <section className="px-6 md:px-24 py-20 bg-white text-center">
             <h2 className="text-4xl font-bold mb-4">
-                Apa Kata Mereka <span className="text-[#E36CC5]">Tentang Kami?</span>
+                Apa Kata Mereka{" "}
+                <span className="text-[#E36CC5]">Tentang Kami?</span>
             </h2>
             <p className="text-lg text-gray-600 mb-12 max-w-3xl mx-auto">
                 Karena setiap cerita berarti, dan setiap pengalaman membentuk kami jadi lebih baik.
@@ -90,7 +91,7 @@ const TestimonialsSection = () => {
 
                                 <div className="flex items-center gap-4 mb-4">
                                     <img
-                                        src="/testimonial.png"
+                                        src={`${process.env.PUBLIC_URL}/testimonial.png`}
                                         alt={item.name}
                                         className="w-12 h-12 rounded-full object-cover border-2 border-[#E36CC5]"
                                     />
