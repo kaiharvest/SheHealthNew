@@ -45,7 +45,11 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
         <div className="ml-2 md:ml-10 flex items-center space-x-3">
-          <img src="/LogoNew.png" alt="Logo" className="w-8 h-9" />
+          <img
+            src={`${process.env.PUBLIC_URL}/LogoNew.png`}
+            alt="Logo"
+            className="w-8 h-9"
+          />
           <span className="text-xl font-bold text-[#E36CC5]">SheHealth</span>
         </div>
 
@@ -76,7 +80,6 @@ const Navbar = () => {
             })}
           </ul>
 
-          {/* Jika belum login: tombol Masuk */}
           {!isLoggedIn && (
             <Link to="/login">
               <button className="mr-2 md:mr-4 lg:mr-6 xl:mr-10 bg-[#E36CC5] text-white font-semibold px-6 py-2 rounded-full hover:bg-pink-500 transition duration-200">
@@ -85,7 +88,6 @@ const Navbar = () => {
             </Link>
           )}
 
-          {/* Jika sudah login: foto profil + tombol Logout */}
           {isLoggedIn && (
             <div className="flex items-center space-x-4 mr-2 md:mr-4 lg:mr-6 xl:mr-10">
               <Link to={`/user/${nama}`}>
@@ -132,7 +134,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Dropdown Menu */}
       {isOpen && (
         <div className="md:hidden bg-white shadow-md px-4 pb-4">
           <ul className="space-y-4 text-gray-800 font-medium pt-4">
@@ -159,7 +160,6 @@ const Navbar = () => {
             })}
           </ul>
 
-          {/* Jika sudah login: profil + tombol logout */}
           {isLoggedIn && (
             <div className="mt-6 flex items-center space-x-4">
               <img
@@ -182,7 +182,6 @@ const Navbar = () => {
             </div>
           )}
 
-          {/* Jika belum login: tombol masuk */}
           {!isLoggedIn && (
             <div className="mt-4">
               <Link to="/login">

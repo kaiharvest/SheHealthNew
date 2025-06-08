@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
 const DoctorChatApp = () => {
-  const [selectedChat, setSelectedChat] = useState(null); // null = belum pilih chat
+  const [selectedChat, setSelectedChat] = useState(null);
   const [message, setMessage] = useState("");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const chatEndRef = useRef(null);
@@ -52,7 +52,7 @@ const DoctorChatApp = () => {
       avatar: avatarImg,
       isActive: false,
       messages: [
-                {
+        {
           id: 1,
           sender: "doctor",
           text: "Halo, saya dr. Giselle. Ada yang bisa saya bantu?",
@@ -62,10 +62,7 @@ const DoctorChatApp = () => {
     },
   ];
 
-  // Simpan semua chat dengan messages, agar tiap chat punya history masing-masing
   const [allChats, setAllChats] = useState(chatList);
-
-  // Ambil messages chat yg sedang aktif, kalau belum pilih chat, kosong
   const messages = selectedChat !== null ? allChats[selectedChat].messages : [];
 
   const handleSendMessage = () => {
@@ -79,7 +76,6 @@ const DoctorChatApp = () => {
           minute: "2-digit",
         }),
       };
-      // Update messages chat yang dipilih
       const updatedChats = [...allChats];
       updatedChats[selectedChat] = {
         ...updatedChats[selectedChat],
@@ -94,9 +90,14 @@ const DoctorChatApp = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  useEffect(() => {
+    if (chatEndRef.current) {
+      chatEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [messages]);
+
   return (
     <div className="flex h-screen bg-gray-50 relative">
-      {/* Overlay for sidebar in mobile */}
       {isSidebarOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-20 lg:hidden"
@@ -106,12 +107,12 @@ const DoctorChatApp = () => {
 
       {/* Sidebar */}
       <div
-        className={`w-80 bg-white border-r border-gray-200 flex flex-col z-30 fixed lg:relative lg:translate-x-0 transition-transform duration-300 ease-in-out ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-          } h-full lg:w-80 md:w-72 sm:w-64`}
+        className={`w-80 bg-white border-r border-gray-200 flex flex-col z-30 fixed lg:relative lg:translate-x-0 transition-transform duration-300 ease-in-out ${
+          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        } h-full lg:w-80 md:w-72 sm:w-64`}
       >
         <div className="p-4 border-b border-gray-200">
           <div className="flex items-center justify-between mb-4">
-            
             <button
               className="lg:hidden p-2 hover:bg-gray-100 rounded-lg"
               onClick={toggleSidebar}
@@ -144,14 +145,15 @@ const DoctorChatApp = () => {
           </div>
         </div>
 
-        <div className="flex-1 overflow-y-auto scrollbar-hide"> 
+        <div className="flex-1 overflow-y-auto scrollbar-hide">
           {allChats.map((chat, index) => (
             <div
               key={chat.id}
-              className={`p-4 border-b border-gray-100 cursor-pointer hover:bg-gray-50 ${selectedChat === index
+              className={`p-4 border-b border-gray-100 cursor-pointer hover:bg-gray-50 ${
+                selectedChat === index
                   ? "bg-pink-50 border-r-2 border-r-[#E36CC5]"
                   : ""
-                }`}
+              }`}
               onClick={() => {
                 setSelectedChat(index);
                 setIsSidebarOpen(false);
@@ -182,8 +184,8 @@ const DoctorChatApp = () => {
         </div>
       </div>
 
-      {/* Chat Main Area */}
-      <div className="flex-1 flex flex-col ">
+      {/* Main Chat Area */}
+      <div className="flex-1 flex flex-col">
         {/* Header */}
         <div className="bg-white border-b border-gray-200 p-3 sm:p-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -193,8 +195,6 @@ const DoctorChatApp = () => {
             >
               <span className="text-gray-600 text-lg">☰</span>
             </button>
-
-            {/* Show avatar and name if chat selected */}
             {selectedChat !== null ? (
               <>
                 <img
@@ -220,13 +220,12 @@ const DoctorChatApp = () => {
               </h2>
             )}
           </div>
-
           <button className="p-2 hover:bg-gray-100 rounded-lg">
             <span className="text-gray-500 text-lg">⋮</span>
           </button>
         </div>
 
-        {/* Info bar */}
+        {/* Info Bar */}
         {selectedChat !== null && (
           <div className="bg-gray-100 px-3 sm:px-4 py-2 text-center">
             <span className="bg-gray-300 text-gray-700 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm">
@@ -235,8 +234,8 @@ const DoctorChatApp = () => {
           </div>
         )}
 
-        {/* Chat Messages or placeholder */}
-       <div className="flex-1 overflow-y-auto scrollbar-hide p-3 sm:p-4 space-y-3 sm:space-y-4">
+        {/* Messages */}
+        <div className="flex-1 overflow-y-auto scrollbar-hide p-3 sm:p-4 space-y-3 sm:space-y-4">
           {selectedChat === null ? (
             <div className="h-full flex items-center justify-center text-gray-400 text-lg">
               Pilih chat dari daftar di sebelah kiri untuk mulai ngobrol
@@ -249,12 +248,14 @@ const DoctorChatApp = () => {
             messages.map((msg) => (
               <div
                 key={msg.id}
-                className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"
-                  }`}
+                className={`flex ${
+                  msg.sender === "user" ? "justify-end" : "justify-start"
+                }`}
               >
                 <div
-                  className={`flex items-end gap-2 max-w-[85%] sm:max-w-xs lg:max-w-md ${msg.sender === "user" ? "flex-row-reverse" : ""
-                    }`}
+                  className={`flex items-end gap-2 max-w-[85%] sm:max-w-xs lg:max-w-md ${
+                    msg.sender === "user" ? "flex-row-reverse" : ""
+                  }`}
                 >
                   {msg.sender === "doctor" && (
                     <img
@@ -264,18 +265,20 @@ const DoctorChatApp = () => {
                     />
                   )}
                   <div
-                    className={`px-3 sm:px-4 py-2 sm:py-3 rounded-2xl ${msg.sender === "user"
+                    className={`px-3 sm:px-4 py-2 sm:py-3 rounded-2xl ${
+                      msg.sender === "user"
                         ? "bg-[#E36CC5] text-white rounded-br-md"
                         : "bg-white border border-gray-200 rounded-bl-md"
-                      }`}
+                    }`}
                   >
                     <p className="text-sm">{msg.text}</p>
                     {msg.time && (
                       <span
-                        className={`block mt-1 text-xs ${msg.sender === "user"
+                        className={`block mt-1 text-xs ${
+                          msg.sender === "user"
                             ? "text-white/70"
                             : "text-gray-400"
-                          }`}
+                        }`}
                       >
                         {msg.time}
                       </span>
@@ -288,7 +291,7 @@ const DoctorChatApp = () => {
           <div ref={chatEndRef} />
         </div>
 
-        {/* Input form */}
+        {/* Input */}
         {selectedChat !== null && (
           <form
             className="bg-white p-3 sm:p-4 flex items-center gap-3 border-t border-gray-200"
@@ -299,35 +302,16 @@ const DoctorChatApp = () => {
           >
             <input
               type="text"
-              placeholder="Ketik pesan..."
-              className="flex-1 border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-[#E36CC5]"
+              placeholder="Tulis pesan..."
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              autoFocus
+              className="flex-1 border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"
             />
             <button
               type="submit"
-              disabled={!message.trim()}
-              className={`p-2 rounded-full ${message.trim()
-                  ? "bg-[#E36CC5] hover:bg-pink-400 text-white"
-                  : "bg-gray-300 cursor-not-allowed"
-                }`}
+              className="bg-[#E36CC5] hover:bg-pink-600 text-white px-4 py-2 rounded-full"
             >
-              {/* Paper airplane SVG icon */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M2.5 19.5L21 12 2.5 4.5v7.5l13.5 0-13.5 0v7.5z"
-                />
-              </svg>
+              Kirim
             </button>
           </form>
         )}

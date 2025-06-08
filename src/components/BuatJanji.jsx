@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const BuatJanji = () => {
   const [showSuccess, setShowSuccess] = useState(false);
+  const [selectedTime, setSelectedTime] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -27,8 +28,6 @@ const BuatJanji = () => {
     setSelectedTime(null);
   };
 
-  const [selectedTime, setSelectedTime] = useState(null);
-
   return (
     <div className="min-h-screen flex flex-col items-center py-6 px-4 bg-gray-50">
       {/* Pop-up Sukses */}
@@ -39,17 +38,39 @@ const BuatJanji = () => {
       )}
 
       {/* Header */}
-      {/* ... (kode header tetap) */}
+      <div className="text-center mb-6">
+        <img
+          src={process.env.PUBLIC_URL + "/icon/logo.png"}
+          alt="Logo Klinik"
+          className="mx-auto w-24 h-24 mb-4"
+        />
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">
+          Buat Janji Konsultasi
+        </h1>
+        <p className="text-sm text-gray-600 mt-2">
+          Silakan isi formulir berikut untuk membuat janji.
+        </p>
+      </div>
 
       {/* Card Dokter */}
-      {/* ... (kode card tetap) */}
+      <div className="w-full max-w-4xl bg-white rounded-t-xl shadow-md mb-6 px-6 py-4 flex items-center space-x-4">
+        <img
+          src={process.env.PUBLIC_URL + "/icon/dokter1.png"}
+          alt="Dokter Andini"
+          className="w-24 h-24 rounded-full object-cover"
+        />
+        <div>
+          <h2 className="text-xl font-semibold text-black">dr. Andini Wulandari</h2>
+          <p className="text-gray-600 text-sm">Dokter Umum</p>
+          <p className="text-gray-600 text-sm">Pengalaman 5 tahun</p>
+        </div>
+      </div>
 
       {/* Form */}
       <form
         onSubmit={handleSubmit}
         className="w-full max-w-4xl bg-white rounded-b-xl px-4 sm:px-6 space-y-8 pb-8"
       >
-        {/* Form Input seperti sebelumnya */}
         <div className="grid md:grid-cols-2 gap-6">
           {/* Data Pribadi */}
           <div>
