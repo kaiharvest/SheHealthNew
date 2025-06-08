@@ -7,7 +7,8 @@ function MemberSection() {
         navigate("/layanan");
     };
 
-    const baseUrl = "https://username.github.io/repo-name/images";
+    // Ganti baseUrl dengan PUBLIC_URL
+    const baseUrl = process.env.PUBLIC_URL;
 
     return (
         <section
