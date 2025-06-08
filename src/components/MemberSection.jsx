@@ -1,16 +1,18 @@
 import { useNavigate } from "react-router-dom";
 
 function MemberSection() {
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     const handleClick = () => {
-        navigate("/layanan"); 
+        navigate("/layanan");
     };
+
+    const baseUrl = "https://username.github.io/repo-name/images";
 
     return (
         <section
             className="relative w-full h-[200px] md:h-[400px] bg-cover bg-center"
-            style={{ backgroundImage: "url('/member.png')" }}
+            style={{ backgroundImage: `url('${baseUrl}/member.png')` }}
         >
             <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-transparent flex items-center">
                 <div className="text-left text-white px-4 md:px-10 lg:px-40 max-w-full md:max-w-2xl">
@@ -29,7 +31,6 @@ function MemberSection() {
                 </div>
             </div>
         </section>
-
     );
 }
 
