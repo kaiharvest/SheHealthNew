@@ -136,20 +136,20 @@ function Beranda() {
       <section className="bg-pink-100 py-24">
         <div className="container mx-auto px-6 md:px-10 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
           <div>
-            <h3 className="text-xl md:text-3xl font-bold text-[#E36CC5] mb-2">| 250M+</h3>
-            <p className="text-black text-xs md:text-base">API requests per day, peaking at 13,000 requests a second.</p>
+            <h3 className="text-xl md:text-3xl font-bold text-[#E36CC5] mb-2">| 1000+</h3>
+            <p className="text-black text-xs md:text-base">Konsultasi per bulan, melayani kebutuhan kesehatan perempuan setiap hari.</p>
           </div>
           <div>
-            <h3 className="text-xl md:text-3xl font-bold text-[#E36CC5] mb-2">| 99.999%</h3>
-            <p className="text-black text-xs md:text-base">historical uptime for services.</p>
+            <h3 className="text-xl md:text-3xl font-bold text-[#E36CC5] mb-2">| 99%</h3>
+            <p className="text-black text-xs md:text-base">Tingkat kepuasan penggunauntuk layanan konsultasikesehatan perempuan.</p>
           </div>
           <div>
             <h3 className="text-xl md:text-3xl font-bold text-[#E36CC5] mb-2">| 90%</h3>
-            <p className="text-black text-xs md:text-base">of U.S. adults have bought from businesses using Stripe.</p>
+            <p className="text-black text-xs md:text-base">Perempuan Indonesia mempercayai SheHealth untuk kebutuhan kesehatan mereka.</p>
           </div>
           <div>
-            <h3 className="text-xl md:text-3xl font-bold text-[#E36CC5] mb-2">| 135+</h3>
-            <p className="text-black text-xs md:text-base">currencies and payment methods supported.</p>
+            <h3 className="text-xl md:text-3xl font-bold text-[#E36CC5] mb-2">| 24/7</h3>
+            <p className="text-black text-xs md:text-base">layanan konsultasi tersediadengan dukungan dokterspesialis berpengalaman.</p>
           </div>
         </div>
       </section>
