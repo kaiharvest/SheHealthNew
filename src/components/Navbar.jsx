@@ -97,7 +97,7 @@ const Navbar = () => {
               </Link>
               <button
                 onClick={handleLogout}
-                className="bg-pink-600 hover:bg-pink-700 text-white px-3 py-1 rounded-md text-sm"
+                className="bg-[#E36CC5] hover:bg-pink-400 text-white px-3 py-1 rounded-full text-sm"
               >
                 Logout
               </button>

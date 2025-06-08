@@ -1,4 +1,3 @@
-// PaymentPage.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -13,7 +12,6 @@ export default function PaymentPage() {
     const ewallets = ["Gopay", "ShopeePay", "Ovo", "Dana"];
     const mbankings = ["BRI", "BNI", "BCA"];
 
-    // Mapping metode ke gambar
     const paymentImages = {
         Gopay: "/icons/gopay.svg",
         ShopeePay: "/icons/shopepay.svg",

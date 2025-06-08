@@ -5,15 +5,13 @@ const User = () => {
   const { nama } = useParams();
   const navigate = useNavigate();
 
-  // State untuk form
   const [formData, setFormData] = useState({
-    nama: "Addina Zara",
-    email: "hekel@gmail.com",
-    tanggalLahir: "19 Januari 2007",
+    nama: "",
+    email: "",
+    tanggalLahir: "",
     noTelepon: "",
   });
 
-  // Handle perubahan input
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -22,16 +20,12 @@ const User = () => {
     }));
   };
 
-  // Handle simpan data (contoh: alert, bisa diganti API call)
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Data disimpan:\n" + JSON.stringify(formData, null, 2));
-    // Di sini bisa tambahkan logic simpan ke backend/API
   };
 
-  // Logout (contoh)
   const handleLogout = () => {
-    // localStorage.removeItem("token"); misal hapus token
     navigate("/login");
   };
 
@@ -42,13 +36,6 @@ const User = () => {
         <h1 className="text-2xl font-semibold text-gray-800 w-full text-center">
           Profil 
         </h1>
-        <button
-          onClick={handleLogout}
-          className="bg-[#E36CC5] hover:bg-pink-600 text-white px-4 py-2 rounded-full text-sm font-semibold transition absolute top-1/2 -translate-y-1/2 right-8"
-          aria-label="Logout"
-        >
-          Logout
-        </button>
       </header>
 
       {/* Profile Picture */}
@@ -61,7 +48,7 @@ const User = () => {
         
         <button
           aria-label="Edit Profile Picture"
-          className="absolute bottom-0 right-[calc(50%-56px)] sm:right-[calc(50%-64px)] bg-pink-500 text-white p-2 rounded-full border-2 border-white shadow-lg hover:bg-pink-600 transition"
+          className="absolute bottom-0 right-[calc(50%-56px)] sm:right-[calc(50%-64px)] bg-[#E36CC5] text-white p-2 rounded-full border-2 border-white shadow-lg hover:bg-pink-600 transition"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +79,8 @@ const User = () => {
           <input
             type="text"
             name="nama"
-            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
+            placeholder="Nama lengkap"
+            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E36CC5]"
             value={formData.nama}
             onChange={handleChange}
             required
@@ -105,7 +93,8 @@ const User = () => {
           <input
             type="email"
             name="email"
-            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
+            placeholder="Email"
+            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E36CC5]"
             value={formData.email}
             onChange={handleChange}
             required
@@ -118,7 +107,8 @@ const User = () => {
           <input
             type="text"
             name="tanggalLahir"
-            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
+            placeholder="Tanggal lahir"
+            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E36CC5]"
             value={formData.tanggalLahir}
             onChange={handleChange}
             required
@@ -131,7 +121,7 @@ const User = () => {
           <input
             type="text"
             name="noTelepon"
-            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-pink-500"
+            className="w-full border border-gray-300 rounded-md px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#E36CC5]"
             value={formData.noTelepon}
             onChange={handleChange}
             placeholder="Isi nomor telepon"
@@ -142,7 +132,7 @@ const User = () => {
         <div className="sm:col-span-2 flex justify-end mt-2">
           <button
             type="submit"
-            className="bg-[#E36CC5] text-white px-8 py-3 rounded-full text-sm font-semibold shadow hover:bg-pink-600 transition"
+            className="bg-[#E36CC5] text-white px-8 py-3 rounded-full text-sm font-semibold shadow hover:bg-pink-400 transition"
           >
             Simpan
           </button>

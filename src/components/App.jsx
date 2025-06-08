@@ -6,17 +6,16 @@ import {
   useLocation,
 } from 'react-router-dom';
 
-// Komponen Layout
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-// Halaman
+
 import Beranda from '../Beranda';
 import Login from './Login';
 import Register from './Register';
 import LupaPassword from './LupaPassword';
 import Verifikasi from './Verifikasi';
-import ResetPassword from './ResetPassword'; // ✅ Tambahkan ini
+import ResetPassword from './ResetPassword';
 import ChatApp from './Chat';
 import Konsultasi from './Konsultasi';
 import BuatJanji from './BuatJanji';
@@ -26,9 +25,7 @@ import Membership from './Membership';
 import User from './User';
 import PaymentPage from './PaymentPage';
 import PaymentSuccessPopup from './PaymentSuccessPopup';
-// import NotFound from './NotFound'; // Opsional
 
-// Scroll to top on route change
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -45,7 +42,7 @@ const Layout = ({ children }) => {
     '/register',
     '/lupapassword',
     '/verifikasi',
-    '/resetpassword' // ✅ Tambahkan agar halaman reset tidak tampil navbar/footer
+    '/resetpassword' 
   ];
   const isNoLayout = noLayoutRoutes.includes(location.pathname);
 
@@ -62,17 +59,12 @@ const AppRoutes = () => {
   return (
     <Layout>
       <Routes>
-        {/* Halaman Utama */}
         <Route path="/" element={<Beranda />} />
-
-        {/* Autentikasi */}
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/lupapassword" element={<LupaPassword />} />
         <Route path="/verifikasi" element={<Verifikasi />} />
-        <Route path="/resetpassword" element={<ResetPassword />} /> {/* ✅ Tambahkan route baru */}
-
-        {/* Fitur */}
+        <Route path="/resetpassword" element={<ResetPassword />} /> 
         <Route path="/chat" element={<ChatApp />} />
         <Route path="/konsultasi" element={<Konsultasi />} />
         <Route path="/buatjanji" element={<BuatJanji />} />
@@ -80,13 +72,8 @@ const AppRoutes = () => {
         <Route path="/user/:nama" element={<User />} />
         <Route path="/edukasi" element={<Edukasi />} />
         <Route path="/layanan" element={<Membership />} />
-
-        {/* Pembayaran */}
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/paymentpopup" element={<PaymentSuccessPopup />} />
-
-        {/* Not Found (Opsional) */}
-        {/* <Route path="*" element={<NotFound />} /> */}
       </Routes>
     </Layout>
   );

@@ -5,7 +5,6 @@ const BuatJanji = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Ambil data dari form
     const formData = new FormData(e.target);
     const data = {
       nama: formData.get("nama"),
@@ -17,16 +16,13 @@ const BuatJanji = () => {
       jam: selectedTime,
     };
 
-    // Simpan ke localStorage (Riwayat)
     const riwayat = JSON.parse(localStorage.getItem("riwayatJanji")) || [];
     riwayat.push(data);
     localStorage.setItem("riwayatJanji", JSON.stringify(riwayat));
 
-    // Tampilkan pop-up sukses
     setShowSuccess(true);
     setTimeout(() => setShowSuccess(false), 3000);
 
-    // Reset form
     e.target.reset();
     setSelectedTime(null);
   };

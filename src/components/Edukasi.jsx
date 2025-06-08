@@ -8,7 +8,7 @@ const Edukasi = () => {
     excerpt:
       "Penyakit jantung menjadi penyebab kematian nomor satu di dunia. Pelajari langkah-langkah sederhana namun efektif untuk menjaga kesehatan jantung Anda sejak dini.",
     date: "5 hari yang lalu",
-    image: "/icons/jantung22.png", // path harus dimulai dari root public
+    image: "/icons/jantung22.png", 
   });
 
   return (
@@ -59,7 +59,7 @@ const Edukasi = () => {
                   className="flex gap-3 bg-white rounded-2xl shadow-md p-3 items-center h-1/3 min-h-[110px] flex-1 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer"
                 >
                   <img
-                    src={articles[idx].image} // ← gunakan image dari array agar konsisten
+                    src={articles[idx].image} 
                     alt={articles[idx].title}
                     className="w-20 h-20 object-cover rounded-lg"
                   />

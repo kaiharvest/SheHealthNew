@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
 
 function MemberSection() {
-    const navigate = useNavigate(); // untuk navigasi halaman
+    const navigate = useNavigate(); 
 
     const handleClick = () => {
-        navigate("/layanan"); // arahkan ke halaman Membership.jsx
+        navigate("/layanan"); 
     };
 
     return (
