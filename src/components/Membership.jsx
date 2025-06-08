@@ -1,3 +1,4 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Membership() {
@@ -73,8 +74,6 @@ export default function Membership() {
             </ul>
           </div>
         </div>
-
-
       </section>
 
       {/* Section 2 - Statistik */}
