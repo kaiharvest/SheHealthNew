@@ -44,12 +44,12 @@ const Navbar = () => {
     <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
         {/* Logo */}
-        <div className="ml-2 flex items-center space-x-3">
+        <div className="ml-2 md:ml-10 flex items-center space-x-3">
           <img src="/LogoNew.png" alt="Logo" className="w-8 h-9" />
           <span className="text-xl font-bold text-[#E36CC5]">SheHealth</span>
         </div>
 
-        {/* Desktop Menu */}
+        {/* Desktop & Tablet Menu */}
         <div className="hidden md:flex items-center space-x-10">
           <ul className="flex space-x-8 font-medium">
             {menuItems.map((item, idx) => {
@@ -76,21 +76,23 @@ const Navbar = () => {
             })}
           </ul>
 
-          {/* Tombol Masuk atau Foto Profil */}
           {!isLoggedIn ? (
             <Link to="/login">
-              <button className="mr-4 bg-[#E36CC5] text-white font-semibold px-6 py-2 rounded-full hover:bg-pink-500 transition duration-200">
+              <button className="mr-2 md:mr-4 lg:mr-6 xl:mr-10 bg-[#E36CC5] text-white font-semibold px-6 py-2 rounded-full hover:bg-pink-500 transition duration-200">
                 Masuk
               </button>
             </Link>
           ) : (
-            <Link to={`/user/${nama}`} className="mr-4">
-              <img
-                src={profileImage}
-                alt={nama || "User Profile"}
-                className="w-10 h-10 rounded-full object-cover cursor-pointer"
-              />
-            </Link>
+            <div className="flex items-center space-x-4 mr-2 md:mr-4 lg:mr-6 xl:mr-10">
+              <Link to={`/user/${nama}`}>
+                <img
+                  src={profileImage}
+                  alt={nama || "User Profile"}
+                  className="w-10 h-10 rounded-full object-cover cursor-pointer"
+                />
+              </Link>
+              {/* Logout tidak ditampilkan di view desktop/tablet */}
+            </div>
           )}
         </div>
 
@@ -121,10 +123,10 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Dropdown Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white shadow-md px-4 pt-2 pb-6 space-y-4">
-          <ul className="space-y-3 text-gray-800 font-medium">
+        <div className="md:hidden bg-white shadow-md px-4 pb-4">
+          <ul className="space-y-4 text-gray-800 font-medium pt-4">
             {menuItems.map((item, idx) => {
               const isActive = location.pathname === item.path;
               return (
@@ -132,10 +134,8 @@ const Navbar = () => {
                   <Link
                     to={item.path}
                     onClick={() => setIsOpen(false)}
-                    className={`block transition relative py-1 ${
-                      isActive
-                        ? "text-pink-500 font-semibold"
-                        : "hover:text-pink-500"
+                    className={`block relative group transition ${
+                      isActive ? "text-pink-500 font-semibold" : "hover:text-pink-500"
                     }`}
                   >
                     {item.name}
@@ -150,43 +150,32 @@ const Navbar = () => {
             })}
           </ul>
 
-          <hr className="border-gray-200" />
+          {/* Mobile Profile Section + Logout */}
+          {isLoggedIn && (
+            <div className="mt-6 flex items-center space-x-4">
+              <img
+                src={profileImage}
+                alt="Profile"
+                className="w-10 h-10 rounded-full object-cover"
+              />
+              <div className="flex flex-col">
+                <span className="font-semibold">{nama}</span>
+              </div>
+            </div>
+          )}
 
-          <div className="space-y-3">
-            {!isLoggedIn ? (
-              <Link to="/login" onClick={() => setIsOpen(false)}>
-                <button className="w-full bg-[#E36CC5] text-white font-semibold px-4 py-2 rounded-full hover:bg-pink-600 transition duration-200">
+          {!isLoggedIn && (
+            <div className="mt-4">
+              <Link to="/login">
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="w-full bg-pink-500 text-white font-semibold px-4 py-2 rounded-full hover:bg-pink-600 transition duration-200"
+                >
                   Masuk
                 </button>
               </Link>
-            ) : (
-              <div className="flex items-center gap-3">
-                <img
-                  src={profileImage}
-                  alt="User"
-                  className="w-10 h-10 rounded-full object-cover"
-                />
-                <div className="flex flex-col">
-                  <Link
-                    to={`/user/${nama}`}
-                    onClick={() => setIsOpen(false)}
-                    className="text-gray-700 hover:text-pink-600 font-medium"
-                  >
-                    {nama}
-                  </Link>
-                  <button
-                    onClick={() => {
-                      setIsOpen(false);
-                      handleLogout();
-                    }}
-                    className="text-sm text-red-500 hover:underline mt-1 text-left"
-                  >
-                    Logout
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       )}
     </nav>
