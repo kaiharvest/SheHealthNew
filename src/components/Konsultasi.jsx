@@ -3,22 +3,22 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 const doctorsData = [
-  { name: "dr. Jennie, Sp.OG", specialization: "Spesialis Kandungan & Kebidanan", image: "/icons/dokter-konsul.svg" },
-  { name: "dr. Rose, Sp.S", specialization: "Spesialis Saraf", image: "/icons/dokter-konsul.svg" },
-  { name: "dr. Lisa", specialization: "Dokter Gigi Umum", image: "/icons/dokter-konsul.svg" },
-  { name: "dr. Jisoo, Sp.JP", specialization: "Spesialis Jantung & Pembuluh Darah", image: "/icons/dokter-konsul.svg" },
-  { name: "dr. Giselle, Sp.M", specialization: "Spesialis Mata", image: "/icons/dokter-konsul.svg" },
-  { name: "dr. Karina", specialization: "Dokter Kulit", image: "/icons/dokter-konsul.svg" },
-  { name: "dr. Irene", specialization: "Dokter Gizi", image: "/icons/dokter-konsul.svg" },
-  { name: "dr. Wendy", specialization: "Dokter Umum", image: "/icons/dokter-konsul.svg" },
-  { name: "dr. Yeri, Sp.OG", specialization: "Spesialis Kandungan & Kebidanan", image: "/icons/dokter-konsul.svg" },
-  { name: "dr. Mina, Sp.S", specialization: "Spesialis Saraf", image: "/icons/dokter-konsul.svg" },
-  { name: "dr. Jihyo", specialization: "Dokter Gigi Umum", image: "/icons/dokter-konsul.svg" },
-  { name: "dr. Hansohe, Sp.JP", specialization: "Spesialis Jantung & Pembuluh Darah", image: "/icons/dokter-konsul.svg" },
-  { name: "dr. Miko, Sp.M", specialization: "Spesialis Mata", image: "/icons/dokter-konsul.svg" },
-  { name: "dr. Nia", specialization: "Dokter Kulit", image: "/icons/dokter-konsul.svg" },
-  { name: "dr. Sari", specialization: "Dokter Gizi", image: "/icons/dokter-konsul.svg" },
-  { name: "dr. Putri", specialization: "Dokter Umum", image: "/icons/dokter-konsul.svg" },
+  { name: "dr. Jennie, Sp.OG", specialization: "Spesialis Kandungan & Kebidanan", image: "icons/dokter-konsul.svg" },
+  { name: "dr. Rose, Sp.S", specialization: "Spesialis Saraf", image: "icons/dokter-konsul.svg" },
+  { name: "dr. Lisa", specialization: "Dokter Gigi Umum", image: "icons/dokter-konsul.svg" },
+  { name: "dr. Jisoo, Sp.JP", specialization: "Spesialis Jantung & Pembuluh Darah", image: "icons/dokter-konsul.svg" },
+  { name: "dr. Giselle, Sp.M", specialization: "Spesialis Mata", image: "icons/dokter-konsul.svg" },
+  { name: "dr. Karina", specialization: "Dokter Kulit", image: "icons/dokter-konsul.svg" },
+  { name: "dr. Irene", specialization: "Dokter Gizi", image: "icons/dokter-konsul.svg" },
+  { name: "dr. Wendy", specialization: "Dokter Umum", image: "icons/dokter-konsul.svg" },
+  { name: "dr. Yeri, Sp.OG", specialization: "Spesialis Kandungan & Kebidanan", image: "icons/dokter-konsul.svg" },
+  { name: "dr. Mina, Sp.S", specialization: "Spesialis Saraf", image: "icons/dokter-konsul.svg" },
+  { name: "dr. Jihyo", specialization: "Dokter Gigi Umum", image: "icons/dokter-konsul.svg" },
+  { name: "dr. Hansohe, Sp.JP", specialization: "Spesialis Jantung & Pembuluh Darah", image: "icons/dokter-konsul.svg" },
+  { name: "dr. Miko, Sp.M", specialization: "Spesialis Mata", image: "icons/dokter-konsul.svg" },
+  { name: "dr. Nia", specialization: "Dokter Kulit", image: "icons/dokter-konsul.svg" },
+  { name: "dr. Sari", specialization: "Dokter Gizi", image: "icons/dokter-konsul.svg" },
+  { name: "dr. Putri", specialization: "Dokter Umum", image: "icons/dokter-konsul.svg" },
 ].map((d) => ({
   ...d,
   rating: 4.9,
@@ -84,7 +84,7 @@ const Konsultasi = () => {
     <div className="px-4 sm:px-6 md:px-24 py-10 font-poppins">
       <div className="mb-8 relative w-full max-w-3xl mx-auto">
         <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-          <img src="/icons/search.svg" alt="Search Icon" className="h-6 w-6" />
+          <img src="icons/search.svg" alt="Search Icon" className="h-6 w-6" />
         </div>
         <input
           type="text"
@@ -105,7 +105,7 @@ const Konsultasi = () => {
             Lihat Detail
           </button>
         </div>
-        <img src="/promo.png" alt="Promo" className="w-[280px] sm:w-[300px] md:w-[400px] lg:w-[500px] h-auto mt-6 md:mt-0 md:ml-6 rounded-lg" />
+        <img src="promo.png" alt="Promo" className="w-[280px] sm:w-[300px] md:w-[400px] lg:w-[500px] h-auto mt-6 md:mt-0 md:ml-6 rounded-lg" />
       </div>
 
       <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 justify-items-center">
