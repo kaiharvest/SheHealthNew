@@ -3,12 +3,14 @@ import React, { useRef } from "react";
 const Edukasi = () => {
   const scrollRef = useRef(null);
 
+  const baseUrl = "https://username.github.io/repo-name/images";
+
   const articles = new Array(6).fill({
     title: "7 Cara Efektif Menjaga Kesehatan Jantung di Era Modern",
     excerpt:
       "Penyakit jantung menjadi penyebab kematian nomor satu di dunia. Pelajari langkah-langkah sederhana namun efektif untuk menjaga kesehatan jantung Anda sejak dini.",
     date: "5 hari yang lalu",
-    image: "/icons/jantung22.png", 
+    image: `${baseUrl}/jantung22.png`,
   });
 
   return (
@@ -36,7 +38,7 @@ const Edukasi = () => {
             {/* Artikel utama besar */}
             <div className="flex-1 bg-white rounded-2xl shadow-md p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer">
               <img
-                src="/artikel-terbaru.png"
+                src={`${baseUrl}/artikel-terbaru.png`}
                 alt={articles[0].title}
                 className=" h-80 object-cover rounded-lg mb-8"
               />
@@ -50,7 +52,7 @@ const Edukasi = () => {
                 {articles[0].excerpt}
               </p>
             </div>
-            
+
             {/* Tiga artikel kecil kanan dengan tinggi total sama dengan artikel kiri */}
             <div className="flex flex-col gap-4 flex-1 max-w-xs h-full justify-between">
               {[1, 2, 3, 4].map((idx) => (
@@ -59,7 +61,7 @@ const Edukasi = () => {
                   className="flex gap-3 bg-white rounded-2xl shadow-md p-3 items-center h-1/3 min-h-[110px] flex-1 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer"
                 >
                   <img
-                    src={articles[idx].image} 
+                    src={articles[idx].image}
                     alt={articles[idx].title}
                     className="w-20 h-20 object-cover rounded-lg"
                   />
@@ -76,6 +78,7 @@ const Edukasi = () => {
             </div>
           </div>
         </div>
+
         {/* Artikel Pilihan */}
         <div className="mb-11">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-6 flex items-center gap-2">
@@ -90,7 +93,7 @@ const Edukasi = () => {
                 className="min-w-[300px] sm:min-w-[320px] max-w-[320px] bg-white rounded-2xl shadow-md overflow-hidden flex-shrink-0 transition-transform duration-300 hover:shadow-lg hover:-translate-y-1"
               >
                 <img
-                  src="/artikel1.jpg"
+                  src={`${baseUrl}/artikel1.jpg`}
                   alt={item.title}
                   className="w-full h-40 object-cover"
                 />
@@ -123,7 +126,7 @@ const Edukasi = () => {
                 className="bg-white rounded-2xl shadow p-4 transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
               >
                 <img
-                  src="/artikel2.png"
+                  src={`${baseUrl}/artikel2.png`}
                   alt={item.title}
                   className="w-full h-48 object-cover rounded-lg mb-4"
                 />
