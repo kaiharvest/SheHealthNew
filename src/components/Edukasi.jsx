@@ -40,7 +40,7 @@ const Edukasi = () => {
               <img
                 src={`${baseUrl}/artikel-terbaru.png`}
                 alt={articles[0].title}
-                className=" h-80 object-cover rounded-lg mb-8"
+                className="h-80 w-full object-contain rounded-lg mb-8 transition-transform duration-300 hover:scale-105 hover:shadow-lg cursor-pointer"
               />
               <span className="inline-block bg-[#E36CC5] text-white text-xs font-semibold px-3 py-1 rounded-full mb-2 w-fit">
                 Terbaru
@@ -63,7 +63,7 @@ const Edukasi = () => {
                   <img
                     src={articles[idx].image}
                     alt={articles[idx].title}
-                    className="w-20 h-20 object-cover rounded-lg"
+                    className="w-20 h-20 object-contain rounded-lg transition-transform duration-300 hover:scale-110 hover:shadow-md cursor-pointer"
                   />
                   <div>
                     <h4 className="font-semibold text-sm text-gray-800 leading-tight mb-1">
@@ -95,7 +95,7 @@ const Edukasi = () => {
                 <img
                   src={`${baseUrl}/artikel1.jpg`}
                   alt={item.title}
-                  className="w-full h-40 object-cover"
+                  className="w-full h-40 object-contain transition-transform duration-300 hover:scale-105 hover:shadow-lg cursor-pointer"
                 />
                 <div className="p-4">
                   <h3 className="font-semibold text-sm sm:text-base text-gray-800 mb-2 line-clamp-2">
@@ -128,7 +128,7 @@ const Edukasi = () => {
                 <img
                   src={`${baseUrl}/artikel2.png`}
                   alt={item.title}
-                  className="w-full h-48 object-cover rounded-lg mb-4"
+                  className="w-full h-48 object-contain rounded-lg mb-4 transition-transform duration-300 hover:scale-105 hover:shadow-lg cursor-pointer"
                 />
                 <h3 className="font-semibold text-sm text-gray-800 mb-1 leading-tight">
                   {item.title}
