@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/SheHealthNew/static/css/main.8fc3f0b4.css",
+    "main.js": "/SheHealthNew/static/js/main.46918e31.js",
+    "index.html": "/SheHealthNew/index.html",
+    "main.8fc3f0b4.css.map": "/SheHealthNew/static/css/main.8fc3f0b4.css.map",
+    "main.46918e31.js.map": "/SheHealthNew/static/js/main.46918e31.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8fc3f0b4.css",
+    "static/js/main.46918e31.js"
+  ]
+}
