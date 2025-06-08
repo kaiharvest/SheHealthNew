@@ -17,13 +17,21 @@ const BuatJanji = () => {
       jam: selectedTime,
     };
 
+    if (!selectedTime) {
+      alert("Silakan pilih jam konsultasi!");
+      return;
+    }
+
+    // Simpan data janji ke localStorage
     const riwayat = JSON.parse(localStorage.getItem("riwayatJanji")) || [];
     riwayat.push(data);
     localStorage.setItem("riwayatJanji", JSON.stringify(riwayat));
 
+    // Tampilkan pesan sukses selama 3 detik
     setShowSuccess(true);
     setTimeout(() => setShowSuccess(false), 3000);
 
+    // Reset form dan pilihan waktu
     e.target.reset();
     setSelectedTime(null);
   };
@@ -33,7 +41,7 @@ const BuatJanji = () => {
       {/* Navbar */}
       <nav className="bg-white shadow-md py-4 px-6 flex items-center">
         <img
-          src={process.env.PUBLIC_URL + "/icon/logo.png"}
+          src={`${process.env.PUBLIC_URL}/icon/logo.png`}
           alt="Logo Klinik"
           className="w-10 h-10 mr-3"
         />
@@ -52,7 +60,7 @@ const BuatJanji = () => {
         {/* Header */}
         <div className="text-center mb-6">
           <img
-            src={process.env.PUBLIC_URL + "/icon/logo.png"}
+            src={`${process.env.PUBLIC_URL}/icon/logo.png`}
             alt="Logo Klinik"
             className="mx-auto w-24 h-24 mb-4"
           />
@@ -67,7 +75,7 @@ const BuatJanji = () => {
         {/* Card Dokter */}
         <div className="w-full max-w-4xl bg-white rounded-t-xl shadow-md mb-6 px-6 py-4 flex items-center space-x-4">
           <img
-            src={process.env.PUBLIC_URL + "/icon/dokter1.png"}
+            src={`${process.env.PUBLIC_URL}/icon/dokter1.png`}
             alt="Dokter Andini"
             className="w-24 h-24 rounded-full object-cover"
           />
@@ -83,7 +91,7 @@ const BuatJanji = () => {
           onSubmit={handleSubmit}
           className="w-full max-w-4xl bg-white rounded-b-xl px-4 sm:px-6 space-y-8 pb-8"
         >
-          {/* ... (form fields tetap sama seperti sebelumnya) */}
+          {/* Data Pribadi */}
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <h4 className="text-lg sm:text-xl font-bold text-black mb-2">
@@ -140,6 +148,7 @@ const BuatJanji = () => {
             </div>
           </div>
 
+          {/* Jadwal Konsultasi dan Informasi Kesehatan */}
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <h4 className="text-lg sm:text-xl font-bold text-black mb-2">
@@ -196,6 +205,7 @@ const BuatJanji = () => {
             </div>
           </div>
 
+          {/* Tombol Submit */}
           <div className="text-center">
             <button
               type="submit"
