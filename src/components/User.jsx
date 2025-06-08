@@ -38,11 +38,13 @@ const User = () => {
   return (
     <div className="min-h-screen bg-gray-50 p-4 md:p-8">
       {/* Header dengan judul dan tombol logout */}
-      <header className="flex justify-between items-center bg-pink-100 rounded-xl p-4 shadow mb-8">
-        <h1 className="text-2xl font-semibold text-gray-800">Profil {nama}</h1>
+      <header className="flex justify-between items-center bg-pink-100 rounded-xl p-4 shadow mb-8 relative">
+        <h1 className="text-2xl font-semibold text-gray-800 w-full text-center">
+          Profil 
+        </h1>
         <button
           onClick={handleLogout}
-          className="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-full text-sm font-semibold transition"
+          className="bg-[#E36CC5] hover:bg-pink-600 text-white px-4 py-2 rounded-full text-sm font-semibold transition absolute top-1/2 -translate-y-1/2 right-8"
           aria-label="Logout"
         >
           Logout
@@ -139,7 +141,7 @@ const User = () => {
         <div className="sm:col-span-2 flex justify-end mt-2">
           <button
             type="submit"
-            className="bg-pink-500 text-white px-8 py-3 rounded-full text-sm font-semibold shadow hover:bg-pink-600 transition"
+            className="bg-[#E36CC5] text-white px-8 py-3 rounded-full text-sm font-semibold shadow hover:bg-pink-600 transition"
           >
             Simpan
           </button>
