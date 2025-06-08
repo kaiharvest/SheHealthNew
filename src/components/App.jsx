@@ -9,7 +9,6 @@ import {
 import Navbar from './Navbar';
 import Footer from './Footer';
 
-
 import Beranda from '../Beranda';
 import Login from './Login';
 import Register from './Register';
@@ -42,7 +41,7 @@ const Layout = ({ children }) => {
     '/register',
     '/lupapassword',
     '/verifikasi',
-    '/resetpassword' 
+    '/resetpassword',
   ];
   const isNoLayout = noLayoutRoutes.includes(location.pathname);
 
@@ -64,7 +63,7 @@ const AppRoutes = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/lupapassword" element={<LupaPassword />} />
         <Route path="/verifikasi" element={<Verifikasi />} />
-        <Route path="/resetpassword" element={<ResetPassword />} /> 
+        <Route path="/resetpassword" element={<ResetPassword />} />
         <Route path="/chat" element={<ChatApp />} />
         <Route path="/konsultasi" element={<Konsultasi />} />
         <Route path="/buatjanji" element={<BuatJanji />} />
@@ -81,7 +80,7 @@ const AppRoutes = () => {
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="/SheHealthNew">
       <ScrollToTop />
       <AppRoutes />
     </Router>
