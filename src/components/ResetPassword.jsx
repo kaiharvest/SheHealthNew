@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Eye, EyeOff } from 'lucide-react';
-import { IoArrowBack } from 'react-icons/io5';  // Import ikon back
+import { IoArrowBack } from 'react-icons/io5';
 
 export default function ResetPassword() {
   const [password, setPassword] = useState('');
@@ -26,12 +26,9 @@ export default function ResetPassword() {
 
   return (
     <div className="flex justify-center px-6 mt-4 mb-6">
-      <div
-        className="bg-white rounded-2xl shadow-2xl border border-gray-200 max-w-6xl w-full flex flex-col lg:flex-row p-6 sm:p-10 gap-6 sm:gap-10"
-      > 
+      <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 max-w-6xl w-full flex flex-col lg:flex-row p-6 sm:p-10 gap-6 sm:gap-10">
         {/* Form Kiri */}
         <div className="px-8 md:w-1/2 md:pr-6">
-          {/* Tombol Kembali */}
           <div
             onClick={() => navigate('/login')}
             className="flex items-center text-sm text-gray-600 cursor-pointer hover:text-[#E36CC5] transition mb-4 w-fit"
@@ -40,7 +37,6 @@ export default function ResetPassword() {
             Sebelumnya
           </div>
 
-          {/* Header Logo */}
           <div className="flex items-center justify-center text-[#E36CC5] font-bold text-lg mb-10">
             <img src="/LogoNew.png" alt="Logo" className="w-8 h-9 mr-2" />
             <span>SheHealth</span>
@@ -54,9 +50,9 @@ export default function ResetPassword() {
           <form onSubmit={handleSubmit} className="space-y-4">
             {/* Input Password */}
             <div className="relative">
-              <p className='mb-1'>Masukkan Password Baru</p>
+              <p className="mb-1">Masukkan Password Baru</p>
               <input
-                type={isVisible ? "text" : "password"}
+                type={isVisible ? 'text' : 'password'}
                 placeholder="Masukkan password baru"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
@@ -65,17 +61,17 @@ export default function ResetPassword() {
               <button
                 type="button"
                 onClick={() => setIsVisible(!isVisible)}
-                className="absolute right-4 top-3 text-gray-500"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500"
               >
-                {isVisible ? <EyeOff size={18} /> : <Eye size={18} />}
+                {isVisible ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
             </div>
 
             {/* Input Konfirmasi Password */}
             <div className="relative">
-              <p className='mb-1'>Masukkan Ulang Password Baru</p>
+              <p className="mb-1">Masukkan Ulang Password Baru</p>
               <input
-                type={isConfirmVisible ? "text" : "password"}
+                type={isConfirmVisible ? 'text' : 'password'}
                 placeholder="Masukkan ulang password baru"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
@@ -84,9 +80,9 @@ export default function ResetPassword() {
               <button
                 type="button"
                 onClick={() => setIsConfirmVisible(!isConfirmVisible)}
-                className="absolute right-4 top-3 text-gray-500"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500"
               >
-                {isConfirmVisible ? <EyeOff size={18} /> : <Eye size={18} />}
+                {isVisible ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
             </div>
 

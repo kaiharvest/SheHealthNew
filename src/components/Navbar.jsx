@@ -76,13 +76,17 @@ const Navbar = () => {
             })}
           </ul>
 
-          {!isLoggedIn ? (
+          {/* Jika belum login: tombol Masuk */}
+          {!isLoggedIn && (
             <Link to="/login">
               <button className="mr-2 md:mr-4 lg:mr-6 xl:mr-10 bg-[#E36CC5] text-white font-semibold px-6 py-2 rounded-full hover:bg-pink-500 transition duration-200">
                 Masuk
               </button>
             </Link>
-          ) : (
+          )}
+
+          {/* Jika sudah login: foto profil + tombol Logout */}
+          {isLoggedIn && (
             <div className="flex items-center space-x-4 mr-2 md:mr-4 lg:mr-6 xl:mr-10">
               <Link to={`/user/${nama}`}>
                 <img
@@ -91,7 +95,12 @@ const Navbar = () => {
                   className="w-10 h-10 rounded-full object-cover cursor-pointer"
                 />
               </Link>
-              {/* Logout tidak ditampilkan di view desktop/tablet */}
+              <button
+                onClick={handleLogout}
+                className="bg-pink-600 hover:bg-pink-700 text-white px-3 py-1 rounded-md text-sm"
+              >
+                Logout
+              </button>
             </div>
           )}
         </div>
@@ -150,7 +159,7 @@ const Navbar = () => {
             })}
           </ul>
 
-          {/* Mobile Profile Section + Logout */}
+          {/* Jika sudah login: profil + tombol logout */}
           {isLoggedIn && (
             <div className="mt-6 flex items-center space-x-4">
               <img
@@ -160,10 +169,20 @@ const Navbar = () => {
               />
               <div className="flex flex-col">
                 <span className="font-semibold">{nama}</span>
+                <button
+                  onClick={() => {
+                    handleLogout();
+                    setIsOpen(false);
+                  }}
+                  className="mt-1 text-sm text-pink-600 hover:underline"
+                >
+                  Logout
+                </button>
               </div>
             </div>
           )}
 
+          {/* Jika belum login: tombol masuk */}
           {!isLoggedIn && (
             <div className="mt-4">
               <Link to="/login">
