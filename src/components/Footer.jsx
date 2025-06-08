@@ -1,6 +1,8 @@
 import React from "react";
 
 const Footer = () => {
+  const baseUrl = "https://username.github.io/repo-name/icons";
+
   return (
     <footer
       className="text-white py-10 px-8"
@@ -10,7 +12,7 @@ const Footer = () => {
         {/* Logo & Deskripsi */}
         <div className="md:w-1/4">
           <h2 className="text-2xl font-bold flex items-center gap-3 text-[#E36CC5]">
-            <img src="/icons/logo.svg" alt="Logo" className="w-7 h-7" />
+            <img src={`${baseUrl}/logo.svg`} alt="Logo" className="w-7 h-7" />
             SheHealth
           </h2>
 
@@ -24,7 +26,7 @@ const Footer = () => {
               className="w-10 h-10 rounded-full flex items-center justify-center"
             >
               <img
-                src="/icons/youtube.svg"
+                src={`${baseUrl}/youtube.svg`}
                 alt="Play Icon"
                 className="w-8 h-8"
               />
@@ -34,7 +36,7 @@ const Footer = () => {
               className="w-10 h-10 rounded-full flex items-center justify-center"
             >
               <img
-                src="/icons/instagram.svg"
+                src={`${baseUrl}/instagram.svg`}
                 alt="Play Icon"
                 className="w-8 h-8"
               />
@@ -43,7 +45,7 @@ const Footer = () => {
               onClick={() => window.open("https://x.com", "_blank")}
               className="w-10 h-10 rounded-full flex items-center justify-center"
             >
-              <img src="/icons/x.svg" alt="Play Icon" className="w-8 h-8" />
+              <img src={`${baseUrl}/x.svg`} alt="Play Icon" className="w-8 h-8" />
             </button>
           </div>
         </div>
@@ -74,7 +76,7 @@ const Footer = () => {
           <ul className="space-y-2 text-sm">
             <li className="flex items-center gap-2">
               <img
-                src="/icons/email.svg"
+                src={`${baseUrl}/email.svg`}
                 alt="Email Icon"
                 className="w-4 h-4"
               />
@@ -82,7 +84,7 @@ const Footer = () => {
             </li>
             <li className="flex items-center gap-2">
               <img
-                src="/icons/call.svg"
+                src={`${baseUrl}/call.svg`}
                 alt="Phone Icon"
                 className="w-4 h-4"
               />
