@@ -6,8 +6,8 @@ export default function PaymentPage() {
     const navigate = useNavigate();
     const [selectedMethod, setSelectedMethod] = useState("");
 
-    const subtotal = 90000;
-    const discount = 18000;
+    const subtotal = 110000;
+    const discount = 20000;
     const total = subtotal - discount;
 
     const ewallets = ["Gopay", "ShopeePay", "Ovo", "Dana"];
