@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Eye, EyeOff } from 'lucide-react';
+import { IoArrowBack } from 'react-icons/io5';  // Import ikon back
 
 export default function ResetPassword() {
   const [password, setPassword] = useState('');
@@ -6,27 +9,52 @@ export default function ResetPassword() {
   const [isVisible, setIsVisible] = useState(false);
   const [isConfirmVisible, setIsConfirmVisible] = useState(false);
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
+
+    if (password.length < 6) {
+      alert("Password harus minimal 6 karakter.");
+    } else if (password !== confirmPassword) {
       alert("Password tidak cocok!");
     } else {
       alert("Password berhasil diubah!");
+      navigate('/login');
     }
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 px-4">
-      <div className="bg-white shadow-md rounded-lg flex flex-col md:flex-row p-6 md:p-10 max-w-5xl w-full">
-        {/* Left side - Form */}
-        <div className="w-full md:w-1/2">
-          <h2 className="text-2xl font-bold text-gray-800 mb-2">Buat password baru</h2>
+    <div className="flex justify-center px-6 mt-4 mb-6">
+      <div
+        className="bg-white rounded-2xl shadow-2xl border border-gray-200 max-w-6xl w-full flex flex-col lg:flex-row p-6 sm:p-10 gap-6 sm:gap-10"
+      > 
+        {/* Form Kiri */}
+        <div className="px-8 md:w-1/2 md:pr-6">
+          {/* Tombol Kembali */}
+          <div
+            onClick={() => navigate('/login')}
+            className="flex items-center text-sm text-gray-600 cursor-pointer hover:text-[#E36CC5] transition mb-4 w-fit"
+          >
+            <IoArrowBack className="mr-2" />
+            Sebelumnya
+          </div>
+
+          {/* Header Logo */}
+          <div className="flex items-center justify-center text-[#E36CC5] font-bold text-lg mb-10">
+            <img src="/LogoNew.png" alt="Logo" className="w-8 h-9 mr-2" />
+            <span>SheHealth</span>
+          </div>
+
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">Buat Password Baru</h2>
           <p className="text-gray-600 mb-6 text-sm">
-            Kata sandi Anda sebelumnya telah diatur ulang. Tetapkan kata sandi baru untuk akun Anda.
+            Kata sandi Anda sebelumnya telah diatur ulang. Silakan tetapkan kata sandi baru untuk akun Anda.
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
+            {/* Input Password */}
+            <div className="relative">
+              <p className='mb-1'>Masukkan Password Baru</p>
               <input
                 type={isVisible ? "text" : "password"}
                 placeholder="Masukkan password baru"
@@ -37,12 +65,15 @@ export default function ResetPassword() {
               <button
                 type="button"
                 onClick={() => setIsVisible(!isVisible)}
-                className="absolute mt-[-2.5rem] right-4 text-gray-500"
+                className="absolute right-4 top-3 text-gray-500"
               >
-                👁
+                {isVisible ? <EyeOff size={18} /> : <Eye size={18} />}
               </button>
             </div>
-            <div>
+
+            {/* Input Konfirmasi Password */}
+            <div className="relative">
+              <p className='mb-1'>Masukkan Ulang Password Baru</p>
               <input
                 type={isConfirmVisible ? "text" : "password"}
                 placeholder="Masukkan ulang password baru"
@@ -53,26 +84,27 @@ export default function ResetPassword() {
               <button
                 type="button"
                 onClick={() => setIsConfirmVisible(!isConfirmVisible)}
-                className="absolute mt-[-2.5rem] right-4 text-gray-500"
+                className="absolute right-4 top-3 text-gray-500"
               >
-                👁
+                {isConfirmVisible ? <EyeOff size={18} /> : <Eye size={18} />}
               </button>
             </div>
+
             <button
               type="submit"
-              className="w-full bg-[#E36CC5] hover:bg-pink-600 text-white py-3 rounded font-semibold"
+              className="w-full bg-[#E36CC5] hover:bg-pink-600 text-white py-3 rounded-full font-semibold transition duration-200"
             >
               Atur Password
             </button>
           </form>
         </div>
 
-        {/* Right side - Illustration */}
-        <div className="w-full md:w-1/2 mt-8 md:mt-0 flex items-center justify-center">
+        {/* Ilustrasi Kanan */}
+        <div className="w-full md:w-1/2 mt-10 md:mt-0 flex items-center justify-center">
           <img
-            src="/path/to/reset-password-image.png" // Ganti dengan path gambar lokal atau URL
-            alt="Reset Password Illustration"
-            className="max-w-full h-auto"
+            src="/reset.png"
+            alt="Ilustrasi Reset Password"
+            className="w-full h-auto"
           />
         </div>
       </div>

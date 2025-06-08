@@ -12,10 +12,10 @@ const Login = ({ onLoginSuccess }) => {
     e.preventDefault();
 
     const dummyUser = {
-      nama: "Addina Zara",
-      email: "jane@example.com",
-      tanggalLahir: "19 Januari 2006",
-      umur: "19",
+      nama: "Hekel Pintar",
+      email: "hekel@gmail.com",
+      tanggalLahir: "14 Januari 2006",
+      umur: "19", 
       telepon: "08123456789",
       password: "123456",
     };

@@ -16,6 +16,7 @@ import Login from './Login';
 import Register from './Register';
 import LupaPassword from './LupaPassword';
 import Verifikasi from './Verifikasi';
+import ResetPassword from './ResetPassword'; // ✅ Tambahkan ini
 import ChatApp from './Chat';
 import Konsultasi from './Konsultasi';
 import BuatJanji from './BuatJanji';
@@ -39,7 +40,13 @@ const ScrollToTop = () => {
 
 const Layout = ({ children }) => {
   const location = useLocation();
-  const noLayoutRoutes = ['/login', '/register', '/lupapassword', '/verifikasi'];
+  const noLayoutRoutes = [
+    '/login',
+    '/register',
+    '/lupapassword',
+    '/verifikasi',
+    '/resetpassword' // ✅ Tambahkan agar halaman reset tidak tampil navbar/footer
+  ];
   const isNoLayout = noLayoutRoutes.includes(location.pathname);
 
   return (
@@ -63,6 +70,7 @@ const AppRoutes = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/lupapassword" element={<LupaPassword />} />
         <Route path="/verifikasi" element={<Verifikasi />} />
+        <Route path="/resetpassword" element={<ResetPassword />} /> {/* ✅ Tambahkan route baru */}
 
         {/* Fitur */}
         <Route path="/chat" element={<ChatApp />} />

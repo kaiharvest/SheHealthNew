@@ -10,12 +10,12 @@ const LupaPassword = () => {
   };
 
   return (
-    <div className="flex justify-center px-10 pt-20">
-      {/* Card utama */}
-      <div className="bg-white shadow-md rounded-lg flex flex-col md:flex-row w-full max-w-4xl p-4 md:p-10 mt-4 mb-2">
-        
+    <div className="flex justify-center px-6 mt-4 mb-6">
+      <div
+        className="bg-white rounded-2xl shadow-2xl border border-gray-200 max-w-6xl w-full flex flex-col lg:flex-row p-6 sm:p-10 gap-6 sm:gap-10"
+      > 
         {/* Form */}
-        <div className="w-full md:w-1/2 px-2 md:px-4 flex flex-col">
+        <div className="md:w-1/2 px-2 md:px-4 flex flex-col">
           
           {/* Tombol Kembali di kiri atas */}
           <div
@@ -27,7 +27,7 @@ const LupaPassword = () => {
           </div>
 
           {/* Header Logo */}
-          <div className="flex items-center justify-center text-[#E36CC5] font-bold text-lg mb-4">
+          <div className="flex items-center justify-center text-[#E36CC5] font-bold text-lg mt-8 mb-4">
             <img src="/LogoNew.png" alt="Logo" className="w-8 h-9 mr-2" />
             <span>SheHealth</span>
           </div>
@@ -61,9 +61,9 @@ const LupaPassword = () => {
         {/* Ilustrasi */}
         <div className="hidden md:flex w-1/2 items-center justify-center px-4">
           <img
-            src="/lupapass.svg"
+            src="/lupapass.jpg"
             alt="Forgot Password Illustration"
-            className="w-full max-w-xs"
+            className="w-full h-auto"
           />
         </div>
       </div>
