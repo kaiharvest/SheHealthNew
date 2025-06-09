@@ -6,14 +6,12 @@ const DoctorChatApp = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const chatEndRef = useRef(null);
 
-  const avatarImg = "/icons/dokter-chat.svg";
-
   const chatList = [
     {
       id: 1,
       name: "dr. Nindy, Sp.PD",
       specialty: "Poli Kesehatan, Spesialis Penyakit Dalam Anak",
-      avatar: avatarImg,
+      avatar: `${process.env.PUBLIC_URL}/icons/dokter-chat.svg`,
       isActive: true,
       messages: [
         {
@@ -34,7 +32,7 @@ const DoctorChatApp = () => {
       id: 2,
       name: "dr. Rina, Sp.A",
       specialty: "Spesialis Anak",
-      avatar: avatarImg,
+      avatar: `${process.env.PUBLIC_URL}/icons/dokter-chat.svg`,
       isActive: false,
       messages: [
         {
@@ -49,7 +47,7 @@ const DoctorChatApp = () => {
       id: 3,
       name: "dr. Giselle, Sp.JP",
       specialty: "Spesialis Jantung",
-      avatar: avatarImg,
+      avatar: `${process.env.PUBLIC_URL}/icons/dokter-chat.svg`,
       isActive: false,
       messages: [
         {
@@ -101,7 +99,7 @@ const DoctorChatApp = () => {
       {/* Navbar */}
       <nav className="bg-white shadow-md flex items-center px-4 py-3">
         <img
-          src={avatarImg}
+          src={`${process.env.PUBLIC_URL}/icons/dokter-chat.svg`}
           alt="Doctor Chat Logo"
           className="w-10 h-10 mr-3"
         />
@@ -135,7 +133,7 @@ const DoctorChatApp = () => {
             </div>
             <div className="relative">
               <img
-                src="/icons/search.svg"
+                src={`${process.env.PUBLIC_URL}/icons/search.svg`}
                 alt="Search"
                 className="absolute left-3 top-1/2 transform -translate-y-1/2 w-6 text-gray-400"
               />
@@ -249,84 +247,65 @@ const DoctorChatApp = () => {
 
           {/* Messages */}
           <div className="flex-1 overflow-y-auto scrollbar-hide p-3 sm:p-4 space-y-3 sm:space-y-4">
-            {selectedChat === null ? (
-              <div className="h-full flex items-center justify-center text-gray-400 text-lg">
-                Pilih chat dari daftar di sebelah kiri untuk mulai ngobrol
-              </div>
-            ) : messages.length === 0 ? (
-              <div className="h-full flex items-center justify-center text-gray-400 text-lg">
-                Belum ada pesan. Mulai ketik pesan di bawah.
-              </div>
-            ) : (
-              messages.map((msg) => (
+            {selectedChat !== null ? (
+              allChats[selectedChat].messages.map((msg) => (
                 <div
                   key={msg.id}
-                  className={`flex ${
-                    msg.sender === "user" ? "justify-end" : "justify-start"
+                  className={`flex items-start ${
+                    msg.sender === "user" ? "justify-end" : ""
                   }`}
                 >
+                  {msg.sender === "doctor" && (
+                    <img
+                      src={allChats[selectedChat].avatar}
+                      alt="Doctor"
+                      className="w-9 h-9 rounded-full object-cover mr-3"
+                    />
+                  )}
                   <div
-                    className={`flex items-end gap-2 max-w-[85%] sm:max-w-xs lg:max-w-md ${
-                      msg.sender === "user" ? "flex-row-reverse" : ""
+                    className={`max-w-[70%] rounded-lg px-4 py-2 sm:px-5 sm:py-3 text-sm sm:text-base ${
+                      msg.sender === "user"
+                        ? "bg-pink-600 text-white rounded-br-none"
+                        : "bg-gray-200 text-gray-900 rounded-bl-none"
                     }`}
                   >
-                    {msg.sender === "doctor" && (
-                      <img
-                        src={avatarImg}
-                        alt="Doctor"
-                        className="w-6 h-6 sm:w-8 sm:h-8 rounded-full object-cover flex-shrink-0"
-                      />
-                    )}
-                    <div
-                      className={`px-3 sm:px-4 py-2 sm:py-3 rounded-2xl ${
-                        msg.sender === "user"
-                          ? "bg-[#E36CC5] text-white rounded-br-md"
-                          : "bg-white border border-gray-200 rounded-bl-md"
-                      }`}
-                    >
-                      <p className="text-sm">{msg.text}</p>
-                      {msg.time && (
-                        <span
-                          className={`block mt-1 text-xs ${
-                            msg.sender === "user"
-                              ? "text-white/70"
-                              : "text-gray-400"
-                          }`}
-                        >
-                          {msg.time}
-                        </span>
-                      )}
+                    {msg.text}
+                    <div className="text-xs text-gray-400 text-right mt-1">
+                      {msg.time}
                     </div>
                   </div>
                 </div>
               ))
+            ) : (
+              <p className="text-center text-gray-400 mt-10">
+                Tidak ada chat yang dipilih
+              </p>
             )}
             <div ref={chatEndRef} />
           </div>
 
-          {/* Input */}
+          {/* Input area */}
           {selectedChat !== null && (
-            <form
-              className="bg-white p-3 sm:p-4 flex items-center gap-3 border-t border-gray-200"
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSendMessage();
-              }}
-            >
+            <div className="bg-white border-t border-gray-200 px-3 sm:px-4 py-3 flex items-center gap-3">
               <input
                 type="text"
-                placeholder="Ketik pesan..."
-                className="flex-1 border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-500"
+                className="flex-1 border border-gray-300 rounded-lg px-4 py-2 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-pink-500"
+                placeholder="Tulis pesan..."
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    handleSendMessage();
+                  }
+                }}
               />
               <button
-                type="submit"
-                className="bg-[#E36CC5] text-white px-4 py-2 rounded-full hover:bg-pink-600 transition"
+                onClick={handleSendMessage}
+                className="bg-pink-600 text-white rounded-lg px-4 py-2 text-sm sm:text-base hover:bg-pink-700"
               >
                 Kirim
               </button>
-            </form>
+            </div>
           )}
         </div>
       </div>
