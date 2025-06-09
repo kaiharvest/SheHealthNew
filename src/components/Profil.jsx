@@ -9,7 +9,7 @@ const Profil = () => {
       {/* Header */}
       <div className="bg-[#FFEFFB] w-full rounded-2xl p-10 flex flex-col md:flex-row items-center md:items-start gap-6 shadow-sm">
         <img
-          src="/icons/dokter-konsul.svg"
+          src={`${process.env.PUBLIC_URL}/icons/dokter-konsul.svg`}
           alt="dr. Rose"
           className="w-28 h-28 rounded-full object-cover border-4 border-white shadow-md"
         />
@@ -37,7 +37,11 @@ const Profil = () => {
         {/* Tentang */}
         <div className="mb-8">
           <h2 className="text-lg font-semibold text-[#E36CC5] mb-2 flex items-center gap-3">
-            <img src="/icons/tentang.svg" alt="Tentang" className="w-5 h-5" />
+            <img
+              src={`${process.env.PUBLIC_URL}/icons/tentang.svg`}
+              alt="Tentang"
+              className="w-5 h-5"
+            />
             Tentang
           </h2>
           <p className="text-sm text-black">
@@ -51,43 +55,46 @@ const Profil = () => {
         </div>
 
         {/* Pendidikan */}
-<div className="mb-6">
-  <h2 className="text-lg font-bold text-[#E36CC5] mb-4 flex items-center gap-3">
-    <img src="/icons/pendidikan.svg" alt="Pendidikan" className="w-6 h-6" />
-    Pendidikan
-  </h2>
+        <div className="mb-6">
+          <h2 className="text-lg font-bold text-[#E36CC5] mb-4 flex items-center gap-3">
+            <img
+              src={`${process.env.PUBLIC_URL}/icons/pendidikan.svg`}
+              alt="Pendidikan"
+              className="w-6 h-6"
+            />
+            Pendidikan
+          </h2>
 
-  <div className="space-y-4">
-    <div>
-      <p className="text-base text-black font-medium">
-        Universitas Muhammadiyah Semarang
-      </p>
-      <p className="text-sm text-gray-500">
-        Spesialis Kandungan & Kebidanan
-      </p>
-    </div>
+          <div className="space-y-4">
+            <div>
+              <p className="text-base text-black font-medium">
+                Universitas Muhammadiyah Semarang
+              </p>
+              <p className="text-sm text-gray-500">
+                Spesialis Kandungan & Kebidanan
+              </p>
+            </div>
 
-    <div>
-      <p className="text-base text-black font-medium">
-        Universitas Muhammadiyah Semarang
-      </p>
-      <p className="text-sm text-gray-500">
-        Dokter Umum
-      </p>
-    </div>
-  </div>
-</div>
-
+            <div>
+              <p className="text-base text-black font-medium">
+                Universitas Muhammadiyah Semarang
+              </p>
+              <p className="text-sm text-gray-500">Dokter Umum</p>
+            </div>
+          </div>
+        </div>
 
         {/* Lokasi Praktik */}
         <div className="mb-6">
           <h2 className="text-lg font-semibold text-[#E36CC5] mb-2 flex items-center gap-3">
-            <img src="/icons/lokasi.svg" alt="Tentang" className="w-5 h-5" />
+            <img
+              src={`${process.env.PUBLIC_URL}/icons/lokasi.svg`}
+              alt="Tentang"
+              className="w-5 h-5"
+            />
             Lokasi
           </h2>
-          <h3 className="font-bold text-black">
-            RS Medika Jaya
-          </h3>
+          <h3 className="font-bold text-black">RS Medika Jaya</h3>
           <p className="text-sm text-black">
             Jl. Pemuda No.90, Wiradesa, Pekalongan
             <br />
@@ -108,10 +115,14 @@ const Profil = () => {
         {/* Ulasan Pasien */}
         <div>
           <div className="flex justify-between items-center mb-2">
-          <h2 className="text-lg font-semibold text-[#E36CC5] mb-2 flex items-center gap-3">
-            <img src="/icons/ulasan.svg" alt="Tentang" className="w-5 h-5" />
-            Ulasan Pasien
-          </h2>
+            <h2 className="text-lg font-semibold text-[#E36CC5] mb-2 flex items-center gap-3">
+              <img
+                src={`${process.env.PUBLIC_URL}/icons/ulasan.svg`}
+                alt="Tentang"
+                className="w-5 h-5"
+              />
+              Ulasan Pasien
+            </h2>
             <a href="#" className="text-sm text-gray-400 hover:text-pink-500">
               Lihat semua ulasan
             </a>
@@ -124,7 +135,7 @@ const Profil = () => {
             >
               <div className="flex items-center gap-3 mb-2">
                 <img
-                  src="/icons/profil-ulasan.svg"
+                  src={`${process.env.PUBLIC_URL}/icons/profil-ulasan.svg`}
                   alt="User"
                   className="w-10 h-10 rounded-full object-cover"
                 />
