@@ -11,18 +11,6 @@ const Edukasi = () => {
 
   return (
     <div className="bg-[#f9f9f9] min-h-screen px-6 md:px-14 overflow-x-hidden">
-      {/* Navbar */}
-      <nav className="bg-white shadow-md px-6 md:px-14 py-4 sticky top-0 z-50">
-        <div className="max-w-screen-xl mx-auto flex justify-between items-center">
-          <div className="text-[#E36CC5] font-bold text-lg">Sehatku</div>
-          <ul className="flex gap-6 text-sm sm:text-base text-gray-700 font-medium">
-            <li className="hover:text-[#E36CC5] cursor-pointer transition">Beranda</li>
-            <li className="hover:text-[#E36CC5] cursor-pointer transition">Edukasi</li>
-            <li className="hover:text-[#E36CC5] cursor-pointer transition">Kontak</li>
-          </ul>
-        </div>
-      </nav>
-
       <div className="max-w-screen-xl mx-auto">
         {/* Header */}
         <div className="w-screen bg-pink-50 py-12 mb-10 relative left-1/2 right-1/2 -translate-x-1/2">
