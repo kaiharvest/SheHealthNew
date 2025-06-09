@@ -1,103 +1,180 @@
 import React, { useState } from "react";
 
-const AppointmentForm = () => {
+const BuatJanji = () => {
+  const [showSuccess, setShowSuccess] = useState(false);
   const [selectedTime, setSelectedTime] = useState(null);
-
-  const waktu = ["09:00", "10:00", "13:00", "15:00", "16:00"];
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert("Formulir berhasil dikirim!");
+    const formData = new FormData(e.target);
+    const data = {
+      nama: formData.get("nama"),
+      telepon: formData.get("telepon"),
+      email: formData.get("email"),
+      usia: formData.get("usia"),
+      tanggal: formData.get("tanggal"),
+      keluhan: formData.get("keluhan"),
+      jam: selectedTime,
+    };
+
+    const riwayat = JSON.parse(localStorage.getItem("riwayatJanji")) || [];
+    riwayat.push(data);
+    localStorage.setItem("riwayatJanji", JSON.stringify(riwayat));
+
+    setShowSuccess(true);
+    setTimeout(() => setShowSuccess(false), 3000);
+
+    e.target.reset();
+    setSelectedTime(null);
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gray-50 px-4 py-8">
-      {/* Header Pink */}
-      <div className="bg-pink-400 w-full max-w-4xl rounded-t-xl text-white py-6 px-4 sm:px-8 text-center shadow-md">
-        <h1 className="text-xl sm:text-2xl font-bold">Buat Janji Konsultasi</h1>
-        <p className="text-sm sm:text-base mt-1">
-          Lengkapi formulir di bawah untuk membuat janji konsultasi
-        </p>
-      </div>
+    <div className="min-h-screen flex flex-col items-center py-6 px-4 bg-gray-50 relative">
+      {/* Tombol Back Ikon */}
+      <button
+        onClick={() => window.history.back()}
+        className="absolute top-4 left-4 text-pink-600 hover:text-pink-800"
+        aria-label="Kembali"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
 
-      {/* Kartu Dokter */}
-      <div className="bg-white w-full max-w-4xl rounded-xl shadow p-4 mt-4 mb-6 flex items-center gap-4 border border-gray-200">
-        <img
-          src={`${process.env.PUBLIC_URL}/dokter-konsul.svg`} // ganti dengan path gambar dokter kamu
-          alt="Dr. Rose"
-          className="w-16 h-16 rounded-full object-cover"
-        />
-        <div>
-          <h3 className="font-bold text-lg text-black">dr. Rose, Sp.KK</h3>
-          <p className="text-sm text-gray-500">Spesialis Kulit</p>
-          <div className="flex items-center text-yellow-500 text-sm mt-1">
-            {"★".repeat(5)} <span className="ml-1 text-gray-600 text-sm">4.9</span>
-          </div>
+      {/* Pop-up Sukses */}
+      {showSuccess && (
+        <div className="fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded shadow">
+          Janji berhasil dibuat!
         </div>
+      )}
+
+      {/* Header */}
+      <div className="text-center mb-6 mt-6">
+        <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">
+          Buat Janji Konsultasi
+        </h1>
+        <p className="text-sm text-gray-600 mt-2">
+          Silakan isi formulir berikut untuk membuat janji.
+        </p>
       </div>
 
       {/* Form */}
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-4xl bg-white rounded-b-xl px-6 sm:px-10 pt-8 pb-10 shadow-md space-y-8"
+        className="w-full max-w-4xl bg-white rounded-b-xl px-4 sm:px-6 space-y-8 pb-8"
       >
-        {/* Input Nama */}
-        <div>
-          <label className="block text-gray-700 font-medium mb-2">
-            Nama Lengkap
-          </label>
-          <input
-            type="text"
-            placeholder="Masukkan nama"
-            className="w-full border border-gray-300 px-4 py-2 rounded-lg focus:outline-pink-400"
-            required
-          />
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* Data Pribadi */}
+          <div>
+            <h4 className="text-lg sm:text-xl font-bold text-black mb-2">
+              Data Pribadi
+            </h4>
+            <div className="space-y-4">
+              <p>
+                Nama*
+                <input
+                  name="nama"
+                  type="text"
+                  placeholder="Nama"
+                  className="w-full border border-black rounded px-4 py-2 mt-1 text-sm"
+                  required
+                />
+              </p>
+              <p>
+                No Telepon*
+                <input
+                  name="telepon"
+                  type="tel"
+                  placeholder="No Telepon"
+                  className="w-full border border-black rounded px-4 py-2 mt-1 text-sm"
+                  required
+                />
+              </p>
+            </div>
+          </div>
+
+          {/* Email dan Usia */}
+          <div>
+            <h4 className="invisible">.</h4>
+            <div className="space-y-4 mt-3">
+              <p>
+                Email*
+                <input
+                  name="email"
+                  type="email"
+                  placeholder="Email"
+                  className="w-full border border-black rounded px-4 py-2 mt-1 text-sm"
+                  required
+                />
+              </p>
+              <p>
+                Usia*
+                <input
+                  name="usia"
+                  type="number"
+                  placeholder="Usia"
+                  className="w-full border border-black rounded px-4 py-2 mt-1 text-sm"
+                  min="0"
+                />
+              </p>
+            </div>
+          </div>
         </div>
 
-        {/* Input Email */}
-        <div>
-          <label className="block text-gray-700 font-medium mb-2">Email</label>
-          <input
-            type="email"
-            placeholder="Masukkan email"
-            className="w-full border border-gray-300 px-4 py-2 rounded-lg focus:outline-pink-400"
-            required
-          />
-        </div>
+        {/* Jadwal & Keluhan */}
+        <div className="grid md:grid-cols-2 gap-6">
+          <div>
+            <h4 className="text-lg sm:text-xl font-bold text-black mb-2">
+              Jadwal Konsultasi
+            </h4>
+            <p>
+              Tanggal Konsultasi*
+              <input
+                name="tanggal"
+                type="date"
+                className="w-full border border-black rounded px-4 py-2 mb-4 mt-2 text-sm"
+                required
+              />
+            </p>
+            <div className="grid grid-cols-3 gap-2">
+              {["09.00", "10.30", "13.00", "14.00", "16.00", "17.00", "21.00"].map(
+                (jam) => (
+                  <button
+                    key={jam}
+                    type="button"
+                    className={`border border-black rounded-full px-3 py-2 text-xs sm:text-sm ${
+                      selectedTime === jam
+                        ? "bg-pink-300 text-white"
+                        : "hover:bg-pink-100"
+                    }`}
+                    onClick={() => setSelectedTime(jam)}
+                  >
+                    {jam}
+                  </button>
+                )
+              )}
+            </div>
+          </div>
 
-        {/* Input No HP */}
-        <div>
-          <label className="block text-gray-700 font-medium mb-2">
-            No. Telepon
-          </label>
-          <input
-            type="tel"
-            placeholder="Masukkan nomor HP"
-            className="w-full border border-gray-300 px-4 py-2 rounded-lg focus:outline-pink-400"
-            required
-          />
-        </div>
-
-        {/* Pilih Jam */}
-        <div>
-          <label className="block text-gray-700 font-medium mb-3">
-            Pilih Jam Konsultasi
-          </label>
-          <div className="grid grid-cols-3 sm:grid-cols-5 gap-3">
-            {waktu.map((jam, index) => (
-              <button
-                key={index}
-                type="button"
-                className={`px-4 py-2 rounded-full border border-pink-400 ${
-                  selectedTime === jam
-                    ? "bg-pink-300 text-white font-semibold"
-                    : "hover:bg-pink-100"
-                }`}
-                onClick={() => setSelectedTime(jam)}
-              >
-                {jam}
-              </button>
-            ))}
+          <div>
+            <h4 className="text-lg sm:text-xl font-bold text-black mb-2">
+              Informasi Kesehatan
+            </h4>
+            <p>
+              Keluhan*
+              <textarea
+                name="keluhan"
+                placeholder="Keluhan..."
+                className="w-full h-36 border border-black rounded px-4 py-2 mt-2 text-sm"
+                required
+              />
+            </p>
           </div>
         </div>
 
@@ -105,9 +182,9 @@ const AppointmentForm = () => {
         <div className="text-center">
           <button
             type="submit"
-            className="bg-pink-400 text-white font-semibold px-6 py-2 rounded-lg hover:bg-pink-500 transition"
+            className="bg-[#E36CC5] hover:bg-pink-400 text-white font-semibold px-10 sm:px-32 py-3 rounded-full text-sm sm:text-base"
           >
-            Kirim
+            Buat Janji
           </button>
         </div>
       </form>
@@ -115,4 +192,4 @@ const AppointmentForm = () => {
   );
 };
 
-export default AppointmentForm;
+export default BuatJanji;
