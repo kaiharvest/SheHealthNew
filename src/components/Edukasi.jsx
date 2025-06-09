@@ -56,7 +56,7 @@ const Edukasi = () => {
                   className="flex gap-3 bg-white rounded-2xl shadow-md p-3 items-center h-1/3 min-h-[110px] flex-1 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer"
                 >
                   <img
-                    src={articles[idx].image}
+                    src={`${process.env.PUBLIC_URL}/jantung22.png`}
                     alt={articles[idx].title}
                     className="w-20 h-20 object-contain rounded-lg transition-transform duration-300 hover:scale-110 hover:shadow-md cursor-pointer"
                   />
