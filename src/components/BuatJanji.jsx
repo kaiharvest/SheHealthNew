@@ -57,7 +57,7 @@ const BuatJanji = () => {
       {/* Header */}
       <div className="text-center mb-6 mt-6">
         <img
-          src={`${process.env.PUBLIC_URL}/icon/logo.png`}
+          src={`${process.env.PUBLIC_URL}/logo.png`}
           alt="Logo Klinik"
           className="mx-auto w-24 h-24 mb-4"
         />
