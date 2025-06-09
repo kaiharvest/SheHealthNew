@@ -3,27 +3,32 @@ import React, { useState } from 'react';
 const BuatJanji = () => {
   const [formData, setFormData] = useState({
     nama: '',
-    email: '',
-    nomorHP: '',
-    spesialis: '',
     tanggal: '',
     waktu: '',
+    layanan: '',
     catatan: '',
   });
 
   const handleChange = (e) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Janji konsultasi berhasil dibuat!');
+    alert('Janji berhasil dibuat!\n' + JSON.stringify(formData, null, 2));
+    // Reset form
+    setFormData({
+      nama: '',
+      tanggal: '',
+      waktu: '',
+      layanan: '',
+      catatan: '',
+    });
   };
 
   return (
-    <div className="max-w-2xl mx-auto mt-4 mb-10 bg-white shadow-xl rounded-3xl overflow-hidden">
-      {/* Header Pink dengan Tombol Kembali */}
+    <div className="min-h-screen bg-gray-100 flex flex-col">
+      {/* Header */}
       <div className="w-full bg-[#E36CC5] rounded-t-3xl text-white py-6 px-6 flex items-center relative">
         <button
           onClick={() => window.history.back()}
@@ -49,107 +54,87 @@ const BuatJanji = () => {
         </div>
       </div>
 
-      {/* Form */}
-      <form onSubmit={handleSubmit} className="p-6 space-y-4">
-        <div>
-          <label className="block text-gray-700 font-semibold">Nama Lengkap</label>
-          <input
-            type="text"
-            name="nama"
-            value={formData.nama}
-            onChange={handleChange}
-            required
-            className="w-full mt-1 p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-400"
-          />
-        </div>
+      {/* Formulir */}
+      <div className="flex-1 p-6">
+        <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-md space-y-4">
+          <div>
+            <label className="block text-gray-700 font-semibold mb-1">Nama Lengkap</label>
+            <input
+              type="text"
+              name="nama"
+              value={formData.nama}
+              onChange={handleChange}
+              required
+              className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#E36CC5]"
+            />
+          </div>
 
-        <div>
-          <label className="block text-gray-700 font-semibold">Email</label>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            className="w-full mt-1 p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-400"
-          />
-        </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-gray-700 font-semibold mb-1">Tanggal Konsultasi</label>
+              <input
+                type="date"
+                name="tanggal"
+                value={formData.tanggal}
+                onChange={handleChange}
+                required
+                className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#E36CC5]"
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700 font-semibold mb-1">Waktu</label>
+              <input
+                type="time"
+                name="waktu"
+                value={formData.waktu}
+                onChange={handleChange}
+                required
+                className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#E36CC5]"
+              />
+            </div>
+          </div>
 
-        <div>
-          <label className="block text-gray-700 font-semibold">Nomor HP</label>
-          <input
-            type="tel"
-            name="nomorHP"
-            value={formData.nomorHP}
-            onChange={handleChange}
-            required
-            className="w-full mt-1 p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-400"
-          />
-        </div>
+          <div>
+            <label className="block text-gray-700 font-semibold mb-1">Pilih Layanan</label>
+            <select
+              name="layanan"
+              value={formData.layanan}
+              onChange={handleChange}
+              required
+              className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#E36CC5]"
+            >
+              <option value="">-- Pilih Layanan --</option>
+              <option value="Spesialis Kandungan & Kebidanan">Spesialis Kandungan & Kebidanan</option>
+              <option value="Spesialis Saraf">Spesialis Saraf</option>
+              <option value="Dokter Gigi Umum">Dokter Gigi Umum</option>
+              <option value="Spesialis Jantung & Pembuluh Darah">Spesialis Jantung & Pembuluh Darah</option>
+              <option value="Spesialis Mata">Spesialis Mata</option>
+              <option value="Dokter Kulit">Dokter Kulit</option>
+              <option value="Dokter Gizi">Dokter Gizi</option>
+              <option value="Dokter Umum">Dokter Umum</option>
+            </select>
+          </div>
 
-        <div>
-          <label className="block text-gray-700 font-semibold">Pilih Spesialis</label>
-          <select
-            name="spesialis"
-            value={formData.spesialis}
-            onChange={handleChange}
-            required
-            className="w-full mt-1 p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-400"
+          <div>
+            <label className="block text-gray-700 font-semibold mb-1">Catatan Tambahan (Opsional)</label>
+            <textarea
+              name="catatan"
+              value={formData.catatan}
+              onChange={handleChange}
+              rows="4"
+              className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-[#E36CC5]"
+              placeholder="Tulis hal-hal yang perlu diperhatikan dokter..."
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-[#E36CC5] text-white py-2 rounded hover:bg-[#d055ae] transition duration-200"
           >
-            <option value="">-- Pilih Spesialis --</option>
-            <option value="Kandungan">Spesialis Kandungan & Kebidanan</option>
-            <option value="Saraf">Spesialis Saraf</option>
-            <option value="Gigi">Dokter Gigi Umum</option>
-            <option value="Jantung">Spesialis Jantung & Pembuluh Darah</option>
-            <option value="Mata">Spesialis Mata</option>
-            <option value="Kulit">Dokter Kulit</option>
-            <option value="Gizi">Dokter Gizi</option>
-            <option value="Umum">Dokter Umum</option>
-          </select>
-        </div>
-
-        <div>
-          <label className="block text-gray-700 font-semibold">Tanggal Konsultasi</label>
-          <input
-            type="date"
-            name="tanggal"
-            value={formData.tanggal}
-            onChange={handleChange}
-            required
-            className="w-full mt-1 p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-400"
-          />
-        </div>
-
-        <div>
-          <label className="block text-gray-700 font-semibold">Waktu Konsultasi</label>
-          <input
-            type="time"
-            name="waktu"
-            value={formData.waktu}
-            onChange={handleChange}
-            required
-            className="w-full mt-1 p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-400"
-          />
-        </div>
-
-        <div>
-          <label className="block text-gray-700 font-semibold">Catatan (Opsional)</label>
-          <textarea
-            name="catatan"
-            value={formData.catatan}
-            onChange={handleChange}
-            className="w-full mt-1 p-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-pink-400"
-            rows="3"
-          ></textarea>
-        </div>
-
-        <button
-          type="submit"
-          className="w-full bg-[#E36CC5] hover:bg-pink-600 text-white font-bold py-3 rounded-xl transition duration-300"
-        >
-          Buat Janji
-        </button>
-      </form>
+            Buat Janji
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
