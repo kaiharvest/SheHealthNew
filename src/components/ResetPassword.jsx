@@ -38,7 +38,7 @@ export default function ResetPassword() {
           </div>
 
           <div className="flex items-center justify-center text-[#E36CC5] font-bold text-lg mb-10">
-            <img src="/LogoNew.png" alt="Logo" className="w-8 h-9 mr-2" />
+            <img src={`${process.env.PUBLIC_URL}/LogoNew.png`} alt="Logo" className="w-8 h-9 mr-2" />
             <span>SheHealth</span>
           </div>
 
@@ -82,7 +82,7 @@ export default function ResetPassword() {
                 onClick={() => setIsConfirmVisible(!isConfirmVisible)}
                 className="absolute right-4 top-14 -translate-y-1/2 text-gray-500"
               >
-                {isVisible ? <EyeOff size={20} /> : <Eye size={20} />}
+                {isConfirmVisible ? <EyeOff size={20} /> : <Eye size={20} />}
               </button>
             </div>
 
@@ -98,7 +98,7 @@ export default function ResetPassword() {
         {/* Ilustrasi Kanan */}
         <div className="w-full md:w-1/2 mt-10 md:mt-0 flex items-center justify-center">
           <img
-            src="/reset.png"
+            src={`${process.env.PUBLIC_URL}/reset.png`}
             alt="Ilustrasi Reset Password"
             className="w-full h-auto"
           />
