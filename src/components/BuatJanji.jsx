@@ -50,7 +50,7 @@ const BuatJanji = () => {
         {/* Header */}
         <div className="text-center mb-6">
           <img
-            src={`${process.env.PUBLIC_URL}/icon/logo.png`}
+            src={`${process.env.PUBLIC_URL}/logo.png`}
             alt="Logo Klinik"
             className="mx-auto w-24 h-24 mb-4"
           />
@@ -65,7 +65,7 @@ const BuatJanji = () => {
         {/* Card Dokter */}
         <div className="w-full max-w-4xl bg-white rounded-t-xl shadow-md mb-6 px-6 py-4 flex items-center space-x-4">
           <img
-            src={`${process.env.PUBLIC_URL}/icon/dokter1.png`}
+            src={`${process.env.PUBLIC_URL}/dokter1.png`}
             alt="Dokter Andini"
             className="w-24 h-24 rounded-full object-cover"
           />
