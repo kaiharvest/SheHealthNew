@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/SheHealthNew/static/css/main.81578d80.css",
-    "main.js": "/SheHealthNew/static/js/main.cb1718f6.js",
+    "main.js": "/SheHealthNew/static/js/main.0b42820e.js",
     "index.html": "/SheHealthNew/index.html",
     "main.81578d80.css.map": "/SheHealthNew/static/css/main.81578d80.css.map",
-    "main.cb1718f6.js.map": "/SheHealthNew/static/js/main.cb1718f6.js.map"
+    "main.0b42820e.js.map": "/SheHealthNew/static/js/main.0b42820e.js.map"
   },
   "entrypoints": [
     "static/css/main.81578d80.css",
-    "static/js/main.cb1718f6.js"
+    "static/js/main.0b42820e.js"
   ]
 }
