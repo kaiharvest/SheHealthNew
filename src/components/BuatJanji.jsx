@@ -38,16 +38,6 @@ const BuatJanji = () => {
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
-      {/* Navbar */}
-      <nav className="bg-white shadow-md py-4 px-6 flex items-center">
-        <img
-          src={`${process.env.PUBLIC_URL}/icon/logo.png`}
-          alt="Logo Klinik"
-          className="w-10 h-10 mr-3"
-        />
-        <h1 className="text-xl font-bold text-gray-800">Klinik Sehat</h1>
-      </nav>
-
       {/* Konten utama */}
       <main className="flex-grow flex flex-col items-center py-6 px-4">
         {/* Pop-up Sukses */}
