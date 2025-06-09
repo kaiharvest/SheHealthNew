@@ -148,7 +148,6 @@ const BuatJanji = () => {
             </div>
           </div>
 
-          {/* Jadwal Konsultasi dan Informasi Kesehatan */}
           <div className="grid md:grid-cols-2 gap-6">
             <div>
               <h4 className="text-lg sm:text-xl font-bold text-black mb-2">
