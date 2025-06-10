@@ -13,13 +13,13 @@ export default function PaymentPage() {
     const mbankings = ["BRI", "BNI", "BCA"];
 
     const paymentImages = {
-        Gopay: "/icons/gopay.svg",
-        ShopeePay: "/icons/shopepay.svg",
-        Ovo: "/icons/ovo.svg",
-        Dana: "/icons/dana.svg",
-        BRI: "/icons/bri.svg",
-        BNI: "/icons/bni.svg",
-        BCA: "/icons/bca.svg",
+        Gopay: process.env.PUBLIC_URL + "/icons/gopay.svg",
+        ShopeePay: process.env.PUBLIC_URL + "/icons/shopepay.svg",
+        Ovo: process.env.PUBLIC_URL + "/icons/ovo.svg",
+        Dana: process.env.PUBLIC_URL + "/icons/dana.svg",
+        BRI: process.env.PUBLIC_URL + "/icons/bri.svg",
+        BNI: process.env.PUBLIC_URL + "/icons/bni.svg",
+        BCA: process.env.PUBLIC_URL + "/icons/bca.svg",
     };
 
     const renderOption = (name) => (
