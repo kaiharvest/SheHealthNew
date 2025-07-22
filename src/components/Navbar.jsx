@@ -50,7 +50,7 @@ const Navbar = () => {
             alt="Logo"
             className="w-8 h-9"
           />
-          <span className="text-xl font-bold text-[#E36CC5]">SheHealth</span>
+          <span className="text-xl font-bold text-[#E36CC5]">WCare</span>
         </div>
 
         {/* Desktop & Tablet Menu */}
