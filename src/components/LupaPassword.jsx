@@ -32,7 +32,7 @@ const LupaPassword = () => {
               alt="Logo"
               className="w-8 h-9 mr-2 object-contain transition-transform duration-300 hover:scale-110 cursor-pointer"
             />
-            <span>SheHealth</span>
+            <span>WCare</span>
           </div>
 
           {/* Judul */}

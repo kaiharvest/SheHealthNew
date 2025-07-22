@@ -9,7 +9,7 @@ export default function Membership() {
       <section className="px-4 sm:px-8 md:px-12 pt-8 lg:pt-10">
         <div className="text-center mb-10">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight">
-            <span className="text-[#E36CC5]">SheHealth</span>{" "}
+            <span className="text-[#E36CC5]">WCare</span>{" "}
             <span className="text-gray-700">Membership</span>
           </h1>
         </div>

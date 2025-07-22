@@ -30,7 +30,7 @@ export default function PaymentSuccessPopup() {
                 <h2 className="text-lg font-bold text-black">Pembayaran berhasil!</h2>
                 <p className="text-gray-500 mt-2">
                     Terimakasih telah berlangganan! Nikmati konsultasi unlimited selama 1
-                    bulan bersama SheHealth! :)
+                    bulan bersama WCare! :)
                 </p>
                 <button
                     onClick={() => navigate("/")}

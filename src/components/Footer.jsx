@@ -14,7 +14,7 @@ const Footer = () => {
             alt="Logo"
             className="w-7 h-7"
           />
-          <h2 className="text-2xl font-bold text-[#E36CC5]">SheHealth</h2>
+          <h2 className="text-2xl font-bold text-[#E36CC5]">WCare</h2>
         </div>
 
         {/* Deskripsi */}
@@ -104,7 +104,7 @@ const Footer = () => {
       <hr className="my-8 border-zinc-700" />
 
       <p className="text-center text-xs text-zinc-400">
-        © 2025 SheHealth. Semua hak dilindungi.
+        © 2025 WCare. Semua hak dilindungi.
       </p>
     </footer>
   );

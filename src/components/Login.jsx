@@ -60,7 +60,7 @@ const Login = ({ onLoginSuccess }) => {
               alt="Logo SheHealth"
               className="w-8 h-9"
             />
-            <span>SheHealth</span>
+            <span>WCare</span>
           </div>
 
           <h2 className="text-2xl font-semibold text-gray-700 mt-4 mb-6 text-center">
